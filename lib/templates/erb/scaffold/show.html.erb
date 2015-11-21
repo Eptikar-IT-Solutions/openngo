@@ -1,0 +1,27 @@
+<%%- title "#{@<%= singular_table_name %>.<%= attributes.reject {|atrr| atrr.column_name == "password_digest"}.first.name %>}" %>
+<div class="col-lg-12 show">
+	<div class="page-header">
+		<h1><%%= @<%= singular_table_name %>.<%= attributes.reject {|atrr| atrr.column_name == "password_digest"}.first.name %> %></h1>
+	</div>
+	<%- attributes.reject {|atrr| atrr.column_name == "password_digest"}.each do |attribute| %>
+	<div class="row">
+		<div class="col-sm-2"><strong><%%= t("views.<%= plural_table_name %>.<%= attribute.name.squish.downcase.tr(" ","_") %>") %></strong></div>
+		<%- if attribute.name.ends_with?('_id') %>
+		<div class="col-sm-10"><%%= link_to @<%= singular_table_name %>.<%= attribute.name.chomp('_id') %>.name, @<%= singular_table_name %>.<%= attribute.name.chomp('_id') %> if @<%= singular_table_name %>.<%= attribute.name %> %></div>
+		</div>
+		<%- next %>
+		<%- end %>
+		<%- if attribute.field_type == :check_box %>
+		<div class="col-sm-10"><%%= @<%= singular_table_name %>.<%= attribute.name %> ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></div>
+		</div>
+		<%- next %>
+		<%- end %>
+		<div class="col-sm-10"><%%= @<%= singular_table_name %>.try(:<%= attribute.name %>) || 'N/A' %></div>
+	</div>
+	<%- end %>
+
+	<div class="buttons">
+		<%%= link_to t('views.epp.links.edit'), edit_<%= singular_table_name %>_path(@<%= singular_table_name %>), :class => 'btn btn-warning' %>
+		<%%= link_to t('views.epp.links.back'), <%= index_helper %>_path, :class => 'btn btn-default' %>
+	</div>
+</div>

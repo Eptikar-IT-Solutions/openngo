@@ -1,0 +1,51 @@
+en:
+  views:
+    epp:
+      "Listing of all %{model}": "Listing of all %{model}"
+      links:
+        "new %{model}": "New %{model}"
+        "back": "Back"
+        "save": "Save"
+        "show": "Show"
+        "edit": "Edit"
+        "destroy": "Destroy"
+    application_layout:
+      "users": "Users"
+      "login": "Login"
+      "logout": "Logout"
+      "Eptikar IT Solutions Inc": "Eptikar IT Solutions Inc."
+    sessions:
+      "new":
+      "name": "User Name"
+      "password": "Password"
+      "login": "Login"
+    users:
+      "users": "Users"
+      "user": "user"
+      "name": "Name"
+      "full_name": "Full Name"
+      "password": "Password"
+      "mobile": "Mobile"
+      "email": "Email"
+      "active": "Active"
+  controllers:
+    application_controller:
+      "You need access right to view this section !": "You need access right to view this section !"
+    sessions:
+      "Logged in Successfully": "Logged in Successfully"
+      "Failed to log in!": "Failed to log in!"
+      "Logged out Successfully": "Logged out Successfully"
+  activerecord:
+    models:
+      "user": "User"
+    attributes:
+      user:
+        "name": "Name"
+        "full_name": "Full Name"
+        "password": "Password"
+        "password_confirmation": "Password Confirmation"
+        "mobile": "Mobile"
+        "email": "Email"
+        "active": "Active"
+
+

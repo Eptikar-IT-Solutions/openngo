@@ -1,0 +1,50 @@
+ar:
+  views:
+    epp:
+      "Listing of all %{model}": "عرض جميع %{model}"
+      links:
+        "new %{model}": "%{model} جديد"
+        "back": "رجوع"
+        "save": "حفظ"
+        "show": "عرض"
+        "edit": "تعديل"
+        "destroy": "حذف"
+    application_layout:
+      "users": "المستخدمون"
+      "login": "تسجيل الدخول"
+      "logout": "تسجيل الخروج"
+      "Eptikar IT Solutions Inc": "إبتكار لحلول تقنية المعلومات"
+    sessions:
+      "new":
+      "name": "إسم المستخدم"
+      "password": "كلمة المرور"
+      "login": "تسجيل الدخول"
+    users:
+      "user": "مستخدم"
+      "users": "المستخدمين"
+      "name": "إسم المستخدم"
+      "full_name": "الإسم"
+      "password": "كلمة المرور"
+      "mobile": "الجوال"
+      "email": "البريد الإلكتروني"
+      "active": "مفعل"
+  controllers:
+    application_controller:
+      "You need access right to view this section !": "ليست لديك الصلاحية اللازمة للإطلاع علي هذا الجزء من النظام !"
+    sessions:
+      "Logged in Successfully": "تم تسجيل الدخول بنجاح"
+      "Failed to log in!": "لم ينجح تسجيل الدخول !"
+      "Logged out Successfully": "تم تسجيل الخروج بنجاح"
+
+  activerecord:
+    models:
+      "user": "المستخدم"
+    attributes:
+      user:
+        "name": "إسم المستخدم"
+        "full_name": "الإسم"
+        "password": "كلمة المرور"
+        "password_confirmation": "تأكيد كلمة المرور"
+        "mobile": "الجوال"
+        "email": "البريد الإلكتروني"
+        "active": "حالة الحساب"

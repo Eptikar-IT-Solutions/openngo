@@ -1,0 +1,54 @@
+<%%- title t "views.application_layout.<%= plural_table_name.downcase %>" %>
+<div class="col-xs-12">
+
+  <div class="page-header">
+    <h1><%%= t "views.application_layout.<%= plural_table_name.downcase %>" %> <small><%%= t("views.epp.Listing of all %{model}", :model => t("views.<%= plural_table_name.downcase %>.<%= plural_table_name.downcase %>")) %></small></h1>
+  </div>
+
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+    <% attributes.reject {|atrr| atrr.column_name == "password_digest"}.each do |attribute| -%>
+          <th><%%= t("views.<%= plural_table_name %>.<%= attribute.name.squish.downcase.tr(" ","_") %>") %></th>
+    <% end -%>
+          <th class="hidden-print"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <%% @<%= plural_table_name %>.each do |<%= singular_table_name %>| %>
+          <tr>
+    <% attributes.reject {|atrr| atrr.column_name == "password_digest"}.each do |attribute| -%>
+          <%- if attribute.name.ends_with?('_id') %>
+            <td><%%= link_to <%= singular_table_name %>.<%= attribute.name.chomp('_id') %>.name, <%= singular_table_name %>.<%= attribute.name.chomp('_id') %> if <%= singular_table_name %>.<%= attribute.name %> %></td>
+          <%- next %>
+          <%- end %>
+          <%- if attribute.field_type == :check_box %>
+            <td><%%= <%= singular_table_name %>.<%= attribute.name %> ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></td>
+          <%- next %>
+          <%- end %>
+            <td><%%= <%= singular_table_name %>.<%= attribute.name %> %></td>
+    <% end -%>
+            <td class="hidden-print actions">
+              <div class="btn-group">
+                <%%= link_to t('views.epp.links.show'), <%= singular_table_name %> , :class => 'btn btn-xs btn-default' %>
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%%= link_to t('views.epp.links.edit'), edit_<%= singular_table_name %>_path(<%= singular_table_name %>) %></li>
+                  <li><%%= link_to t('views.epp.links.destroy'), <%= singular_table_name %>, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <%% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%%= link_to t('views.epp.links.new %{model}', :model => t("views.<%= plural_table_name.downcase %>.<%= singular_table_name %>")), new_<%= singular_table_name %>_path, :class => 'btn btn-primary btn-lg hidden-print' %>
+</div>

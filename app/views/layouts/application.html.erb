@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title><%= content_for?(:title) ? "Openngo - #{yield(:title)}" : "Openngo" %></title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+<%= javascript_include_tag "prefixfree.min" %>
+<%= csrf_meta_tags %>
+<!--[if lt IE 9]>
+<%= javascript_include_tag "html5shiv" %>
+<%= javascript_include_tag "respond" %>
+<![endif]-->
+</head>
+<body>
+<div id="locker"><div class="loader"><div class="stripe first"></div><div class="stripe second"></div><div class="stripe last"></div></div></div></div>
+<%= render 'layouts/messages' %>
+<div class="container">
+
+<nav class="navbar navbar-default navbar-fixed-bottom navbar-inverse" role="navigation">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="#"><%= image_tag 'epp-invert.svg', :class => 'logo' %></a>
+  </div>
+
+  <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+    <!-- <ul class="nav navbar-nav">
+    
+      <li><a href="#" class="dropdown-toggle" data-toggle="dropdown">Link</b></a></li>
+
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sub Menu <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="/accounts">Sub Menu Link</a></li>
+        </ul>
+      </li>
+
+    </ul> -->
+
+    <ul class="nav navbar-nav navbar-right">
+      <li class="dropdown">
+        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= session[:name] %> <b class="caret"></b></a>
+        <ul class="dropdown-menu">
+          <li><a href="#">Something else here</a></li>
+          <li class="divider"></li>
+          <li><%= link_to t('views.application_layout.logout'), logout_path %></li>
+        </ul>
+      </li>
+    </ul>
+
+  </div>
+</nav>
+
+<div id="pjax-container" class="row">
+  <%= yield %>
+</div>
+
+<div class="col-xs-12">
+  <div class="row">
+    <footer>
+      <a id="designby" class="visible-desktop" href="http://eptikar.com" target="_blank">Eptikar IT Solutions Inc.</a>
+      <p>&copy; <%= t('views.application_layout.Eptikar IT Solutions Inc') %> 2014</p>
+    </footer>
+  </div>
+</div>
+
+</div>
+
+</body>
+</html>

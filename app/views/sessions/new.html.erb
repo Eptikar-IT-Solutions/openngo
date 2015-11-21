@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= "Openngo - #{t("views.sessions.login")}" %></title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "prefixfree.min" %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+    <%= javascript_include_tag "html5shiv" %>
+    <%= javascript_include_tag "respond.min" %>
+    <![endif]-->
+  </head>
+  <body>
+    <%= render 'layouts/messages' %>
+    <div class="login">
+      <%= image_tag "epp.svg", :class => 'img-responsive login-logo' %>
+      <%= form_tag sessions_path, :role => "form" do %>
+
+        <div class="form-group">
+          <%= label_tag t('views.sessions.name') %>
+          <%= text_field_tag :name, params[:name], :class => "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= label_tag t('views.sessions.password') %>
+          <%= password_field_tag :password, nil, :class => "form-control" %>
+        </div>
+
+        <button type="submit" class="btn btn-default"><%= t('views.sessions.login') %> <span class="glyphicon glyphicon-forward"></span></button>
+      <% end %>
+      <div class="version">ERP++ Ver 0.2.1 &copy; <a href="https://eptikar.com/"><%= t('views.application_layout.Eptikar IT Solutions Inc') %></a></div>
+    </div>
+
+
+  </body>
+</html>

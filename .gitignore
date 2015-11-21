@@ -1,0 +1,13 @@
+Gemfile.lock
+/log
+/tmp
+/config/database.yml
+doc/
+*.swp
+*~
+.project
+.idea
+.secret
+.DS_Store
+*.sublime-workspace
+*.sublime-project
