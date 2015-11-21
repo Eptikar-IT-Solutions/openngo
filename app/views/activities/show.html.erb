@@ -1,0 +1,66 @@
+<%- title "#{@activity.name}" %>
+<div class="col-lg-12 show">
+	<div class="page-header">
+		<h1><%= @activity.name %></h1>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activities.name") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @activity.try(:name) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activities.project_id") %></strong></div>
+
+		<div class="col-sm-10"><%= link_to @activity.project.name, @activity.project if @activity.project_id %></div>
+		</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activities.branch_id") %></strong></div>
+
+		<div class="col-sm-10"><%= link_to @activity.branch.name, @activity.branch if @activity.branch_id %></div>
+		</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activities.budget") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @activity.try(:budget) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activities.description") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @activity.try(:description) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activities.from") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @activity.try(:from) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activities.to") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @activity.try(:to) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activities.repeated") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @activity.try(:repeated) || 'N/A' %></div>
+	</div>
+
+
+	<div class="buttons">
+		<%= link_to t('views.epp.links.edit'), edit_activity_path(@activity), :class => 'btn btn-warning' %>
+		<%= link_to t('views.epp.links.back'), activities_path, :class => 'btn btn-default' %>
+	</div>
+</div>

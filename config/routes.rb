@@ -1,4 +1,18 @@
 Rails.application.routes.draw do
+  resources :organizations
+  resources :activity_locations
+  resources :activities
+  resources :project_members
+  resources :project_donors
+  resources :project_partners
+  resources :project_locations
+  resources :projects
+  resources :members
+  resources :roles
+  resources :donors
+  resources :branches
+  resources :locations
+  resources :states
   get "login" => "sessions#new", :as => "login"
   get "logout" => "sessions#destroy", :as => "logout"
   root :to => "users#index"

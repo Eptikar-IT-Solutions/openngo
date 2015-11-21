@@ -1,0 +1,84 @@
+<%- title t "views.application_layout.members" %>
+<div class="col-xs-12">
+
+  <div class="page-header">
+    <h1><%= t "views.application_layout.members" %> <small><%= t("views.epp.Listing of all %{model}", :model => t("views.members.members")) %></small></h1>
+  </div>
+
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+              <th><%= t("views.members.name") %></th>
+              <th><%= t("views.members.gender") %></th>
+              <th><%= t("views.members.joined_at") %></th>
+              <th><%= t("views.members.email") %></th>
+              <th><%= t("views.members.mobile") %></th>
+              <th><%= t("views.members.address") %></th>
+              <th><%= t("views.members.profession") %></th>
+              <th><%= t("views.members.education") %></th>
+              <th><%= t("views.members.organization") %></th>
+              <th><%= t("views.members.bio") %></th>
+              <th><%= t("views.members.active") %></th>
+              <th class="hidden-print"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @members.each do |member| %>
+          <tr>
+    
+
+            <td><%= member.name %></td>
+    
+
+            <td><%= member.gender %></td>
+    
+
+            <td><%= member.joined_at %></td>
+    
+
+            <td><%= member.email %></td>
+    
+
+            <td><%= member.mobile %></td>
+    
+
+            <td><%= member.address %></td>
+    
+
+            <td><%= member.profession %></td>
+    
+
+            <td><%= member.education %></td>
+    
+
+            <td><%= member.organization %></td>
+    
+
+            <td><%= member.bio %></td>
+    
+
+            <td><%= member.active ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></td>
+            <td class="hidden-print actions">
+              <div class="btn-group">
+                <%= link_to t('views.epp.links.show'), member , :class => 'btn btn-xs btn-default' %>
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to t('views.epp.links.edit'), edit_member_path(member) %></li>
+                  <li><%= link_to t('views.epp.links.destroy'), member, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to t('views.epp.links.new %{model}', :model => t("views.members.member")), new_member_path, :class => 'btn btn-primary btn-lg hidden-print' %>
+</div>

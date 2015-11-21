@@ -1,0 +1,64 @@
+<%- title t "views.application_layout.donors" %>
+<div class="col-xs-12">
+
+  <div class="page-header">
+    <h1><%= t "views.application_layout.donors" %> <small><%= t("views.epp.Listing of all %{model}", :model => t("views.donors.donors")) %></small></h1>
+  </div>
+
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+              <th><%= t("views.donors.name") %></th>
+              <th><%= t("views.donors.email") %></th>
+              <th><%= t("views.donors.phone1") %></th>
+              <th><%= t("views.donors.phone2") %></th>
+              <th><%= t("views.donors.fax") %></th>
+              <th><%= t("views.donors.description") %></th>
+              <th class="hidden-print"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @donors.each do |donor| %>
+          <tr>
+    
+
+            <td><%= donor.name %></td>
+    
+
+            <td><%= donor.email %></td>
+    
+
+            <td><%= donor.phone1 %></td>
+    
+
+            <td><%= donor.phone2 %></td>
+    
+
+            <td><%= donor.fax %></td>
+    
+
+            <td><%= donor.description %></td>
+                <td class="hidden-print actions">
+              <div class="btn-group">
+                <%= link_to t('views.epp.links.show'), donor , :class => 'btn btn-xs btn-default' %>
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to t('views.epp.links.edit'), edit_donor_path(donor) %></li>
+                  <li><%= link_to t('views.epp.links.destroy'), donor, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to t('views.epp.links.new %{model}', :model => t("views.donors.donor")), new_donor_path, :class => 'btn btn-primary btn-lg hidden-print' %>
+</div>

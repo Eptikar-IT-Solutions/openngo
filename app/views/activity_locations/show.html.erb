@@ -1,0 +1,24 @@
+<%- title "#{@activity_location.activity_id}" %>
+<div class="col-lg-12 show">
+	<div class="page-header">
+		<h1><%= @activity_location.activity_id %></h1>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activity_locations.activity_id") %></strong></div>
+
+		<div class="col-sm-10"><%= link_to @activity_location.activity.name, @activity_location.activity if @activity_location.activity_id %></div>
+		</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activity_locations.location_id") %></strong></div>
+
+		<div class="col-sm-10"><%= link_to @activity_location.location.name, @activity_location.location if @activity_location.location_id %></div>
+		</div>
+
+
+	<div class="buttons">
+		<%= link_to t('views.epp.links.edit'), edit_activity_location_path(@activity_location), :class => 'btn btn-warning' %>
+		<%= link_to t('views.epp.links.back'), activity_locations_path, :class => 'btn btn-default' %>
+	</div>
+</div>

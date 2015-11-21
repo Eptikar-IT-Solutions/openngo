@@ -1,0 +1,46 @@
+<%- title t "views.application_layout.activity_locations" %>
+<div class="col-xs-12">
+
+  <div class="page-header">
+    <h1><%= t "views.application_layout.activity_locations" %> <small><%= t("views.epp.Listing of all %{model}", :model => t("views.activity_locations.activity_locations")) %></small></h1>
+  </div>
+
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+              <th><%= t("views.activity_locations.activity_id") %></th>
+              <th><%= t("views.activity_locations.location_id") %></th>
+              <th class="hidden-print"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @activity_locations.each do |activity_location| %>
+          <tr>
+    
+            <td><%= link_to activity_location.activity.name, activity_location.activity if activity_location.activity_id %></td>
+
+            <td><%= link_to activity_location.location.name, activity_location.location if activity_location.location_id %></td>
+            <td class="hidden-print actions">
+              <div class="btn-group">
+                <%= link_to t('views.epp.links.show'), activity_location , :class => 'btn btn-xs btn-default' %>
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to t('views.epp.links.edit'), edit_activity_location_path(activity_location) %></li>
+                  <li><%= link_to t('views.epp.links.destroy'), activity_location, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to t('views.epp.links.new %{model}', :model => t("views.activity_locations.activity_location")), new_activity_location_path, :class => 'btn btn-primary btn-lg hidden-print' %>
+</div>

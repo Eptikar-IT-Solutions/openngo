@@ -1,0 +1,54 @@
+<%- title "#{@project.name}" %>
+<div class="col-lg-12 show">
+	<div class="page-header">
+		<h1><%= @project.name %></h1>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.projects.name") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @project.try(:name) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.projects.budget") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @project.try(:budget) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.projects.from") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @project.try(:from) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.projects.to") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @project.try(:to) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.projects.goal") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @project.try(:goal) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.projects.description") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @project.try(:description) || 'N/A' %></div>
+	</div>
+
+
+	<div class="buttons">
+		<%= link_to t('views.epp.links.edit'), edit_project_path(@project), :class => 'btn btn-warning' %>
+		<%= link_to t('views.epp.links.back'), projects_path, :class => 'btn btn-default' %>
+	</div>
+</div>

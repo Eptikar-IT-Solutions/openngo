@@ -1,0 +1,52 @@
+<%- title t "views.application_layout.branches" %>
+<div class="col-xs-12">
+
+  <div class="page-header">
+    <h1><%= t "views.application_layout.branches" %> <small><%= t("views.epp.Listing of all %{model}", :model => t("views.branches.branches")) %></small></h1>
+  </div>
+
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+              <th><%= t("views.branches.name") %></th>
+              <th><%= t("views.branches.description") %></th>
+              <th><%= t("views.branches.state") %></th>
+              <th class="hidden-print"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @branches.each do |branch| %>
+          <tr>
+    
+
+            <td><%= branch.name %></td>
+    
+
+            <td><%= branch.description %></td>
+    
+
+            <td><%= branch.state %></td>
+                <td class="hidden-print actions">
+              <div class="btn-group">
+                <%= link_to t('views.epp.links.show'), branch , :class => 'btn btn-xs btn-default' %>
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to t('views.epp.links.edit'), edit_branch_path(branch) %></li>
+                  <li><%= link_to t('views.epp.links.destroy'), branch, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to t('views.epp.links.new %{model}', :model => t("views.branches.branch")), new_branch_path, :class => 'btn btn-primary btn-lg hidden-print' %>
+</div>

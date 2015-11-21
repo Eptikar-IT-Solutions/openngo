@@ -1,0 +1,54 @@
+<%- title "#{@donor.name}" %>
+<div class="col-lg-12 show">
+	<div class="page-header">
+		<h1><%= @donor.name %></h1>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.donors.name") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @donor.try(:name) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.donors.email") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @donor.try(:email) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.donors.phone1") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @donor.try(:phone1) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.donors.phone2") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @donor.try(:phone2) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.donors.fax") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @donor.try(:fax) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.donors.description") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @donor.try(:description) || 'N/A' %></div>
+	</div>
+
+
+	<div class="buttons">
+		<%= link_to t('views.epp.links.edit'), edit_donor_path(@donor), :class => 'btn btn-warning' %>
+		<%= link_to t('views.epp.links.back'), donors_path, :class => 'btn btn-default' %>
+	</div>
+</div>

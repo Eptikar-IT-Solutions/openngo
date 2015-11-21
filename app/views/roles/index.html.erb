@@ -1,0 +1,47 @@
+<%- title t "views.application_layout.roles" %>
+<div class="col-xs-12">
+
+  <div class="page-header">
+    <h1><%= t "views.application_layout.roles" %> <small><%= t("views.epp.Listing of all %{model}", :model => t("views.roles.roles")) %></small></h1>
+  </div>
+
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+              <th><%= t("views.roles.name") %></th>
+              <th><%= t("views.roles.project_id") %></th>
+              <th class="hidden-print"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @roles.each do |role| %>
+          <tr>
+    
+
+            <td><%= role.name %></td>
+    
+            <td><%= link_to role.project.name, role.project if role.project_id %></td>
+            <td class="hidden-print actions">
+              <div class="btn-group">
+                <%= link_to t('views.epp.links.show'), role , :class => 'btn btn-xs btn-default' %>
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to t('views.epp.links.edit'), edit_role_path(role) %></li>
+                  <li><%= link_to t('views.epp.links.destroy'), role, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to t('views.epp.links.new %{model}', :model => t("views.roles.role")), new_role_path, :class => 'btn btn-primary btn-lg hidden-print' %>
+</div>

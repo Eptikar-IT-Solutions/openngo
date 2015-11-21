@@ -1,0 +1,89 @@
+<%- title "#{@member.name}" %>
+<div class="col-lg-12 show">
+	<div class="page-header">
+		<h1><%= @member.name %></h1>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.name") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:name) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.gender") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:gender) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.joined_at") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:joined_at) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.email") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:email) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.mobile") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:mobile) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.address") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:address) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.profession") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:profession) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.education") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:education) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.organization") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:organization) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.bio") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.try(:bio) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.active") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @member.active ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></div>
+		</div>
+
+
+	<div class="buttons">
+		<%= link_to t('views.epp.links.edit'), edit_member_path(@member), :class => 'btn btn-warning' %>
+		<%= link_to t('views.epp.links.back'), members_path, :class => 'btn btn-default' %>
+	</div>
+</div>
