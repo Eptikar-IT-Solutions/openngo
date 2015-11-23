@@ -12,7 +12,7 @@ class CreateOrganizations < ActiveRecord::Migration
       t.text :description
       t.boolean :active
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

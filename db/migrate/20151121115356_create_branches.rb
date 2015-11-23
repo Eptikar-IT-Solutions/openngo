@@ -3,9 +3,9 @@ class CreateBranches < ActiveRecord::Migration
     create_table :branches do |t|
       t.string :name
       t.text :description
-      t.intger :state
+      t.integer :state_id
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

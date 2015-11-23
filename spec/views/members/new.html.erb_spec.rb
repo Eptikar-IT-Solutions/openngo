@@ -10,7 +10,8 @@ RSpec.describe "members/new", type: :view do
       :address => "MyString",
       :profession => 1,
       :education => 1,
-      :organization => "MyString",
+      :branch_id => 1,
+      :role_id => 1,
       :bio => "MyText",
       :active => false
     ))
@@ -35,7 +36,9 @@ RSpec.describe "members/new", type: :view do
 
       assert_select "input#member_education[name=?]", "member[education]"
 
-      assert_select "input#member_organization[name=?]", "member[organization]"
+      assert_select "input#member_branch_id[name=?]", "member[branch_id]"
+
+      assert_select "input#member_role_id[name=?]", "member[role_id]"
 
       assert_select "textarea#member_bio[name=?]", "member[bio]"
 

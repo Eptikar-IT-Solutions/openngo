@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= "Openngo - #{t("views.sessions.login")}" %></title>
+    <title><%= "OpenNGO - #{t("views.sessions.login")}" %></title>
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "prefixfree.min" %>
@@ -11,26 +11,40 @@
     <%= javascript_include_tag "respond.min" %>
     <![endif]-->
   </head>
-  <body>
-    <%= render 'layouts/messages' %>
-    <div class="login">
-      <%= image_tag "epp.svg", :class => 'img-responsive login-logo' %>
-      <%= form_tag sessions_path, :role => "form" do %>
-
-        <div class="form-group">
-          <%= label_tag t('views.sessions.name') %>
-          <%= text_field_tag :name, params[:name], :class => "form-control" %>
-        </div>
-
-        <div class="form-group">
-          <%= label_tag t('views.sessions.password') %>
-          <%= password_field_tag :password, nil, :class => "form-control" %>
-        </div>
-
-        <button type="submit" class="btn btn-default"><%= t('views.sessions.login') %> <span class="glyphicon glyphicon-forward"></span></button>
-      <% end %>
-      <div class="version">ERP++ Ver 0.2.1 &copy; <a href="https://eptikar.com/"><%= t('views.application_layout.Eptikar IT Solutions Inc') %></a></div>
+  <body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html"><%= image_tag "openngo.svg", :class => 'img-responsive login-logo' %></a>
     </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <%= render 'layouts/messages' %>
+      <p class="login-box-msg">Login</p>
+
+      <%= form_tag sessions_path, :role => "form" do %>
+        <div class="form-group has-feedback">
+          <%= text_field_tag :name, params[:name], class: "form-control", placeholder: t('views.sessions.name') %>
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+         <%= password_field_tag :password, nil, class:"form-control", placeholder: t('views.sessions.password') %>
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-xs-offset-8 col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat"><%= t('views.sessions.login') %></button>
+          </div>
+          <!-- /.col -->
+        </div>
+      <% end %>
+
+      
+
+    </div>
+    <!-- /.login-box-body -->
+  </div>
+  <div class="version"><a href="https://github.com/Eptikar-IT-Solutions/openngo">OpenNGO Ver 0.0.1</a></div>
 
 
   </body>

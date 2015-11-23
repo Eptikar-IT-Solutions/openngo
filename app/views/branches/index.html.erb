@@ -12,7 +12,7 @@
         <tr>
               <th><%= t("views.branches.name") %></th>
               <th><%= t("views.branches.description") %></th>
-              <th><%= t("views.branches.state") %></th>
+              <th><%= t("views.branches.state_id") %></th>
               <th class="hidden-print"></th>
         </tr>
       </thead>
@@ -27,9 +27,8 @@
 
             <td><%= branch.description %></td>
     
-
-            <td><%= branch.state %></td>
-                <td class="hidden-print actions">
+            <td><%= link_to branch.state.name, branch.state if branch.state_id %></td>
+            <td class="hidden-print actions">
               <div class="btn-group">
                 <%= link_to t('views.epp.links.show'), branch , :class => 'btn btn-xs btn-default' %>
                 <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">

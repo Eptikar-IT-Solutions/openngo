@@ -5,7 +5,7 @@ RSpec.describe "branches/new", type: :view do
     assign(:branch, Branch.new(
       :name => "MyString",
       :description => "MyText",
-      :state => ""
+      :state_id => ""
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "branches/new", type: :view do
 
       assert_select "textarea#branch_description[name=?]", "branch[description]"
 
-      assert_select "input#branch_state[name=?]", "branch[state]"
+      assert_select "input#branch_state_id[name=?]", "branch[state_id]"
     end
   end
 end

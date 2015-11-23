@@ -5,7 +5,7 @@ RSpec.describe "project_members/show", type: :view do
     @project_member = assign(:project_member, ProjectMember.create!(
       :project_id => 1,
       :member_id => 2,
-      :member_type => 3
+      :role_id => 3
     ))
   end
 

@@ -1,28 +1,70 @@
-<%%= form_for(@<%= singular_table_name %>, :html => { :class => "form-horizontal" }) do |f| %>
+<%%= form_for @<%= singular_table_name %>, :html => {:class => 'form-horizontal'} do |f| %>
   <%% if @<%= singular_table_name %>.errors.any? %>
-    <div class="alert alert-danger alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><%%= pluralize(@<%= singular_table_name %>.errors.count, "error") %> prohibited this <%= singular_table_name %> from being saved:</h4>
-
-      <ul>
-        <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
-        <li><%%= msg %></li>
-        <%% end %>
-      </ul>
-    </div>
+    <%% @<%= singular_table_name %>.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%%= msg %></div>
+    <%% end %>
   <%% end %>
-
-    <% attributes.each do |attribute| -%>
+  <% attributes.each do |attribute| -%>
+    <%- if attribute.name == 'password_digest' %>
       <div class="form-group">
-        <%%= f.label :<%= attribute.name %>, :class => "col-sm-2 control-label" %>
+        <%%= f.label :password, :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10"><%%= f.password_field :password, :class => 'form-control' %></div>
+      </div>
+      <div class="form-group">
+        <%%= f.label :password_confirmation, :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10"><%%= f.password_field :password_confirmation, :class => 'form-control' %></div>
+      </div>
+      <%- next %>
+    <%- end %>
+    <%- if attribute.name.ends_with?('_id') %>
+      <div class="form-group">
+        <%%= f.label :<%= attribute.name %>, :class => 'col-sm-2 control-label' %>
         <div class="col-sm-10">
-          <%%= f.<%= attribute.field_type %> :<%= attribute.name %>, :class => "form-control" %>
+          <div class="input-group">
+            <%%= f.select :<%= attribute.name %>, <%= attribute.name.chomp('_id').camelize %>.all.collect {|p| [ p.name, p.id ] }, {}, { :class => 'form-control' } %>
+            <span class="input-group-btn">
+            <%%= link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_<%= attribute.name.chomp('_id') %>_path, :class => 'btn btn-default', :target => '_blank' %>
+            <%%= link_to raw('<span class="glyphicon glyphicon-play"></span>'), <%= attribute.name.chomp('_id').pluralize %>_path, :class => 'btn btn-default goto' %>
+            </span>
+          </div>
         </div>
       </div>
-    <% end -%>
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%%= f.submit :class => "btn btn-primary" %>
+      <%- next %>
+    <%- end %>
+    <%- if attribute.field_type == :date_select %>
+      <div class="form-group">
+        <%%= f.label :<%= attribute.name %>, :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <div class="input-group">
+            <%%= f.text_field :<%= attribute.name %>, :class => 'form-control pickdate', :placeholder => 'YYYY-MM-DD' %>
+            <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+          </div>
+        </div>
       </div>
+      <%- next %>
+    <%- end %>
+    <%- if attribute.field_type == :check_box %>
+      <div class="form-group">
+        <%%= f.label :<%= attribute.name %>, :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <div class="checkbox">
+            <label>
+              <%%= f.<%= attribute.field_type %> :<%= attribute.name %>%> <%= attribute.name.capitalize %>
+            </label>
+          </div>
+        </div>
+      </div>
+      <%- next %>
+    <%- end %>
+    <div class="form-group">
+      <%%= f.label :<%= attribute.name %>, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10"><%%= f.<%= attribute.field_type %> :<%= attribute.name %>, :class => 'form-control' %></div>
     </div>
-    <%% end %>
+  <%- end %>
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="attachment_file"></label>
+    <div class="col-sm-10"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-floppy-disk"></span> <%%= t('views.epp.links.save') %></button></div>
+  </div>
+      
+<%% end %>

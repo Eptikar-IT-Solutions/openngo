@@ -9,11 +9,10 @@ class CreateMembers < ActiveRecord::Migration
       t.string :address
       t.integer :profession
       t.integer :education
-      t.string :organization
       t.text :bio
       t.boolean :active
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

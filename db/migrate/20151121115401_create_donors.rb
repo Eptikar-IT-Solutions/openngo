@@ -8,7 +8,7 @@ class CreateDonors < ActiveRecord::Migration
       t.string :fax
       t.text :description
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

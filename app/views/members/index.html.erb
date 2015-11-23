@@ -18,7 +18,8 @@
               <th><%= t("views.members.address") %></th>
               <th><%= t("views.members.profession") %></th>
               <th><%= t("views.members.education") %></th>
-              <th><%= t("views.members.organization") %></th>
+              <th><%= t("views.members.branch_id") %></th>
+              <th><%= t("views.members.role_id") %></th>
               <th><%= t("views.members.bio") %></th>
               <th><%= t("views.members.active") %></th>
               <th class="hidden-print"></th>
@@ -53,9 +54,10 @@
 
             <td><%= member.education %></td>
     
+            <td><%= link_to member.branch.name, member.branch if member.branch_id %></td>
 
-            <td><%= member.organization %></td>
-    
+            <td><%= link_to member.role.name, member.role if member.role_id %></td>
+
 
             <td><%= member.bio %></td>
     

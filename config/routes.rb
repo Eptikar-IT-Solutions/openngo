@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  resources :states
+  resources :states
+  resources :states
+  resources :activity_members
   resources :organizations
   resources :activity_locations
   resources :activities

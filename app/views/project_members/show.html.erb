@@ -17,11 +17,10 @@
 		</div>
 
 	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.project_members.member_type") %></strong></div>
+		<div class="col-sm-2"><strong><%= t("views.project_members.role_id") %></strong></div>
 
-
-		<div class="col-sm-10"><%= @project_member.try(:member_type) || 'N/A' %></div>
-	</div>
+		<div class="col-sm-10"><%= link_to @project_member.role.name, @project_member.role if @project_member.role_id %></div>
+		</div>
 
 
 	<div class="buttons">

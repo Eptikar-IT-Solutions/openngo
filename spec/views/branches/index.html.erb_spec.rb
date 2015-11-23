@@ -6,12 +6,12 @@ RSpec.describe "branches/index", type: :view do
       Branch.create!(
         :name => "Name",
         :description => "MyText",
-        :state => ""
+        :state_id => ""
       ),
       Branch.create!(
         :name => "Name",
         :description => "MyText",
-        :state => ""
+        :state_id => ""
       )
     ])
   end

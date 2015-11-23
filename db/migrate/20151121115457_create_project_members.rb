@@ -3,9 +3,9 @@ class CreateProjectMembers < ActiveRecord::Migration
     create_table :project_members do |t|
       t.integer :project_id
       t.integer :member_id
-      t.integer :member_type
+      t.integer :role_id
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

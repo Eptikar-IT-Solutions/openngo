@@ -5,7 +5,7 @@ RSpec.describe "branches/show", type: :view do
     @branch = assign(:branch, Branch.create!(
       :name => "Name",
       :description => "MyText",
-      :state => ""
+      :state_id => ""
     ))
   end
 

@@ -7,8 +7,9 @@ class CreateProjects < ActiveRecord::Migration
       t.date :to
       t.text :goal
       t.text :description
+      t.integer :branch_id
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

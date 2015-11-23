@@ -5,7 +5,7 @@ RSpec.describe "project_members/new", type: :view do
     assign(:project_member, ProjectMember.new(
       :project_id => 1,
       :member_id => 1,
-      :member_type => 1
+      :role_id => 1
     ))
   end
 
@@ -18,7 +18,7 @@ RSpec.describe "project_members/new", type: :view do
 
       assert_select "input#project_member_member_id[name=?]", "project_member[member_id]"
 
-      assert_select "input#project_member_member_type[name=?]", "project_member[member_type]"
+      assert_select "input#project_member_role_id[name=?]", "project_member[role_id]"
     end
   end
 end

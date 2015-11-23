@@ -10,7 +10,8 @@ RSpec.describe "members/show", type: :view do
       :address => "Address",
       :profession => 2,
       :education => 3,
-      :organization => "Organization",
+      :branch_id => 4,
+      :role_id => 5,
       :bio => "MyText",
       :active => false
     ))
@@ -25,7 +26,8 @@ RSpec.describe "members/show", type: :view do
     expect(rendered).to match(/Address/)
     expect(rendered).to match(/2/)
     expect(rendered).to match(/3/)
-    expect(rendered).to match(/Organization/)
+    expect(rendered).to match(/4/)
+    expect(rendered).to match(/5/)
     expect(rendered).to match(/MyText/)
     expect(rendered).to match(/false/)
   end

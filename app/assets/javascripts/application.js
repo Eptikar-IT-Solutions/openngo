@@ -10,20 +10,20 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+//= require jQuery-2.1.4.min
 //= require bootstrap
-//= require jquery.pjax
 //= require datepicker
 //= require jquery.tablesorter.min
-//= require jquery.tablecloth
+//= require jquery.slimscroll
+//= require admin-lte
+//= require jquery_ujs
 //= require_self
-//= require_tree .
+//= require_tree . 
 
 $( document ).ready(function() {
-	
+
   $('input[type!=hidden]').first().focus();
-  
+
   var tabindex = 1;
     $('input[type!=hidden],select').each(function() {
        if (this.type != "hidden") {
@@ -32,8 +32,7 @@ $( document ).ready(function() {
          tabindex++;
        }
     });
-  
-	$(document).pjax('a', '#pjax-container');
+
 
 	$('.pickdate').datepicker({
 		format: "yyyy-mm-dd",
@@ -61,15 +60,4 @@ $( document ).ready(function() {
 
 	$("table.sort").tablesorter( {sortList: [[0,0]]} );
 
-});
-
-$(window).load(function() {$('#locker').remove();});
-
-$(document).on('pjax:click', function(e) {
-	$('body').append('<div id="locker"><div class="loader"><div class="msg"></div><div class="stripe first"></div><div class="stripe second"></div><div class="stripe last"></div></div></div></div>');
-});
-
-$(document).on('pjax:complete', function(e) {
-	$(document).attr( "title", $("#title").html());
-	$('#locker, #title').remove();
 });

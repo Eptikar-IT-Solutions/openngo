@@ -6,12 +6,12 @@ RSpec.describe "project_members/index", type: :view do
       ProjectMember.create!(
         :project_id => 1,
         :member_id => 2,
-        :member_type => 3
+        :role_id => 3
       ),
       ProjectMember.create!(
         :project_id => 1,
         :member_id => 2,
-        :member_type => 3
+        :role_id => 3
       )
     ])
   end

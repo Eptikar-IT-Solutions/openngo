@@ -10,7 +10,7 @@ class CreateActivities < ActiveRecord::Migration
       t.datetime :to
       t.integer :repeated
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

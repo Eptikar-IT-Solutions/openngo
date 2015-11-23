@@ -1,3 +1,13 @@
+.user-block.msg .username, .user-block.msg .description{
+    margin-left: 0 !important;
+}
+
+.reply {
+  padding: 10px;
+  margin: 0 0 10px 0;
+  background: #ECF0F5;
+}
+
 #process_line{
   overflow: hidden;
   width: 100%;
@@ -114,9 +124,17 @@
 }
 
 .page-header {
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.mini-page-header {
+  margin: 0 0 10px 0;
+  border-bottom: 1px solid #ddd;
+}
+
+.mini-page-header h4{
   margin: 0;
-  border-bottom: 1px solid #eeeeee;
-  border-top: 1px solid #eeeeee;
 }
 
 #designby {
@@ -148,7 +166,7 @@ footer {margin-top: 20px; border-top: 1px solid #eeeeee; padding-top: 20px; }
 
 form h1{ border: 1px solid #eeeeee; }
 
-.buttons { border-top: 1px solid #eeeeee; padding-top: 20px;}
+.buttons { border-top: 1px solid #eeeeee; padding: 20px 0;}
 
 .form-horizontal {margin-top: 20px;}
 
@@ -327,9 +345,24 @@ a.navbar-brand {
   padding: 15px 15px 0 15px;
 }
 
-body {padding-bottom: 51px;}
-
 .logo {
   height: 20px;
   width: auto;
+}
+
+.alert {
+  margin-top: 18px;
+  border-radius: 0;
+  border: none;
+}
+
+.action-menu {
+  float: right;
+  list-style: none;
+}
+
+.reply p {
+    background: #fff;
+    padding: 10px;
+    margin: 0;
 }

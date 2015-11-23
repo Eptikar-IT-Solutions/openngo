@@ -1,32 +1,42 @@
-<%= form_for(@project_location, :html => { :class => "form-horizontal" }) do |f| %>
+<%= form_for @project_location, :html => {:class => 'form-horizontal'} do |f| %>
   <% if @project_location.errors.any? %>
-    <div class="alert alert-danger alert-dismissable">
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <h4><%= pluralize(@project_location.errors.count, "error") %> prohibited this project_location from being saved:</h4>
-
-      <ul>
-        <% @project_location.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-          <div class="form-group">
-        <%= f.label :project_id, :class => "col-sm-2 control-label" %>
-        <div class="col-sm-10">
-          <%= f.number_field :project_id, :class => "form-control" %>
-        </div>
-      </div>
-          <div class="form-group">
-        <%= f.label :location_id, :class => "col-sm-2 control-label" %>
-        <div class="col-sm-10">
-          <%= f.number_field :location_id, :class => "form-control" %>
-        </div>
-      </div>
-        <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <%= f.submit :class => "btn btn-primary" %>
-      </div>
-    </div>
+    <% @project_location.errors.full_messages.each do |msg| %>
+      <div class="alert alert-danger"><%= msg %></div>
     <% end %>
+  <% end %>
+  
+
+      <div class="form-group">
+        <%= f.label :project_id, :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <div class="input-group">
+            <%= f.select :project_id, Project.all.collect {|p| [ p.name, p.id ] }, {}, { :class => 'form-control' } %>
+            <span class="input-group-btn">
+            <%= link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_project_path, :class => 'btn btn-default', :target => '_blank' %>
+            <%= link_to raw('<span class="glyphicon glyphicon-play"></span>'), projects_path, :class => 'btn btn-default goto' %>
+            </span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <%= f.label :location_id, :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <div class="input-group">
+            <%= f.select :location_id, Location.all.collect {|p| [ p.name, p.id ] }, {}, { :class => 'form-control' } %>
+            <span class="input-group-btn">
+            <%= link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_location_path, :class => 'btn btn-default', :target => '_blank' %>
+            <%= link_to raw('<span class="glyphicon glyphicon-play"></span>'), locations_path, :class => 'btn btn-default goto' %>
+            </span>
+          </div>
+        </div>
+      </div>
+
+  
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="attachment_file"></label>
+    <div class="col-sm-10"><button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-floppy-disk"></span> <%= t('views.epp.links.save') %></button></div>
+  </div>
+      
+<% end %>

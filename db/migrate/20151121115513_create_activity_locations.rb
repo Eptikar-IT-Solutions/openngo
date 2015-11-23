@@ -4,7 +4,7 @@ class CreateActivityLocations < ActiveRecord::Migration
       t.integer :activity_id
       t.integer :location_id
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

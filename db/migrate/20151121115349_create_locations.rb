@@ -4,7 +4,7 @@ class CreateLocations < ActiveRecord::Migration
       t.integer :state_id
       t.string :name
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

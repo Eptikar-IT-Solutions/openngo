@@ -3,7 +3,7 @@ class CreateStates < ActiveRecord::Migration
     create_table :states do |t|
       t.string :name
 
-      t.timestamps null: false
+      t.timestamps null: true
     end
   end
 end

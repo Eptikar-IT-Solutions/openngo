@@ -1,5 +1,9 @@
 require 'rails_helper'
 
 RSpec.describe Location, type: :model do
-  pending "add some examples to (or delete) #{__FILE__}"
+  it {should belong_to :state}
+	it {should have_many :project_locations}
+  it { should have_many(:projects).through(:project_locations) }
+	it {should have_many :activity_locations}
+  it { should have_many(:projects).through(:activity_locations) }
 end

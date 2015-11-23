@@ -61,11 +61,16 @@
 	</div>
 
 	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.members.organization") %></strong></div>
+		<div class="col-sm-2"><strong><%= t("views.members.branch_id") %></strong></div>
 
+		<div class="col-sm-10"><%= link_to @member.branch.name, @member.branch if @member.branch_id %></div>
+		</div>
 
-		<div class="col-sm-10"><%= @member.try(:organization) || 'N/A' %></div>
-	</div>
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.members.role_id") %></strong></div>
+
+		<div class="col-sm-10"><%= link_to @member.role.name, @member.role if @member.role_id %></div>
+		</div>
 
 	<div class="row">
 		<div class="col-sm-2"><strong><%= t("views.members.bio") %></strong></div>

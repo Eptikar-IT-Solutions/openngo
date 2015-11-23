@@ -11,7 +11,6 @@
       <thead>
         <tr>
               <th><%= t("views.roles.name") %></th>
-              <th><%= t("views.roles.project_id") %></th>
               <th class="hidden-print"></th>
         </tr>
       </thead>
@@ -22,9 +21,7 @@
     
 
             <td><%= role.name %></td>
-    
-            <td><%= link_to role.project.name, role.project if role.project_id %></td>
-            <td class="hidden-print actions">
+                <td class="hidden-print actions">
               <div class="btn-group">
                 <%= link_to t('views.epp.links.show'), role , :class => 'btn btn-xs btn-default' %>
                 <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
