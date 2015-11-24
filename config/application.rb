@@ -15,7 +15,15 @@ module Openngo
   class Application < Rails::Application
 
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
-    
+    config.i18n.fallbacks = true
+
+    # rails will fallback to en, no matter what is set as config.i18n.default_locale
+    config.i18n.fallbacks = [:en]
+
+    # fallbacks value can also be a hash - a map of fallbacks if you will
+    # missing translations of es and fr languages will fallback to english
+    # missing translations in german will fallback to french ('de' => 'fr')
+    config.i18n.fallbacks = {'ar' => 'en'}
     config.generators do |g|
       g.stylesheets false
       g.javascripts false

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151123104359) do
+ActiveRecord::Schema.define(version: 20151124080610) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -46,6 +46,17 @@ ActiveRecord::Schema.define(version: 20151123104359) do
     t.integer  "created_by",  limit: 4
     t.integer  "updated_by",  limit: 4
   end
+
+  create_table "activity_translations", force: :cascade do |t|
+    t.integer  "activity_id", limit: 4,   null: false
+    t.string   "locale",      limit: 255, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "name",        limit: 255
+  end
+
+  add_index "activity_translations", ["activity_id"], name: "index_activity_translations_on_activity_id", using: :btree
+  add_index "activity_translations", ["locale"], name: "index_activity_translations_on_locale", using: :btree
 
   create_table "branches", force: :cascade do |t|
     t.string   "name",        limit: 255

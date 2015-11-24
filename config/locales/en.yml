@@ -1,33 +1,116 @@
 en:
   views:
-    epp:
-      "Listing of all %{model}": "Listing of all %{model}"
-      links:
-        "new %{model}": "New %{model}"
-        "back": "Back"
-        "save": "Save"
-        "show": "Show"
-        "edit": "Edit"
-        "destroy": "Destroy"
-    application_layout:
-      "users": "Users"
-      "login": "Login"
-      "logout": "Logout"
-      "Eptikar IT Solutions Inc": "Eptikar IT Solutions Inc."
-    sessions:
-      "new":
-      "name": "User Name"
-      "password": "Password"
-      "login": "Login"
-    users:
-      "users": "Users"
-      "user": "user"
+   epp:
+    "Listing of all %{model}": "Listing of all %{model}"
+    links:
+      "new %{model}": "New %{model}"
+      "back": "Back"
+      "save": "Save"
+      "show": "Show"
+      "edit": "Edit"
+      "destroy": "Destroy"
+  application_layout:
+    "users": "Users"
+    "login": "Login"
+    "logout": "Logout"
+    "Eptikar IT Solutions Inc": "Eptikar IT Solutions Inc."
+  sessions:
+    "new":
+    "name": "User Name"
+    "password": "Password"
+    "login": "Login"
+  users:
+    "users": "Users"
+    "user": "user"
+    "name": "Name"
+    "full_name": "Full Name"
+    "password": "Password"
+    "mobile": "Mobile"
+    "email": "Email"
+    "active": "Active"
+  activities:
+    "activities": "Activities"
+    "activitiy": "Activity"
+    "name": "Name"
+    "project": "Project"
+    "branch": "Branch"
+    "budget": "Budget"
+    "description": "Description"
+    "from": "From"
+    "to": "To"
+    "repeated": "Repeated" 
+  members:
+    "members": "Members"
+    "member": "Member"
+    "name": "Name"
+    "gender": "Gender"
+    "joined_at": "Joined at"
+    "email": "Email"
+    "mobile": "Mobile"
+    "address": "Address"
+    "profession": "Profession"
+    "education": "Education"
+    "branch": "Branch"
+    "role": "Role"
+    "bio": "Bio"
+    "active": "Active"
+  branches:
+    "branches": "Branches"
+    "branch": "Branch"
+    "name": "Name"
+    "description": "Description"
+    "state": "State" 
+  donors:
+    "donors": "Doners"   
+    "donor": "Doner"
+    "name": "Name"
+    "email": "Email"
+    "phone1": "Phone1"
+    "phone2": "Phone2"
+    "fax": "Fax"
+    "description": "Description" 
+  projects:
+      "projects": "Projects" 
+      "project": "Project" 
       "name": "Name"
-      "full_name": "Full Name"
-      "password": "Password"
-      "mobile": "Mobile"
-      "email": "Email"
-      "active": "Active"
+      "budget": "Budget"
+      "from": "From"
+      "to": "To"
+      "goal": "Goal"
+      "description": "Description"
+      "branch_id": "Branch"
+  locations:
+    "locations": "locations"
+    "location": "location" 
+    "name": "Name"
+    "state_id": "State" 
+  roles:
+    "roles": "Roles" 
+    "role": "Role"
+    "name": "Name"
+  states:
+    "states": "States"
+    "state": "State"
+    "name": "Name"
+  project_locations:
+    "project_locations": "Project locations"
+    "project_location": "ProPject location"
+    "project_id": "Project"
+    "location_id": "Location"
+  project_members:
+    "project_members": "Project members"
+    "project_member": "Project member"
+    "member_id": "Member" 
+  project_donors:
+    "project_donors": "Project donors"
+    "project_donor": "Project donor"
+    "project_id": "Project"
+    "donor_id": "Donor" 
+  activity_locations:
+    "activity_locations": "Activity locations"
+    "activity_location": "Activity location"
+    "activity_id": "Activity"
+    "location_id": "Location"    
   controllers:
     application_controller:
       "You need access right to view this section !": "You need access right to view this section !"

@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
         I18n.locale = :en
         # Other options for setting locale
         ##
-        #I18n.locale = params[:locale] || :ar
+        I18n.locale = params[:locale] || :ar
         # current_user.locale
         # request.subdomain
         # request.env["HTTP_ACCEPT_LANGUAGE"]

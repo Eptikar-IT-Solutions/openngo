@@ -6,6 +6,7 @@ gem 'uglifier', '>= 2.7.1'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'jbuilder', '~> 2.3.1'
+gem 'globalize', '~> 5.0.0'
 
 group :doc do
   gem 'sdoc', require: false
