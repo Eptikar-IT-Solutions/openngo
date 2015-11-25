@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151124080610) do
+ActiveRecord::Schema.define(version: 20151125090703) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -91,39 +91,47 @@ ActiveRecord::Schema.define(version: 20151124080610) do
   end
 
   create_table "members", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.integer  "gender",     limit: 4
+    t.string   "name",                limit: 255
+    t.integer  "gender",              limit: 4
     t.date     "joined_at"
-    t.string   "email",      limit: 255
-    t.string   "mobile",     limit: 255
-    t.string   "address",    limit: 255
-    t.integer  "profession", limit: 4
-    t.integer  "education",  limit: 4
-    t.text     "bio",        limit: 65535
+    t.string   "email",               limit: 255
+    t.string   "mobile",              limit: 255
+    t.string   "address",             limit: 255
+    t.integer  "profession",          limit: 4
+    t.integer  "education",           limit: 4
+    t.text     "bio",                 limit: 65535
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "branch_id",  limit: 4
-    t.integer  "role_id",    limit: 4
-    t.integer  "created_by", limit: 4
-    t.integer  "updated_by", limit: 4
+    t.integer  "branch_id",           limit: 4
+    t.integer  "role_id",             limit: 4
+    t.integer  "created_by",          limit: 4
+    t.integer  "updated_by",          limit: 4
+    t.string   "avatar_file_name",    limit: 255
+    t.string   "avatar_content_type", limit: 255
+    t.integer  "avatar_file_size",    limit: 4
+    t.datetime "avatar_updated_at"
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.string   "website",     limit: 255
-    t.string   "subdomain",   limit: 255
-    t.string   "email",       limit: 255
-    t.string   "phone1",      limit: 255
-    t.string   "phone2",      limit: 255
-    t.string   "fax",         limit: 255
-    t.string   "address",     limit: 255
-    t.text     "description", limit: 65535
+    t.string   "name",              limit: 255
+    t.string   "website",           limit: 255
+    t.string   "subdomain",         limit: 255
+    t.string   "email",             limit: 255
+    t.string   "phone1",            limit: 255
+    t.string   "phone2",            limit: 255
+    t.string   "fax",               limit: 255
+    t.string   "address",           limit: 255
+    t.text     "description",       limit: 65535
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by",  limit: 4
-    t.integer  "updated_by",  limit: 4
+    t.integer  "created_by",        limit: 4
+    t.integer  "updated_by",        limit: 4
+    t.string   "logo_file_name",    limit: 255
+    t.string   "logo_content_type", limit: 255
+    t.integer  "logo_file_size",    limit: 4
+    t.datetime "logo_updated_at"
   end
 
   create_table "project_donors", force: :cascade do |t|

@@ -31,6 +31,7 @@ ar:
       "project_locations": "مواقع المشاريع"
       "project_donors": "المتبرعين المشاريع"
       "project_members": "أعضاء المشاريع"
+      "organizations": "Organizations"
 
     sessions:
       "name": "إسم المستخدم"
@@ -128,7 +129,20 @@ ar:
       "activity_locations": "مواقع النشاط"
       "activity_location": "موقع النشاط"
       "activity_id": "النشاط"
-      "location_id": "الموقع"            
+      "location_id": "الموقع"   
+    organizations:
+      "organizations": "المنظمات"
+      "organization": "منظمة"
+      "name": "الإسم"
+      "website": "الموقع الإلكتروني"
+      "subdomain": "لدومين الفرعي"
+      "email": "البريد الإلكتروني"
+      "phone1": "الهاتف"
+      "phone2": "الهاتف آخر"
+      "fax": "الفاكس"
+      "description": "الوصف"           
+      "address": "العنوان"
+      "active": "نشط" 
 
   controllers:
     application_controller:
@@ -176,7 +190,7 @@ ar:
         "role_id": "الدور"
         "bio": "السيرة الذاتية" 
         "active": "نشط" 
-      branche:
+      branch:
         "branches": "الفروع"
         "branch": "فرع"
         "name": "الإسم"
@@ -233,5 +247,18 @@ ar:
         "activity_locations": "مواقع النشاط"
         "activity_location": "موقع النشاط"
         "activity_id": "النشاط"
-        "location_id": "الموقع"   
+        "location_id": "الموقع" 
+      organization:
+        "organizations": "المنظمات"
+        "organization": "منظمة"
+        "name": "الإسم"
+        "website": "الموقع الإلكتروني"
+        "subdomain": "لدومين الفرعي"
+        "email": "البريد الإلكتروني"
+        "phone1": "الهاتف"
+        "phone2": "الهاتف آخر"
+        "fax": "الفاكس"
+        "description": "الوصف"           
+        "address": "العنوان"
+        "active": "نشط" 
 
