@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :professions
+  resources :attachments
+  resources :project_attachments
   resources :states
   resources :states
   resources :states
@@ -23,6 +26,13 @@ Rails.application.routes.draw do
   resources :sessions
   resources :users
   resources :users
+
+  resource :project do
+    member do
+      post :add_attachment
+      get :remove_atachment
+    end
+  end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

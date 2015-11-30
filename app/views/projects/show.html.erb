@@ -46,6 +46,20 @@
 		<div class="col-sm-10"><%= @project.try(:description) || 'N/A' %></div>
 	</div>
 
+    <div class="row">
+    	<div class="col-sm-2"><strong><%= t("views.projects.attachments") %></strong></div>
+	    <div class="col-sm-10">
+	    	<% if @project.project_attachments.any? %>
+			    <ul>
+				 <% @project.project_attachments.each do |project_attachment| %>
+				<li><%= link_to project_attachment.attachments.name, project_attachment %></li>
+				 <% end %>
+				</ul>
+			<% else %>
+			<p>NA</p>
+			<% end %>
+	    <div>
+	</div>
 
 	<div class="buttons">
 		<%= link_to t('views.epp.links.edit'), edit_project_path(@project), :class => 'btn btn-warning' %>

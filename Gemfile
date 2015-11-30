@@ -19,6 +19,8 @@ group :development, :test do
   gem 'guard-rspec'
   gem 'shoulda'
   gem 'factory_girl_rails'
+  gem 'capybara'
+  gem 'database_cleaner'
 end 
 
 gem 'therubyracer'

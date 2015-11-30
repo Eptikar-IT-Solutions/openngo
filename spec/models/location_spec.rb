@@ -5,5 +5,5 @@ RSpec.describe Location, type: :model do
 	it {should have_many :project_locations}
   it { should have_many(:projects).through(:project_locations) }
 	it {should have_many :activity_locations}
-  it { should have_many(:projects).through(:activity_locations) }
+  it { should have_many(:activities).through(:activity_locations) }
 end

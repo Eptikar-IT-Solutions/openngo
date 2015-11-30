@@ -14,6 +14,5 @@ RSpec.describe Project, type: :model do
     it { should have_many(:donors).through(:project_donors) }
     it { should have_many :project_partners }
     it { should have_many(:partners).through(:project_partners) }
-
     it{should validate_numericality_of :budget}
 end

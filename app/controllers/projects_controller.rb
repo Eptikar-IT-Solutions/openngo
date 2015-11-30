@@ -15,10 +15,12 @@ class ProjectsController < ApplicationController
   # GET /projects/new
   def new
     @project = Project.new
+    @project.project_attachments.build
   end
 
   # GET /projects/1/edit
   def edit
+    @project.project_attachments.build
   end
 
   # POST /projects
@@ -61,6 +63,7 @@ class ProjectsController < ApplicationController
     end
   end
 
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_project
@@ -69,6 +72,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :budget, :from, :to, :goal, :description)
+      params.require(:project).permit(:name, :budget, :from, :to, :goal, :description, attachements_attributes: [ :id, :name ])
     end
 end

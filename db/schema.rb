@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151125090703) do
+ActiveRecord::Schema.define(version: 20151126125311) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -47,16 +47,15 @@ ActiveRecord::Schema.define(version: 20151125090703) do
     t.integer  "updated_by",  limit: 4
   end
 
-  create_table "activity_translations", force: :cascade do |t|
-    t.integer  "activity_id", limit: 4,   null: false
-    t.string   "locale",      limit: 255, null: false
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-    t.string   "name",        limit: 255
+  create_table "attachments", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size",    limit: 4
+    t.datetime "file_updated_at"
   end
-
-  add_index "activity_translations", ["activity_id"], name: "index_activity_translations_on_activity_id", using: :btree
-  add_index "activity_translations", ["locale"], name: "index_activity_translations_on_locale", using: :btree
 
   create_table "branches", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -111,6 +110,7 @@ ActiveRecord::Schema.define(version: 20151125090703) do
     t.string   "avatar_content_type", limit: 255
     t.integer  "avatar_file_size",    limit: 4
     t.datetime "avatar_updated_at"
+    t.integer  "profession_id",       limit: 4
   end
 
   create_table "organizations", force: :cascade do |t|
@@ -132,6 +132,19 @@ ActiveRecord::Schema.define(version: 20151125090703) do
     t.string   "logo_content_type", limit: 255
     t.integer  "logo_file_size",    limit: 4
     t.datetime "logo_updated_at"
+  end
+
+  create_table "professions", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  create_table "project_attachments", force: :cascade do |t|
+    t.integer  "attachment_id", limit: 4
+    t.integer  "project_id",    limit: 4
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   create_table "project_donors", force: :cascade do |t|

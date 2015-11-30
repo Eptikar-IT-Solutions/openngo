@@ -19,6 +19,7 @@
 //= require jquery_ujs
 //= require_self
 //= require_tree . 
+//= require depends_on.js
 
 $( document ).ready(function() {
 
@@ -56,8 +57,16 @@ $( document ).ready(function() {
 	  sortable: false,
 	  clean: false
 	});
-
+    
 
 	$("table.sort").tablesorter( {sortList: [[0,0]]} );
 
-});
+	function add_fields(link, association, content) {
+	  var new_id = new Date().getTime();
+	  var regexp = new RegExp("new_" + association, "g")
+	  $(link).up().insert({
+	    before: content.replace(regexp, new_id)
+	  });			
+	});
+	
+	
