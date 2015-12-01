@@ -1,5 +1,7 @@
 class Project < ActiveRecord::Base
 	belongs_to :branch
+  has_many :project_milestones
+
   has_many :project_attachments
   has_many :attachments, through: :project_attachments
   
@@ -10,7 +12,7 @@ class Project < ActiveRecord::Base
   has_many :donors, through: :project_donors
 
   has_many :project_partners
-  has_many :partners, through: :project_partners
+  has_many :organizations, through: :project_partners
   accepts_nested_attributes_for :attachments, :reject_if =>  proc { |attributes| attributes['name'].blank? }, :allow_destroy => true
   
 	validates :name, uniqueness: true 

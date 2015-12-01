@@ -21,18 +21,19 @@
 //= require_tree . 
 //= require depends_on.js
 
-$( document ).ready(function() {
+$(document).ready(function() {
+	
+	$('input[type!=hidden]').first().focus();
 
-  $('input[type!=hidden]').first().focus();
-
-  var tabindex = 1;
-    $('input[type!=hidden],select').each(function() {
-       if (this.type != "hidden") {
-         var $input = $(this);
-         $input.attr("tabindex", tabindex);
-         tabindex++;
-       }
-    });
+	var tabindex = 1;
+	
+	$('input[type!=hidden],select').each(function() {
+	   if (this.type != "hidden") {
+	     var $input = $(this);
+	     $input.attr("tabindex", tabindex);
+	     tabindex++;
+	   }
+	});
 
 
 	$('.pickdate').datepicker({
@@ -45,8 +46,8 @@ $( document ).ready(function() {
 
 	$('.goto').click(function(){
 		$(this).target = "_blank";
-        window.open($(this).prop('href') + '/' + $(this).parent(".input-group-btn").prev().val());
-        return false;
+	    window.open($(this).prop('href') + '/' + $(this).parent(".input-group-btn").prev().val());
+	    return false;
 	});
 
 	$("table").tablecloth({
@@ -57,16 +58,7 @@ $( document ).ready(function() {
 	  sortable: false,
 	  clean: false
 	});
-    
 
-	$("table.sort").tablesorter( {sortList: [[0,0]]} );
 
-	function add_fields(link, association, content) {
-	  var new_id = new Date().getTime();
-	  var regexp = new RegExp("new_" + association, "g")
-	  $(link).up().insert({
-	    before: content.replace(regexp, new_id)
-	  });			
-	});
-	
-	
+	$("table.sort").tablesorter({sortList: [[0,0]]});
+});

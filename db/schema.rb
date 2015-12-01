@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151126125311) do
+ActiveRecord::Schema.define(version: 20151201093252) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -114,24 +114,25 @@ ActiveRecord::Schema.define(version: 20151126125311) do
   end
 
   create_table "organizations", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.string   "website",           limit: 255
-    t.string   "subdomain",         limit: 255
-    t.string   "email",             limit: 255
-    t.string   "phone1",            limit: 255
-    t.string   "phone2",            limit: 255
-    t.string   "fax",               limit: 255
-    t.string   "address",           limit: 255
-    t.text     "description",       limit: 65535
+    t.string   "name",               limit: 255
+    t.string   "website",            limit: 255
+    t.string   "subdomain",          limit: 255
+    t.string   "email",              limit: 255
+    t.string   "phone1",             limit: 255
+    t.string   "phone2",             limit: 255
+    t.string   "fax",                limit: 255
+    t.string   "address",            limit: 255
+    t.text     "description",        limit: 65535
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by",        limit: 4
-    t.integer  "updated_by",        limit: 4
-    t.string   "logo_file_name",    limit: 255
-    t.string   "logo_content_type", limit: 255
-    t.integer  "logo_file_size",    limit: 4
+    t.integer  "created_by",         limit: 4
+    t.integer  "updated_by",         limit: 4
+    t.string   "logo_file_name",     limit: 255
+    t.string   "logo_content_type",  limit: 255
+    t.integer  "logo_file_size",     limit: 4
     t.datetime "logo_updated_at"
+    t.string   "project_partner_id", limit: 255
   end
 
   create_table "professions", force: :cascade do |t|
@@ -175,6 +176,15 @@ ActiveRecord::Schema.define(version: 20151126125311) do
     t.integer  "updated_by", limit: 4
   end
 
+  create_table "project_milestones", force: :cascade do |t|
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+    t.decimal  "expences",                  precision: 10
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
+    t.integer  "project_id",  limit: 4
+  end
+
   create_table "project_partners", force: :cascade do |t|
     t.integer  "project_id",      limit: 4
     t.integer  "organization_id", limit: 4
@@ -185,17 +195,18 @@ ActiveRecord::Schema.define(version: 20151126125311) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.decimal  "budget",                    precision: 10
+    t.string   "name",             limit: 255
+    t.decimal  "budget",                         precision: 10
     t.date     "from"
     t.date     "to"
-    t.text     "goal",        limit: 65535
-    t.text     "description", limit: 65535
-    t.integer  "branch_id",   limit: 4
+    t.text     "goal",             limit: 65535
+    t.text     "description",      limit: 65535
+    t.integer  "branch_id",        limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by",  limit: 4
-    t.integer  "updated_by",  limit: 4
+    t.integer  "created_by",       limit: 4
+    t.integer  "updated_by",       limit: 4
+    t.decimal  "overall_expences",               precision: 10
   end
 
   create_table "roles", force: :cascade do |t|
