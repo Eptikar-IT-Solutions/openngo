@@ -6,7 +6,7 @@ RSpec.describe "project_milestones/new", type: :view do
       :name => "MyString",
       :description => "MyText",
       :expences => "9.99",
-      :Project_id => 1
+      :project_id => 1
     ))
   end
 
@@ -21,7 +21,7 @@ RSpec.describe "project_milestones/new", type: :view do
 
       assert_select "input#project_milestone_expences[name=?]", "project_milestone[expences]"
 
-      assert_select "input#project_milestone_Project_id[name=?]", "project_milestone[Project_id]"
+      assert_select "input#project_milestone_project_id[name=?]", "project_milestone[project_id]"
     end
   end
 end

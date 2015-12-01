@@ -6,7 +6,7 @@ RSpec.describe "project_milestones/show", type: :view do
       :name => "Name",
       :description => "MyText",
       :expences => "9.99",
-      :Project_id => 1
+      :project_id => 1
     ))
   end
 

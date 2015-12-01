@@ -28,7 +28,7 @@
 	<div class="row">
 		<div class="col-sm-2"><strong><%= t("views.project_milestones.project_id") %></strong></div>
 
-		<div class="col-sm-10"><%= link_to @project_milestone.Project.name, @project_milestone.Project if @project_milestone.Project_id %></div>
+		<div class="col-sm-10"><%= link_to @project_milestone.project.name, @project_milestone.project if @project_milestone.project_id %></div>
 		</div>
 
 

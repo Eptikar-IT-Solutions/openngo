@@ -31,7 +31,7 @@
 
             <td><%= project_milestone.expences %></td>
     
-            <td><%= link_to project_milestone.Project.name, project_milestone.Project if project_milestone.Project_id %></td>
+            <td><%= link_to project_milestone.project.name, project_milestone.project if project_milestone.project_id %></td>
             <td class="hidden-print actions">
               <div class="btn-group">
                 <%= link_to t('views.epp.links.show'), project_milestone , :class => 'btn btn-xs btn-default' %>

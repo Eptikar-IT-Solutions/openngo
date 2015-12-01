@@ -69,6 +69,6 @@ class ProjectMilestonesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_milestone_params
-      params.require(:project_milestone).permit(:name, :description, :expences, :Project_id)
+      params.require(:project_milestone).permit(:name, :description, :expences, :project_id)
     end
 end

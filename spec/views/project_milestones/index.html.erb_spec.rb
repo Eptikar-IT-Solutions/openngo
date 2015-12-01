@@ -7,13 +7,13 @@ RSpec.describe "project_milestones/index", type: :view do
         :name => "Name",
         :description => "MyText",
         :expences => "9.99",
-        :Project_id => 1
+        :project_id => 1
       ),
       ProjectMilestone.create!(
         :name => "Name",
         :description => "MyText",
         :expences => "9.99",
-        :Project_id => 1
+        :project_id => 1
       )
     ])
   end
