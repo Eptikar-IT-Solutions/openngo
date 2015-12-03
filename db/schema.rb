@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151201104105) do
+ActiveRecord::Schema.define(version: 20151203065639) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -178,10 +178,10 @@ ActiveRecord::Schema.define(version: 20151201104105) do
   create_table "project_milestones", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
-    t.decimal  "expences",                  precision: 10
+    t.decimal  "expences",                  precision: 12, scale: 2, default: 0.0
     t.integer  "project_id",  limit: 4
-    t.datetime "created_at",                               null: false
-    t.datetime "updated_at",                               null: false
+    t.datetime "created_at",                                                       null: false
+    t.datetime "updated_at",                                                       null: false
   end
 
   create_table "project_partners", force: :cascade do |t|
@@ -193,19 +193,32 @@ ActiveRecord::Schema.define(version: 20151201104105) do
     t.integer  "updated_by",      limit: 4
   end
 
+  create_table "project_roles", force: :cascade do |t|
+    t.integer  "role_id",     limit: 4
+    t.integer  "project_id",  limit: 4
+    t.integer  "member_id",   limit: 4
+    t.text     "description", limit: 65535
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "projects", force: :cascade do |t|
-    t.string   "name",             limit: 255
-    t.decimal  "budget",                         precision: 10
+    t.string   "name",                           limit: 255
+    t.decimal  "budget",                                       precision: 12, scale: 2, default: 0.0
     t.date     "from"
     t.date     "to"
-    t.text     "goal",             limit: 65535
-    t.text     "description",      limit: 65535
-    t.integer  "branch_id",        limit: 4
+    t.text     "goal",                           limit: 65535
+    t.text     "description",                    limit: 65535
+    t.integer  "branch_id",                      limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by",       limit: 4
-    t.integer  "updated_by",       limit: 4
-    t.decimal  "overall_expences",               precision: 10
+    t.integer  "created_by",                     limit: 4
+    t.integer  "updated_by",                     limit: 4
+    t.decimal  "overall_expences",                             precision: 12, scale: 2, default: 0.0
+    t.string   "required_document_file_name",    limit: 255
+    t.string   "required_document_content_type", limit: 255
+    t.integer  "required_document_file_size",    limit: 4
+    t.datetime "required_document_updated_at"
   end
 
   create_table "roles", force: :cascade do |t|

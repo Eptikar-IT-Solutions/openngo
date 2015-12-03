@@ -13,8 +13,11 @@ class Project < ActiveRecord::Base
 
   has_many :project_partners
   has_many :organizations, through: :project_partners
-  accepts_nested_attributes_for :attachments, :reject_if =>  proc { |attributes| attributes['name'].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :project_attachments, :reject_if =>  proc { |attributes| attributes['name'].blank? }, :allow_destroy => true
   
+
+  has_many :project_roles
+  has_many :roles, through: :project_roles
 	validates :name, uniqueness: true 
 	validates :name, :goal, :budget, presence: true
  	validates :budget, numericality: true 

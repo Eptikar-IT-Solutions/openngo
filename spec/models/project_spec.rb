@@ -15,15 +15,18 @@ RSpec.describe Project, type: :model do
     it { should have_many(:donors).through(:project_donors) }
     it { should have_many :project_partners }
     it { should have_many(:organizations).through(:project_partners) }
+    it { should have_many :project_roles }
+    it { should have_many(:roles).through(:project_roles) }
     it {should validate_numericality_of :budget}
 
     it "should have overall expences equal to the sum of the expences of all milestones"  do
-        FactoryGirl.create(:project)
+        project = FactoryGirl.create(:project)
         sum = 0
-          5.times do
-            FactoryGirl.create(:project_milestone)
-            sum += ProjectMilestone.last.expences
-          end
-         expect(Project.overall_expences).to eq(sum)
+        5.times do
+            milestone = FactoryGirl.create(:project_milestone,project_id: project.id, expences: 4.44)
+            sum += milestone.expences
+        end
+        project.reload
+        expect(project.overall_expences).to eq(sum)
     end
 end

@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :project_roles
   resources :project_milestones
   resources :professions
   resources :attachments

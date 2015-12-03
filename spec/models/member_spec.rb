@@ -9,6 +9,7 @@ RSpec.describe Member, type: :model do
   it {should belong_to :branch}
   it {should belong_to :role}
 
+  it { should have_many :project_roles }
   it { should have_many :activity_members }
   it { should have_many(:activities).through(:activity_members) }
   it { should have_many :project_members }

@@ -14,6 +14,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
+    @project_attachment = ProjectAttachment.new
     @project = Project.new
     @project.project_attachments.build
   end
