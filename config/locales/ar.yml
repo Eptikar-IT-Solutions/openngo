@@ -9,6 +9,7 @@ ar:
       "Listing of all %{model}": "عرض جميع %{model}"
       links:
         "new %{model}": "%{model} جديد"
+        "edit %{model}": "%{model}تعديل "
         "back": "رجوع"
         "save": "حفظ"
         "show": "عرض"
@@ -32,6 +33,8 @@ ar:
       "project_donors": "المتبرعين المشاريع"
       "project_members": "أعضاء المشاريع"
       "organizations": "Organizations"
+
+      "professions": "المهن"
 
     sessions:
       "name": "إسم المستخدم"
@@ -66,12 +69,13 @@ ar:
       "email": "البريد الإلكتروني"
       "mobile": "الجوال"
       "address": "العنوان"
-      "profession": "المهنة"
+      "profession_id": "المهنة"
       "education": "المستوى الأكاديمي"
       "branch_id": "الفرع"
       "role_id": "الدور"
       "bio": "السيرة الذاتية" 
-      "active": "نشط" 
+      "active": "نشط"
+      "avatar": "الصورة الرمزية" 
     branches:
       "branches": "الفروع"
       "branch": "فرع"
@@ -143,7 +147,19 @@ ar:
       "description": "الوصف"           
       "address": "العنوان"
       "active": "نشط" 
-
+    project_milestones:
+      "project_milestones": ""
+      "project_milestone": ""
+      "name": "الإسم" 
+      "description": "الوصف"
+      "expences": "المصروفات"    
+      "project_id": "المشروع"  
+    professions:
+      "professions": "المهن"
+      "profession": "المهنة"
+      "name": "الإسم" 
+    
+      
   controllers:
     application_controller:
       "You need access right to view this section !": "ليست لديك الصلاحية اللازمة للإطلاع علي هذا الجزء من النظام !"
@@ -184,12 +200,13 @@ ar:
         "email": "البريد الإلكتروني"
         "mobile": "الجوال"
         "address": "العنوان"
-        "profession": "المهنة"
+        "profession_id": "المهنة"
         "education": "المستوى الأكاديمي"
         "branch_id": "الفرع"
         "role_id": "الدور"
         "bio": "السيرة الذاتية" 
         "active": "نشط" 
+        "avatar": "الصورة الرمزية"       
       branch:
         "branches": "الفروع"
         "branch": "فرع"
@@ -203,7 +220,7 @@ ar:
         "email": "البريدالإلكتروني"
         "phone1": "الهاتف"
         "phone2": "الهاتف آخر"
-        "fax": "Fax"
+        "fax": "الفاكس"
         "description": "الوصف"
       project:
         "projects": "المشاريع" 
@@ -261,4 +278,8 @@ ar:
         "description": "الوصف"           
         "address": "العنوان"
         "active": "نشط" 
+      profession:
+        "professions": "المهن"
+        "profession": "المهنة"
+        "name": "الإسم" 
 

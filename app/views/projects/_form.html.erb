@@ -58,22 +58,13 @@
     <div class="form-group"> 
       <%= f.fields_for :project_attachments do |builder| %>
         <div class="form-group">
-         
+          
           </div>
         </div>
         <%= link_to_add_fields "Add Attachment", f, :project_attachments %>
       <% end %>
     </div>
-    
-     <div>
-       <% if @project.project_attachments.any? %>
-          <ul>
-            <% @project.project_attachments.each do |project_attachment| %>
-              <li><%= link_to project_attachment, project_attachment %></li>
-            <% end %>
-          </ul>
-        <% end %>
-      </div> 
+
       
   <div class="buttons">
     <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-floppy-disk"></span> <%= t('views.epp.links.save') %></button>

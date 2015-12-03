@@ -7,6 +7,7 @@ class Member < ActiveRecord::Base
   belongs_to :branch
   belongs_to :role
   belongs_to :profession
+  belongs_to :organization
   has_many :project_roles
 
   has_many :project_members

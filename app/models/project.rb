@@ -3,7 +3,6 @@ class Project < ActiveRecord::Base
   has_many :project_milestones
 
   has_many :project_attachments
-  has_many :attachments, through: :project_attachments
   
 	has_many :project_locations
   has_many :locations, through: :project_locations
@@ -13,7 +12,7 @@ class Project < ActiveRecord::Base
 
   has_many :project_partners
   has_many :organizations, through: :project_partners
-  accepts_nested_attributes_for :project_attachments, :reject_if =>  proc { |attributes| attributes['name'].blank? }, :allow_destroy => true
+  accepts_nested_attributes_for :project_attachments
   
 
   has_many :project_roles

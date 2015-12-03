@@ -13,12 +13,6 @@
               <th><%= t("views.organizations.name") %></th>
               <th><%= t("views.organizations.website") %></th>
               <th><%= t("views.organizations.subdomain") %></th>
-              <th><%= t("views.organizations.email") %></th>
-              <th><%= t("views.organizations.phone1") %></th>
-              <th><%= t("views.organizations.phone2") %></th>
-              <th><%= t("views.organizations.fax") %></th>
-              <th><%= t("views.organizations.address") %></th>
-              <th><%= t("views.organizations.description") %></th>
               <th><%= t("views.organizations.active") %></th>
               <th class="hidden-print"></th>
         </tr>
@@ -36,24 +30,6 @@
     
 
             <td><%= organization.subdomain %></td>
-    
-
-            <td><%= organization.email %></td>
-    
-
-            <td><%= organization.phone1 %></td>
-    
-
-            <td><%= organization.phone2 %></td>
-    
-
-            <td><%= organization.fax %></td>
-    
-
-            <td><%= organization.address %></td>
-    
-
-            <td><%= organization.description %></td>
     
 
             <td><%= organization.active ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></td>
