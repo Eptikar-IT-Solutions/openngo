@@ -7,9 +7,9 @@ class ProjectMilestone < ActiveRecord::Base
 
   after_save :update_project_overall_expences
 
-private
-  def update_project_overall_expences
-    project = self.project
-    project.update(overall_expences: project.overall_expences + self.expences)
-  end
+  private
+    def update_project_overall_expences
+      project = self.project
+      project.update(overall_expences: project.overall_expences + self.expences)
+    end
 end
