@@ -60,7 +60,10 @@
 			<% end %>
 	    <div>
 	</div>
-
+  <div>
+  	<%= render_activities(@activities) %>
+  </div>
+ 
 	<div class="buttons">
 		<%= link_to t('views.epp.links.edit'), edit_project_path(@project), :class => 'btn btn-warning' %>
 		<%= link_to t('views.epp.links.back'), projects_path, :class => 'btn btn-default' %>

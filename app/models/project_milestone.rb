@@ -1,4 +1,7 @@
 class ProjectMilestone < ActiveRecord::Base
+  include PublicActivity::Model
+  tracked
+
   belongs_to :project
 
   validates :name, uniqueness: true 

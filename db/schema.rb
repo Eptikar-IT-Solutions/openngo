@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151203115708) do
+ActiveRecord::Schema.define(version: 20151206112714) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -220,6 +220,23 @@ ActiveRecord::Schema.define(version: 20151203115708) do
     t.integer  "required_document_file_size",    limit: 4
     t.datetime "required_document_updated_at"
   end
+
+  create_table "public_activities", force: :cascade do |t|
+    t.integer  "trackable_id",   limit: 4
+    t.string   "trackable_type", limit: 255
+    t.integer  "owner_id",       limit: 4
+    t.string   "owner_type",     limit: 255
+    t.string   "key",            limit: 255
+    t.text     "parameters",     limit: 65535
+    t.integer  "recipient_id",   limit: 4
+    t.string   "recipient_type", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "public_activities", ["owner_id", "owner_type"], name: "index_public_activities_on_owner_id_and_owner_type", using: :btree
+  add_index "public_activities", ["recipient_id", "recipient_type"], name: "index_public_activities_on_recipient_id_and_recipient_type", using: :btree
+  add_index "public_activities", ["trackable_id", "trackable_type"], name: "index_public_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
