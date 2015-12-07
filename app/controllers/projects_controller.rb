@@ -10,7 +10,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    @activities = PublicActivity::Activity.all
+    @activities = PublicActivity::Activity.all.order("created_at desc")
   end
 
   # GET /projects/new

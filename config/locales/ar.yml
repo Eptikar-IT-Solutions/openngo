@@ -32,8 +32,8 @@ ar:
       "project_locations": "مواقع المشاريع"
       "project_donors": "المتبرعين المشاريع"
       "project_members": "أعضاء المشاريع"
-      "organizations": "Organizations"
-
+      "organizations": "المنظمات"
+      "project_milestones": "خطوات محةرية"
       "professions": "المهن"
 
     sessions:
@@ -148,8 +148,8 @@ ar:
       "address": "العنوان"
       "active": "نشط" 
     project_milestones:
-      "project_milestones": ""
-      "project_milestone": ""
+      "project_milestones": "الخطوات المحورية"
+      "project_milestone": "الخطوة المحورية"
       "name": "الإسم" 
       "description": "الوصف"
       "expences": "المصروفات"    
@@ -281,5 +281,12 @@ ar:
       profession:
         "professions": "المهن"
         "profession": "المهنة"
+        "name": "الإسم"
+      project_milestones:
+        "project_milestones": "خطوات محورية"
+        "project_milestone": "خطوة محورية"
         "name": "الإسم" 
+        "description": "الوصف"
+        "expences": "المصروفات"    
+        "project_id": "المشروع"    
 

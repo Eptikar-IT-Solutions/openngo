@@ -15,6 +15,7 @@ en:
       "login": "Login"
       "logout": "Logout"
       "Eptikar IT Solutions Inc": "Eptikar IT Solutions Inc."
+      "project_milestones": "Project milestones"
     sessions:
       "new":
       "name": "User Name"
@@ -125,7 +126,9 @@ en:
       "description": "Description"           
       "address": "Address"
       "active": "Active"   
-    projec_milestones:
+    project_milestones:
+      "project_milestones": "project_milestones"
+      "project_milestone": "project_milestone"
       "name": "Name" 
       "description": "Description"
       "expences": "Expences"    
@@ -257,6 +260,8 @@ en:
         "address": "Address"
         "active": "Active"    
         projec_milestone:
+          "project_milestones": "project_milestones"
+          "project_milestone": "project_milestone"          
           "name": "Name" 
           "description": "Description"
           "expences": "Expences"    
