@@ -22,7 +22,6 @@ class Activity < ActiveRecord::Base
       event.dtstart = self.to
       event.summary = self.name
       event.description = self.description
-      event.ip_class    = "PRIVATE"
     end  
 
   end
