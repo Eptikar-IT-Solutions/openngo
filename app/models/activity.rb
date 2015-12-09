@@ -1,4 +1,6 @@
-require 'icalendar'
+require 'csv'
+require 'rails/all'
+
 class Activity < ActiveRecord::Base   
   include PublicActivity::Model
   tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
@@ -23,6 +25,23 @@ class Activity < ActiveRecord::Base
       event.summary = self.name
       event.description = self.description
     end  
+  end
+  
+  def locations_names
+    locations = self.locations
+    locations_array = Array.new()
+    locations.each do |location|
+      locations_array.push(location.name)
+    end  
+    return locations_array
+  end
 
+  def self.to_csv
+    CSV.generate do |csv|
+      csv << ["Subject", "Start Date", "End Date", "Description", "Location"]
+      all.each do |activity|
+        csv << [activity.name, activity.from, activity.to, activity.description, activity.locations_names]
+      end
+    end
   end
 end

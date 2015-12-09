@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206112714) do
+ActiveRecord::Schema.define(version: 20151209123136) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -19,8 +19,8 @@ ActiveRecord::Schema.define(version: 20151206112714) do
     t.integer  "branch_id",   limit: 4
     t.decimal  "budget",                    precision: 10
     t.text     "description", limit: 65535
-    t.datetime "from"
-    t.datetime "to"
+    t.date     "from"
+    t.date     "to"
     t.integer  "repeated",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"

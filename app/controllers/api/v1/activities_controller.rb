@@ -3,8 +3,7 @@ module Api
     class ActivitiesController < ApplicationController
 
       include ActionController::MimeResponds
-
-      
+   
       def index
         calendar = Icalendar::Calendar.new
         @activities = Activity.all
@@ -14,6 +13,7 @@ module Api
 
         respond_to do |format|
           format.ics { render text: calendar.to_ical }
+          format.csv { render text: @activities.to_csv}
         end
       end
       
