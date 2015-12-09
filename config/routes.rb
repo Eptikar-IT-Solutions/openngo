@@ -1,3 +1,4 @@
+require 'api_constraints'
 Rails.application.routes.draw do
   resources :project_roles
   resources :project_milestones
@@ -30,7 +31,7 @@ Rails.application.routes.draw do
   resources :users
 
   namespace :api, defaults: {format: 'json'} do
-    namespace :v1 do
+    scope module: :v1, constraints: ApiConstraints.new(version: 1 , default: :true) do
       resources :projects
       resources :activities
     end
