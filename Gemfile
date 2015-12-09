@@ -11,6 +11,7 @@ gem 'bootstrap_form'
 gem 'heroku'
 gem 'public_activity'
 gem 'responders'
+gem 'icalendar'
 
 group :doc do
   gem 'sdoc', require: false

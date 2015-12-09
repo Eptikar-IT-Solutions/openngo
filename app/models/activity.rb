@@ -1,3 +1,4 @@
+require 'icalendar'
 class Activity < ActiveRecord::Base   
   include PublicActivity::Model
   tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
@@ -13,4 +14,16 @@ class Activity < ActiveRecord::Base
     
 	validates :name, uniqueness: true, presence: true
 	validates :budget, numericality: true
+
+  def to_ics
+    cal = Icalendar::Calendar.new
+    cal.event do |event|
+      event.dtstart = self.from
+      event.dtstart = self.to
+      event.summary = self.name
+      event.description = self.description
+      event.ip_class    = "PRIVATE"
+    end  
+
+  end
 end

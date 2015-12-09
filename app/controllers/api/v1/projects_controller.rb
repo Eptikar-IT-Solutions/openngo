@@ -1,3 +1,4 @@
+require 'icalendar'
 module Api
   module V1
     class ProjectsController < ApplicationController
