@@ -29,10 +29,9 @@ Rails.application.routes.draw do
   resources :users
   resources :users
 
-  resource :project do
-    member do
-      post :add_attachment
-      get :remove_atachment
+  namespace :api, defaults: {format: 'json'} do
+    namespace :v1 do
+      resources :projects
     end
   end
   # The priority is based upon order of creation: first created -> highest priority.

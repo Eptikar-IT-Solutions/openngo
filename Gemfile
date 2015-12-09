@@ -10,6 +10,7 @@ gem 'paperclip', "~> 4.3"
 gem 'bootstrap_form'
 gem 'heroku'
 gem 'public_activity'
+gem 'responders'
 
 group :doc do
   gem 'sdoc', require: false
