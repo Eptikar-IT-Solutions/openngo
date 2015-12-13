@@ -21,13 +21,16 @@
       <%= render 'layouts/messages' %>
       <p class="login-box-msg">Login</p>
 
-      <%= form_tag sessions_path, :role => "form" do %>
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        
         <div class="form-group has-feedback">
-          <%= text_field_tag :name, params[:name], class: "form-control", placeholder: t('views.sessions.name') %>
+          <%= f.label :email  %>
+          <%= f.email_field :email,class: "form-control", placeholder: t('views.sessions.name') %>
           <span class="glyphicon glyphicon-user form-control-feedback"></span>
         </div>
         <div class="form-group has-feedback">
-         <%= password_field_tag :password, nil, class:"form-control", placeholder: t('views.sessions.password') %>
+        <%= f.label :password  %>
+         <%= f.password_field :password, class:"form-control", placeholder: t('views.sessions.password') %>
           <span class="glyphicon glyphicon-lock form-control-feedback"></span>
         </div>
         <div class="row">
@@ -39,8 +42,6 @@
         </div>
       <% end %>
 
-      
-
     </div>
     <!-- /.login-box-body -->
   </div>
@@ -49,3 +50,4 @@
 
   </body>
 </html>
+<%= render "devise/shared/links" %>

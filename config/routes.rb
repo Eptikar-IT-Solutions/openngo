@@ -1,5 +1,7 @@
 require 'api_constraints'
 Rails.application.routes.draw do
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+
   resources :project_roles
   resources :project_milestones
   resources :professions
@@ -23,19 +25,21 @@ Rails.application.routes.draw do
   resources :branches
   resources :locations
   resources :states
-  get "login" => "sessions#new", :as => "login"
-  get "logout" => "sessions#destroy", :as => "logout"
+  
   root :to => "users#index"
-  resources :sessions
   resources :users
-  resources :users
-
+  #resources :sessions
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1 , default: :true) do
       resources :projects
       resources :activities
     end
   end
+
+   devise_scope :user do 
+    match '/sessions/user', to: 'devise/sessions#create', via: :post
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

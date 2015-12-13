@@ -1,10 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    name "admin"
-  	full_name "administrator"
-  	mobile "014415501"
-  	email "info@eptikar.com"
-  	password "123"
-  	active true
+    name "Test User"
+    email "test@example.com"
+    password "please123"      
   end
+
 end

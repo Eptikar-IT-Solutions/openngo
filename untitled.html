@@ -172,7 +172,7 @@
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    
+                    <%= link_to "Profile", user_path(current_user.id), :class=>"btn btn-default btn-flat" %>
                   </div>
                   <div class="pull-right">
                     <%= link_to "Log out", nil, :class=> "btn btn-default btn-flat" %>
