@@ -9,8 +9,8 @@ feature "Members" do
 
   scenario "creating a new member with existing profession" do
     visit root_url
-    fill_in "name", with: "admin"
-    fill_in "password", with: "123"
+    fill_in "Email", with: "test@example.com"
+    fill_in "Password", with: "please123"
     click_button "Login"
 
     visit new_member_url
@@ -30,8 +30,8 @@ feature "Members" do
 
    scenario "creating a new member with new profession" do
     visit root_url
-    fill_in "name", with: "admin"
-    fill_in "password", with: "123"
+    fill_in "Email", with: "test@example.com"
+    fill_in "Password", with: "please123"
     click_button "Login"
 
     visit new_member_url

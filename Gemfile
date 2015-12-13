@@ -14,7 +14,8 @@ gem 'responders'
 gem 'icalendar'
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-facebook'
+#gem 'omniauth-facebook'
+gem 'omniauth-twitter'
 
 group :doc do
   gem 'sdoc', require: false
@@ -31,7 +32,7 @@ group :development, :test do
 end 
 
 group :production do
- ## gem 'pg'
+  gem 'pg'
   gem 'rails_12factor'
 end
 
