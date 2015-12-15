@@ -14,5 +14,6 @@ Rails.application.config.assets.precompile += %w( prefixfree.js )
 Rails.application.config.assets.precompile += %w( html5shiv.js )
 Rails.application.config.assets.precompile += %w( respond.min.js )
 Rails.application.config.assets.precompile += %w( respond.js )
+Rails.application.config.assets.precompile += %w( ar.css )
 Rails.application.config.assets.paths << "#{Rails.root}/app/assets/fonts"
 Rails.application.config.assets.precompile << /\.(?:svg|eot|woff|ttf)\z/

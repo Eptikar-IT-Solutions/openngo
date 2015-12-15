@@ -16,6 +16,8 @@ en:
       "logout": "Logout"
       "Eptikar IT Solutions Inc": "Eptikar IT Solutions Inc."
       "project_milestones": "Project milestones"
+      "Switch Language": "عربي"
+      "search": "Search..."
     sessions:
       "new":
       "name": "User Name"
@@ -189,7 +191,7 @@ en:
         "role": "Role"
         "bio": "Bio"
         "active": "Active"
-      branche:
+      branch:
         "branches": "Branches"
         "branch": "Branch"
         "name": "Name"
@@ -259,13 +261,13 @@ en:
         "description": "Description"           
         "address": "Address"
         "active": "Active"    
-        projec_milestone:
-          "project_milestones": "project_milestones"
-          "project_milestone": "project_milestone"          
-          "name": "Name" 
-          "description": "Description"
-          "expences": "Expences"    
-          "project_id": "Project"
-      
+      projec_milestone:
+        "project_milestones": "project_milestones"
+        "project_milestone": "project_milestone"          
+        "name": "Name" 
+        "description": "Description"
+        "expences": "Expences"    
+        "project_id": "Project"
+    
 
 

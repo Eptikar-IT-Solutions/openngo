@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag 'ar' if I18n.locale == :ar %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "prefixfree" %>
   <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
@@ -49,12 +50,10 @@
           <ul class="nav navbar-nav">
            <li><%= link_to raw('<i class="fa fa-globe"></i> ') + t("views.application_layout.Switch Language"),locale: I18n.locale == :ar ? 'en' : 'ar'%> </li>
           <p class="navbar-text pull-right">
-            <% if user_signed_in? %>
-              Logged in as <strong><%= current_user.email %></strong>.
-              <%= link_to 'Edit profile', edit_user_registration_path, :class => 'navbar-link' %> |
-              <%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link'  %>
+              <strong><%= link_to current_user.email, edit_user_registration_path, class: 'profile-link' %></strong>.
+            <% if user_signed_in? %> 
             <% else %>
-              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %> |
+              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
               <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
             <% end %>
             <!-- Messages: style can be found in dropdown.less-->
@@ -193,10 +192,11 @@
 
         <!-- search form (Optional) -->
         <form action="#" method="get" class="sidebar-form">
-          <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search...">
+          <div id="global-search" class="input-group">
+            <input type="text" results="5" id="search" name="q" class="form-control" placeholder=
+            "<%= t 'views.application_layout.search' %>">
             <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
             </span>
           </div>
         </form>

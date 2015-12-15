@@ -34,7 +34,7 @@ class ApplicationController < ActionController::Base
       if params[:locale] && current_user
         current_user.update({locale: params[:locale]})
       end
-        I18n.locale =  (current_user && current_user.locale) || I18n.default_locale
+      I18n.locale =  (current_user && current_user.locale) || 'en'
     end
 
     def set_layout

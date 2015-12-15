@@ -20,6 +20,7 @@ ar:
       "login": "تسجيل الدخول"
       "logout": "تسجيل الخروج"
       "Eptikar IT Solutions Inc": "إبتكار لحلول تقنية المعلومات"
+      "Switch Language": "English"
       "donors": "المتبرعين"
       "activities": "النشاطات"
       "branches": "الفروع"
@@ -33,8 +34,9 @@ ar:
       "project_donors": "المتبرعين المشاريع"
       "project_members": "أعضاء المشاريع"
       "organizations": "المنظمات"
-      "project_milestones": "خطوات محةرية"
+      "project_milestones": "المراحل"
       "professions": "المهن"
+      "search": "البحث..."
 
     sessions:
       "name": "إسم المستخدم"
@@ -148,8 +150,8 @@ ar:
       "address": "العنوان"
       "active": "نشط" 
     project_milestones:
-      "project_milestones": "الخطوات المحورية"
-      "project_milestone": "الخطوة المحورية"
+      "project_milestones": "المراحل"
+      "project_milestone": "المرحلة"
       "name": "الإسم" 
       "description": "الوصف"
       "expences": "المصروفات"    
@@ -283,8 +285,8 @@ ar:
         "profession": "المهنة"
         "name": "الإسم"
       project_milestones:
-        "project_milestones": "خطوات محورية"
-        "project_milestone": "خطوة محورية"
+        "project_milestones": "المراحل"
+        "project_milestone": "المرحلة"
         "name": "الإسم" 
         "description": "الوصف"
         "expences": "المصروفات"    
