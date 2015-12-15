@@ -1,6 +1,7 @@
 require 'api_constraints'
 Rails.application.routes.draw do
-  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}
+
+  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}, :controllers => { :omniauth_callbacks => "callbacks" }
 
   resources :project_roles
   resources :project_milestones
