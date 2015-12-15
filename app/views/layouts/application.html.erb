@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale == :ar ? 'ar' : 'en' %>">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -47,6 +47,7 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
+           <li><%= link_to raw('<i class="fa fa-globe"></i> ') + t("views.application_layout.Switch Language"),locale: I18n.locale == :ar ? 'en' : 'ar'%> </li>
           <p class="navbar-text pull-right">
             <% if user_signed_in? %>
               Logged in as <strong><%= current_user.email %></strong>.

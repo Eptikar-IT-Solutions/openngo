@@ -31,14 +31,10 @@ class ApplicationController < ActionController::Base
     # end
 
     def set_locale
-      I18n.locale = :en
-      # Other options for setting locale
-      ##
-      #I18n.locale = params[:locale] || :ar
-      # current_user.locale
-      # request.subdomain
-      # request.env["HTTP_ACCEPT_LANGUAGE"]
-      # request.remote_ip
+      if params[:locale] && current_user
+        current_user.update({locale: params[:locale]})
+      end
+        I18n.locale =  (current_user && current_user.locale) || I18n.default_locale
     end
 
     def set_layout
