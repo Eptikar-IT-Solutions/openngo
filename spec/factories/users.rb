@@ -1,11 +1,8 @@
 FactoryGirl.define do
   factory :user do
-    name "MyString"
-	full_name "MyString"
-	mobile "MyString"
-	email "MyString"
-	password_digest "MyString"
-	active false
+    name "Test User"
+    email "test@example.com"
+    password "please123"      
   end
 
 end

@@ -11,8 +11,5 @@ RSpec.describe Activity, type: :model do
   it { should have_many(:locations).through(:activity_locations) }
   it { should have_many :activity_members }
   it { should have_many(:members).through(:activity_members) }
-      
-  validates :name, uniqueness: true, presence: true
-  validates :budget, numericality: true
 
 end

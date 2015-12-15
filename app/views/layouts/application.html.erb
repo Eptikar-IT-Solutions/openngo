@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html lang="<%= I18n.locale == :ar ? 'ar' : 'en' %>">
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title><%= content_for?(:title) ? "OpenNGO - #{yield(:title)}" : "Nolonat" %></title>
+  <title><%= content_for?(:title) ? "OpenNGO - #{yield(:title)}" : "OpenNGO" %></title>
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= stylesheet_link_tag 'ar' if I18n.locale == :ar %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
   <%= javascript_include_tag "prefixfree" %>
   <%= javascript_tag "window._token = '#{form_authenticity_token}'" %>
@@ -24,7 +25,7 @@
   });
   </script>
 </head>
-<body class="hold-transition skin-blue fixed">
+<body class="hold-transition skin-green fixed">
   <div class="wrapper">
 
     <!-- Main Header -->
@@ -47,6 +48,14 @@
         <!-- Navbar Right Menu -->
         <div class="navbar-custom-menu">
           <ul class="nav navbar-nav">
+           <li><%= link_to raw('<i class="fa fa-globe"></i> ') + t("views.application_layout.Switch Language"),locale: I18n.locale == :ar ? 'en' : 'ar'%> </li>
+          <p class="navbar-text pull-right">
+              <strong><%= link_to current_user.email, edit_user_registration_path, class: 'profile-link' %></strong>.
+            <% if user_signed_in? %> 
+            <% else %>
+              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
+              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+            <% end %>
             <!-- Messages: style can be found in dropdown.less-->
             <li class="dropdown messages-menu">
               <!-- Menu toggle button -->
@@ -139,9 +148,7 @@
             <!-- User Account Menu -->
             <li class="dropdown user user-menu">
               <!-- Menu Toggle Button -->
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                <span class="hidden-xs"><%= current_user.name %></span>
-              </a>
+
               <ul class="dropdown-menu">
                 <!-- The user image in the menu -->
                 <li class="user-header">
@@ -165,10 +172,10 @@
                 <!-- Menu Footer-->
                 <li class="user-footer">
                   <div class="pull-left">
-                    <%= link_to "Profile", user_path(current_user), :class=>"btn btn-default btn-flat" %>
+                    
                   </div>
                   <div class="pull-right">
-                    <%= link_to "Log out", logout_path, :class=> "btn btn-default btn-flat" %>
+                    <%= link_to "Log out", nil, :class=> "btn btn-default btn-flat" %>
                   </div>
                 </li>
               </ul>
@@ -185,10 +192,11 @@
 
         <!-- search form (Optional) -->
         <form action="#" method="get" class="sidebar-form">
-          <div class="input-group">
-            <input type="text" name="q" class="form-control" placeholder="Search...">
+          <div id="global-search" class="input-group">
+            <input type="text" results="5" id="search" name="q" class="form-control" placeholder=
+            "<%= t 'views.application_layout.search' %>">
             <span class="input-group-btn">
-              <button type="submit" name="search" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
+              <button type="submit" id="search-btn" class="btn btn-flat"><i class="fa fa-search"></i></button>
             </span>
           </div>
         </form>
@@ -204,7 +212,7 @@
               <li class="<%= "active" if ["branches"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.branches.branches"}</span>"), branches_path %></li>
               <li class="<%= "active" if ["donors"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.donors.donors"}</span>"), donors_path %></li>
               <li class="<%= "active" if ["locations"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.locations.locations"}</span>"), locations_path %></li>
-              <li class="<%= "active" if ["roles"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.roles.roless"}</span>"), roles_path %></li>
+              <li class="<%= "active" if ["roles"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.roles.roles"}</span>"), roles_path %></li>
               <li class="<%= "active" if ["states"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.states.states"}</span>"), states_path %></li>
              <li class="<%= "active" if ["users"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.users.users"}</span>"), users_path %>
              </li>
@@ -219,7 +227,12 @@
       <div class="col-xs-12">
         <%= render partial: "layouts/messages", flash: flash %>
       </div>
-
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
       <%= yield %>
       <div class="clearfix"></div>
     </div><!-- /.content-wrapper -->

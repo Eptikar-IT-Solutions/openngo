@@ -1,4 +1,4 @@
 class ProjectPartner < ActiveRecord::Base
-	belongs_to :partner
+	belongs_to :organization
 	belongs_to :project
 end

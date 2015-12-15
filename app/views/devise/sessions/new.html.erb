@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= "OpenNGO - #{t("views.sessions.login")}" %></title>
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "prefixfree.min" %>
+    <%= csrf_meta_tags %>
+    <!--[if lt IE 9]>
+    <%= javascript_include_tag "html5shiv" %>
+    <%= javascript_include_tag "respond.min" %>
+    <![endif]-->
+  </head>
+  <body class="hold-transition login-page">
+  <div class="login-box">
+    <div class="login-logo">
+      <a href="../../index2.html"><%= image_tag "openngo.svg", :class => 'img-responsive login-logo' %></a>
+    </div>
+    <!-- /.login-logo -->
+    <div class="login-box-body">
+      <%= render 'layouts/messages' %>
+      <p class="login-box-msg">Login</p>
+
+      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+        
+        <div class="form-group has-feedback">
+          <%= f.label :email  %>
+          <%= f.email_field :email,class: "form-control", placeholder: t('views.sessions.name') %>
+          <span class="glyphicon glyphicon-user form-control-feedback"></span>
+        </div>
+        <div class="form-group has-feedback">
+        <%= f.label :password  %>
+         <%= f.password_field :password, class:"form-control", placeholder: t('views.sessions.password') %>
+          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+        </div>
+        <div class="row">
+          <!-- /.col -->
+          <div class="col-xs-offset-8 col-xs-4">
+            <button type="submit" class="btn btn-primary btn-block btn-flat"><%= t('views.sessions.login') %></button>
+          </div>
+          <!-- /.col -->
+        </div>
+      <% end %>
+
+    </div>
+    <!-- /.login-box-body -->
+  </div>
+  <div class="version">
+    <a href="https://github.com/Eptikar-IT-Solutions/openngo">OpenNGO Ver 0.0.1</a>
+  </div>
+
+
+  </body>
+</html>
+<%= render "devise/shared/links" %>

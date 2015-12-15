@@ -11,6 +11,7 @@
       <thead>
         <tr>
               <th><%= t("views.members.name") %></th>
+              <th><%= t("views.members.avatar") %></th>
               <th><%= t("views.members.gender") %></th>
               <th><%= t("views.members.joined_at") %></th>
               <th><%= t("views.members.email") %></th>
@@ -32,8 +33,9 @@
     
 
             <td><%= member.name %></td>
-    
-
+        
+           <td><%= image_tag member.avatar.url(:thumb)|| 'N/A' %></td> 
+           
             <td><%= member.gender %></td>
     
 
@@ -49,7 +51,7 @@
             <td><%= member.address %></td>
     
 
-            <td><%= member.profession %></td>
+            <td><%= member.profession_id %></td>
     
 
             <td><%= member.education %></td>

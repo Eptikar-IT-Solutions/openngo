@@ -67,13 +67,43 @@
 		<div class="col-sm-10"><%= @organization.try(:description) || 'N/A' %></div>
 	</div>
 
+    <div class="row">
+		<div class="col-sm-2"><strong><%= t("views.organizations.logo") %></strong></div>
+
+
+		<div class="col-sm-10"><%= image_tag @organization.logo.url(:small)|| 'N/A' %></div>
+	</div>
+
+	<% if @organization.members.any? %>
+		<div class="row">
+			<div class="table-responsive">
+	    <table class="table table-striped">
+	      <thead>
+	        <tr>
+		        <th><%= t("views.members.member") %></th>
+		        <th><%= t("views.membrs.role") %></th>
+	        </tr>
+	      </thead>
+	      <tbody>
+	          <tr>
+		          <% @organization.members.each do |member|%>
+			          	<td><%= member.name %></td>
+			          	<td><%= member.role.name %></td>
+			        <% end %> 	
+	          </tr>       
+	      </tbody>
+	  	</table> 
+	  	</div>
+		</div>
+	<% end %>
+
 	<div class="row">
 		<div class="col-sm-2"><strong><%= t("views.organizations.active") %></strong></div>
 
 
 		<div class="col-sm-10"><%= @organization.active ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></div>
 		</div>
-
+ 
 
 	<div class="buttons">
 		<%= link_to t('views.epp.links.edit'), edit_organization_path(@organization), :class => 'btn btn-warning' %>

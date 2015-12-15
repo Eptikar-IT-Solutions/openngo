@@ -1,24 +1,28 @@
-<%= form_for @member, :html => {:class => 'form-horizontal'} do |f| %>
+<%= form_for @member, :html => {:class => 'form-horizontal', :multipart => true } do |f| %>
   <% if @member.errors.any? %>
     <% @member.errors.full_messages.each do |msg| %>
       <div class="alert alert-danger"><%= msg %></div>
     <% end %>
   <% end %>
-  
-
-
-
     <div class="form-group">
       <%= f.label :name, :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10"><%= f.text_field :name, :class => 'form-control' %></div>
     </div>
 
-
-
-
     <div class="form-group">
       <%= f.label :gender, :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10"><%= f.number_field :gender, :class => 'form-control' %></div>
+      <div class="col-sm-10">
+      <%= f.select :gender, options_for_select(@genders.collect { |s| [s[0].humanize, s[0]] }, selected: @member.gender), {} , class: "form-control"%></div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :profession_id, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10">
+        <%= f.select :profession_id, Profession.all.collect {|p| [ p.name, p.id ] }, {}, class: "select2" , id: "selected_profession" %>
+      </div>
+      <div class='col-sm-10' data-depends-on='#selected_profession', data-depends-on-value='other'>
+        <%= f.text_field :other_profession %>
+      </div>
     </div>
 
 
@@ -58,21 +62,24 @@
     </div>
 
 
-
-
-    <div class="form-group">
-      <%= f.label :profession, :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10"><%= f.number_field :profession, :class => 'form-control' %></div>
-    </div>
-
-
-
-
     <div class="form-group">
       <%= f.label :education, :class => 'col-sm-2 control-label' %>
       <div class="col-sm-10"><%= f.number_field :education, :class => 'form-control' %></div>
     </div>
 
+
+      <div class="form-group">
+        <%= f.label :branch_id, :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <div class="input-group">
+            <%= f.select :branch_id, Branch.all.collect {|p| [ p.name, p.id ] }, {}, { :class => 'form-control' } %>
+            <span class="input-group-btn">
+            <%= link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_branch_path, :class => 'btn btn-default', :target => '_blank' %>
+            <%= link_to raw('<span class="glyphicon glyphicon-play"></span>'), branches_path, :class => 'btn btn-default goto' %>
+            </span>
+          </div>
+        </div>
+      </div>
 
       <div class="form-group">
         <%= f.label :branch_id, :class => 'col-sm-2 control-label' %>
@@ -109,6 +116,10 @@
       <div class="col-sm-10"><%= f.text_area :bio, :class => 'form-control' %></div>
     </div>
 
+    <div class="form-group">
+      <%= f.label :avatar, :class => 'col-sm-2 control-label' %>
+      <div class="col-sm-10"><%= f.file_field :avatar, :class => 'form-control' %></div>
+    </div>
 
 
 

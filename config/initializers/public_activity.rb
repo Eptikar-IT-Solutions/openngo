@@ -1,0 +1,1 @@
+PublicActivity::Activity.table_name = 'public_activities'

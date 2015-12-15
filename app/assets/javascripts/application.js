@@ -19,19 +19,21 @@
 //= require jquery_ujs
 //= require_self
 //= require_tree . 
+//= require depends_on.js
 
-$( document ).ready(function() {
+$(document).ready(function() {
+	
+	$('input[type!=hidden]').first().focus();
 
-  $('input[type!=hidden]').first().focus();
-
-  var tabindex = 1;
-    $('input[type!=hidden],select').each(function() {
-       if (this.type != "hidden") {
-         var $input = $(this);
-         $input.attr("tabindex", tabindex);
-         tabindex++;
-       }
-    });
+	var tabindex = 1;
+	
+	$('input[type!=hidden],select').each(function() {
+	   if (this.type != "hidden") {
+	     var $input = $(this);
+	     $input.attr("tabindex", tabindex);
+	     tabindex++;
+	   }
+	});
 
 
 	$('.pickdate').datepicker({
@@ -44,8 +46,8 @@ $( document ).ready(function() {
 
 	$('.goto').click(function(){
 		$(this).target = "_blank";
-        window.open($(this).prop('href') + '/' + $(this).parent(".input-group-btn").prev().val());
-        return false;
+	    window.open($(this).prop('href') + '/' + $(this).parent(".input-group-btn").prev().val());
+	    return false;
 	});
 
 	$("table").tablecloth({
@@ -58,6 +60,20 @@ $( document ).ready(function() {
 	});
 
 
-	$("table.sort").tablesorter( {sortList: [[0,0]]} );
+	$("table.sort").tablesorter({sortList: [[0,0]]});
+
+    var add_fields = function (link, association, content) {
+	  var new_id = new Date().getTime();
+	  var regexp = new RegExp("new_" + association, "g")
+	  $(link).parent().before(content.replace(regexp, new_id));
+	}
+
+	$(document).on("click", "a.link_to_add_fields", function(e){
+        e.preventDefault();
+        var link = $(this);
+        var association = $(this).data("association");
+        var content = $(this).data("content");
+        add_fields(link, association, content);
+	});
 
 });

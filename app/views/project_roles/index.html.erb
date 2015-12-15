@@ -1,0 +1,52 @@
+<%- title t "views.application_layout.project_roles" %>
+<div class="col-xs-12">
+
+  <div class="page-header">
+    <h1><%= t "views.application_layout.project_roles" %> <small><%= t("views.epp.Listing of all %{model}", :model => t("views.project_roles.project_roles")) %></small></h1>
+  </div>
+
+
+  <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+              <th><%= t("views.project_roles.role_id") %></th>
+              <th><%= t("views.project_roles.project_id") %></th>
+              <th><%= t("views.project_roles.description") %></th>
+              <th><%= t("views.project_roles.member") %></th>
+              <th class="hidden-print"></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @project_roles.each do |project_role| %>
+          <tr>
+    
+            <td><%= link_to project_role.role.name, project_role.role if project_role.role_id %></td>
+
+            <td><%= link_to project_role.project.name, project_role.project if project_role.project_id %></td>
+
+            <td><%= link_to project_role.member.name, project_role.member if project_role.member_id %></td>
+
+            <td><%= project_role.description %></td>
+                <td class="hidden-print actions">
+              <div class="btn-group">
+                <%= link_to t('views.epp.links.show'), project_role , :class => 'btn btn-xs btn-default' %>
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to t('views.epp.links.edit'), edit_project_role_path(project_role) %></li>
+                  <li><%= link_to t('views.epp.links.destroy'), project_role, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+  <%= link_to t('views.epp.links.new %{model}', :model => t("views.project_roles.project_role")), new_project_role_path, :class => 'btn btn-primary btn-lg hidden-print' %>
+</div>
