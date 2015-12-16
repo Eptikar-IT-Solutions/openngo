@@ -69,6 +69,6 @@ class ActivityLocationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_location_params
-      params.require(:activity_location).permit(:activity_id, :location_id)
+      params.require(:activity_location).permit(:activity_id, :location_id, :created_by, :updated_by)
     end
 end

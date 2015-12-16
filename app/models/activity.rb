@@ -2,8 +2,9 @@ require 'csv'
 require 'rails/all'
 
 class Activity < ActiveRecord::Base   
+  include StampableRelations
   include PublicActivity::Model
-  tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
+  tracked owner: proc { |controller, model| model.updater }
    
   belongs_to :project
   belongs_to :branch

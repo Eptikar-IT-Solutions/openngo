@@ -69,6 +69,6 @@ class ProjectRolesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_role_params
-      params.require(:project_role).permit(:role_id, :project_id, :member_id, :description)
+      params.require(:project_role).permit(:role_id, :project_id, :member_id, :description, :created_by, :updated_by)
     end
 end

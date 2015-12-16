@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+    include Stampable
     include PublicActivity::StoreController
 
     protect_from_forgery with: :exception
