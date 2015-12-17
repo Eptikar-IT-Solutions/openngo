@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :states
   
-  root :to => "users#index"
+  root :to => "projects#index"
   resources :users
   #resources :sessions
   namespace :api, defaults: {format: 'json'} do

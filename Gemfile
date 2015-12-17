@@ -16,6 +16,7 @@ gem 'devise'
 gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
+gem 'cancancan', '~> 1.10'
 
 group :doc do
   gem 'sdoc', require: false

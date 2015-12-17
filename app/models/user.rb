@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  enum role: { admin: 0, organization_manager: 1, project_manager: 2, activity_manger: 3 }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
