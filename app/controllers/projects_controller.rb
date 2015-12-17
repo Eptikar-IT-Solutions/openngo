@@ -15,14 +15,12 @@ class ProjectsController < ApplicationController
 
   # GET /projects/new
   def new
-    @project_attachment = ProjectAttachment.new
     @project = Project.new
     @project.project_attachments.build
   end
 
   # GET /projects/1/edit
   def edit
-    @project.project_attachments.build
   end
 
   # POST /projects
@@ -44,6 +42,7 @@ class ProjectsController < ApplicationController
   # PATCH/PUT /projects/1
   # PATCH/PUT /projects/1.json
   def update
+
     respond_to do |format|
       if @project.update(project_params)
         format.html { redirect_to @project, notice: 'Project was successfully updated.' }
@@ -74,6 +73,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :budget, :from, :to, :goal, :description, :created_by, :updated_by, project_attachements_attributes: [:id, :attachment_file_name, :attachment_content_type, :attachment_file_size])
+      params.require(:project).permit(:name, :budget, :from, :to, :branch_id, :goal, :description, :created_by, :updated_by, project_attachments_attributes: [ :id, :attachment])
     end
 end
