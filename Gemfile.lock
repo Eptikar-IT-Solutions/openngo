@@ -41,6 +41,7 @@ GEM
     bcrypt (3.1.10)
     bootstrap_form (2.3.0)
     builder (3.2.2)
+    cancancan (1.13.1)
     capybara (2.5.0)
       mime-types (>= 1.16)
       nokogiri (>= 1.3.3)
@@ -312,6 +313,7 @@ PLATFORMS
 DEPENDENCIES
   bcrypt
   bootstrap_form
+  cancancan (~> 1.10)
   capybara
   coffee-rails (~> 4.1.0)
   database_cleaner
@@ -340,3 +342,6 @@ DEPENDENCIES
   shoulda
   therubyracer
   uglifier (>= 2.7.1)
+
+BUNDLED WITH
+   1.10.6
