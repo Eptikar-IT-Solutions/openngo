@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   resources :project_roles
   resources :project_milestones
   resources :professions
-  resources :attachments
   resources :project_attachments
   resources :states
   resources :states
