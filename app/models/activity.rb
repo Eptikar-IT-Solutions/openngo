@@ -17,6 +17,8 @@ class Activity < ActiveRecord::Base
     
 	validates :name, uniqueness: true, presence: true
 	validates :budget, numericality: true
+  
+  before_destroy :remove_all_activities 
 
   def to_ics
     cal = Icalendar::Calendar.new
@@ -44,5 +46,9 @@ class Activity < ActiveRecord::Base
         csv << [activity.name, activity.from, activity.to, activity.description, activity.locations_names]
       end
     end
+  end
+
+  def remove_all_activities
+    PublicActivity::Activity.destroy_all(:trackable => self)
   end
 end
