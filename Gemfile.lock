@@ -340,6 +340,3 @@ DEPENDENCIES
   shoulda
   therubyracer
   uglifier (>= 2.7.1)
-
-BUNDLED WITH
-   1.10.6
