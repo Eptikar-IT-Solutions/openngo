@@ -2,8 +2,9 @@ require 'csv'
 require 'rails/all'
 
 class Activity < ActiveRecord::Base   
+  include StampableRelations
   include PublicActivity::Model
-  tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
+  tracked owner: proc { |controller, model| model.updater }
    
   belongs_to :project
   belongs_to :branch
@@ -16,6 +17,8 @@ class Activity < ActiveRecord::Base
     
 	validates :name, uniqueness: true, presence: true
 	validates :budget, numericality: true
+  
+  before_destroy :remove_all_activities 
 
   def to_ics
     cal = Icalendar::Calendar.new
@@ -43,5 +46,9 @@ class Activity < ActiveRecord::Base
         csv << [activity.name, activity.from, activity.to, activity.description, activity.locations_names]
       end
     end
+  end
+
+  def remove_all_activities
+    PublicActivity::Activity.destroy_all(:trackable => self)
   end
 end

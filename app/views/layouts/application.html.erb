@@ -50,8 +50,9 @@
           <ul class="nav navbar-nav">
            <li><%= link_to raw('<i class="fa fa-globe"></i> ') + t("views.application_layout.Switch Language"),locale: I18n.locale == :ar ? 'en' : 'ar'%> </li>
           <p class="navbar-text pull-right">
-              <strong><%= link_to current_user.email, edit_user_registration_path, class: 'profile-link' %></strong>.
-            <% if user_signed_in? %> 
+            <% if user_signed_in? %>
+              <strong><%= link_to current_user.name, edit_user_registration_path, class: 'profile-link' %></strong><a class="profile-link"> | </a>
+              <strong><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', class: 'profile-link'  %></strong>
             <% else %>
               <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
               <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>

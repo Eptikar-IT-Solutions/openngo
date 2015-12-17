@@ -69,6 +69,6 @@ class ProjectDonorsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_donor_params
-      params.require(:project_donor).permit(:project_id, :donor_id)
+      params.require(:project_donor).permit(:project_id, :donor_id, :created_by, :updated_by)
     end
 end

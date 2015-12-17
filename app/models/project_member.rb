@@ -1,8 +1,11 @@
 class ProjectMember < ActiveRecord::Base
   include PublicActivity::Model
-  tracked owner: Proc.new { |controller, model| controller.current_user ? controller.current_user : nil }
-  
+  include StampableRelations
+  tracked owner: proc { |controller, model| model.updater }
+
 	belongs_to :member
 	belongs_to :project
   belongs_to :role
+  
+  before_destroy :remove_all_activities
 end
