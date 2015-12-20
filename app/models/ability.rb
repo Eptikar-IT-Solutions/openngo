@@ -26,6 +26,11 @@ class Ability
       can :read, :all
       can :update, Project
     end
+
+    if user.activity_manger?
+        can :read, :all
+        can :manage, Activity
+    end    
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

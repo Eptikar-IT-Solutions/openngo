@@ -1,9 +1,10 @@
 class Member < ActiveRecord::Base
-
+   
   attr_accessor :other_profession
 
   enum gender: [ :male, :female ]
-
+   
+  belongs_to :user 
   belongs_to :branch
   belongs_to :role
   belongs_to :profession

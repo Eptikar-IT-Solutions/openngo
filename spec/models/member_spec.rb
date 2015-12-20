@@ -9,6 +9,7 @@ RSpec.describe Member, type: :model do
   it {should belong_to :branch}
   it {should belong_to :role}
   it {should belong_to :organization}
+  it {should belong_to :user}
 
   it { should have_many :project_roles }
   it { should have_many :activity_members }

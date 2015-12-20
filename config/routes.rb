@@ -25,10 +25,13 @@ Rails.application.routes.draw do
   resources :branches
   resources :locations
   resources :states
-  
-  root :to => "projects#index"
   resources :users
   #resources :sessions
+  resources :projects do
+    resources :project_attachments
+  end
+  root :to => "projects#index"
+
   namespace :api, defaults: {format: 'json'} do
     scope module: :v1, constraints: ApiConstraints.new(version: 1 , default: :true) do
       resources :projects
