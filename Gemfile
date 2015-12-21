@@ -30,6 +30,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'mysql2', '~> 0.3.18'
+  gem 'sqlite3'
 end 
 
 group :production do
