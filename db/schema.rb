@@ -47,16 +47,6 @@ ActiveRecord::Schema.define(version: 20151215120728) do
     t.integer  "updated_by",  limit: 4
   end
 
-  create_table "attachments", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "file_file_name",    limit: 255
-    t.string   "file_content_type", limit: 255
-    t.integer  "file_file_size",    limit: 4
-    t.datetime "file_updated_at"
-  end
-
   create_table "branches", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535

@@ -1,6 +1,7 @@
 language: ruby
 rvm:
   - 2.2.3
+gemfile: config/travis/Gemfile
 cache: bundler
 env:
   - DB=sqlite
@@ -11,6 +12,6 @@ script:
   - bundle exec rake db:test:prepare
   - bundle exec rake
 before_script:
-  - cp config/database.travis.yml config/database.yml
+  - cp config/travis/database.yml config/database.yml
   - mysql -e 'create database openngo_test'
   - psql -c 'create database openngo_test' -U postgres
