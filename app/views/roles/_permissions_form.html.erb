@@ -1,0 +1,16 @@
+<% Rails.application.eager_load! %>
+<%- @controllers = ApplicationController.descendants - [RolesController, DeviseController] %>
+<div class="table-responsive">
+  <table class="table table-striped permissions">
+    <tbody>
+    <%- @controllers.map { |c| { c => [:manage, :read, :create, :update, :delete]} }.reduce(Hash.new, :merge).each do |controller, actions| %>
+        <tr>
+          <td><%= controller.controller_name.titleize %></td>
+          <%- actions.each do |action| %>
+              <td><%= check_box_tag :"role[permissions][#{controller.controller_name}][#{action.to_sym}]", {checked: @ability.can?(action.to_sym, controller.controller_name.to_s.singularize.capitalize.constantize.new)},"true", "false" %> <%= action.to_s.titleize %></td>
+          <% end %>
+        </tr>
+  <% end %>
+  </tbody>
+  </table>
+</div>

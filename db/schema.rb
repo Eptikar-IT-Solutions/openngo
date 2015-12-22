@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151220123442) do
+ActiveRecord::Schema.define(version: 20151222114437) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -234,11 +234,12 @@ ActiveRecord::Schema.define(version: 20151220123442) do
   add_index "public_activities", ["trackable_id", "trackable_type"], name: "index_public_activities_on_trackable_id_and_trackable_type", using: :btree
 
   create_table "roles", force: :cascade do |t|
-    t.string   "name",       limit: 255
+    t.string   "name",        limit: 255
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by", limit: 4
-    t.integer  "updated_by", limit: 4
+    t.integer  "created_by",  limit: 4
+    t.integer  "updated_by",  limit: 4
+    t.text     "permissions", limit: 65535
   end
 
   create_table "states", force: :cascade do |t|
@@ -253,18 +254,18 @@ ActiveRecord::Schema.define(version: 20151220123442) do
     t.string   "name",                   limit: 255
     t.string   "full_name",              limit: 255
     t.string   "mobile",                 limit: 255
-    t.string   "email",                  limit: 255, default: "", null: false
+    t.string   "email",                  limit: 255,   default: "", null: false
     t.string   "password_digest",        limit: 255
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "created_by",             limit: 4
     t.integer  "updated_by",             limit: 4
-    t.string   "encrypted_password",     limit: 255, default: "", null: false
+    t.string   "encrypted_password",     limit: 255,   default: "", null: false
     t.string   "reset_password_token",   limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.integer  "sign_in_count",          limit: 4,   default: 0,  null: false
+    t.integer  "sign_in_count",          limit: 4,     default: 0,  null: false
     t.datetime "current_sign_in_at"
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip",     limit: 255
@@ -272,6 +273,8 @@ ActiveRecord::Schema.define(version: 20151220123442) do
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
     t.string   "locale",                 limit: 255
+    t.text     "permissions",            limit: 65535
+    t.integer  "role_id",                limit: 4
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
