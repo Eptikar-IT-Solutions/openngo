@@ -39,7 +39,7 @@ Rails.application.routes.draw do
     end
   end
 
-   devise_scope :user do 
+  devise_scope :user do 
     match '/sessions/user', to: 'devise/sessions#create', via: :post
   end
 

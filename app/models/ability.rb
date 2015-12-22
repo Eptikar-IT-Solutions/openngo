@@ -28,9 +28,13 @@ class Ability
     end
 
     if user.activity_manger?
-        can :read, :all
-        can :manage, Activity
-    end    
+      can :read, :all
+      can :manage, Activity
+    end 
+
+    if user.guest?
+      cannot [:update, :create, :destroy], :all
+    end   
     # The first argument to `can` is the action you are giving the user
     # permission to do.
     # If you pass :manage it will apply to every action. Other common actions

@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  enum role: { admin: 0, organization_manager: 1, project_manager: 2, activity_manger: 3 }
+  enum role: { admin: 0, organization_manager: 1, project_manager: 2, activity_manger: 3, guest: 4 }
   has_one :member
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -25,5 +25,9 @@ class User < ActiveRecord::Base
       user.email = auth.info.email
       user.password = Devise.friendly_token[0,20]
     end
+  end
+
+  def ability
+    @ability ||= Ability.new(self)
   end
 end
