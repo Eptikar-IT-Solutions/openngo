@@ -32,6 +32,10 @@
 		<div class="col-sm-10"><%= @user.try(:email) || 'N/A' %></div>
 	</div>
 
+  <div class="row">
+		<div class="col-sm-2"><strong><%= t("views.users.role") %></strong></div>
+	<div class="col-sm-10"><%= link_to @user.role.name, @user.role if @user.role_id %></div>
+	</div>
 	<div class="row">
 		<div class="col-sm-2"><strong><%= t("views.users.active") %></strong></div>
 

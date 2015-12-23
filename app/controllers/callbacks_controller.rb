@@ -1,4 +1,5 @@
 class CallbacksController < Devise::OmniauthCallbacksController
+  skip_authorization_check
   def twitter
     @user = User.from_omniauth(request.env["omniauth.auth"])
 

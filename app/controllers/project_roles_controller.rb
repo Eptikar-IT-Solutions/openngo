@@ -1,5 +1,6 @@
 class ProjectRolesController < ApplicationController
-  before_action :set_project_role, only: [:show, :edit, :update, :destroy]
+  load_and_authorize_resource
+  before_action :set_project_role, only: [:show, :edit,:update, :destroy]
 
   # GET /project_roles
   # GET /project_roles.json

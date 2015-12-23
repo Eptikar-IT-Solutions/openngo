@@ -1,7 +1,8 @@
 class User < ActiveRecord::Base
   belongs_to :role
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable and :omniauthable
+ 
+  delegate :can?, :cannot?, :to => :ability
+  
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter]
   

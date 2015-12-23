@@ -1,4 +1,5 @@
 class ProjectDonorsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_project_donor, only: [:show, :edit, :update, :destroy]
 
   # GET /project_donors

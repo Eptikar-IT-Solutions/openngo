@@ -1,4 +1,5 @@
 class DonorsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_donor, only: [:show, :edit, :update, :destroy]
 
   # GET /donors

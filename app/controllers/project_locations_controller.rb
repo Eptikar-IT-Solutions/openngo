@@ -1,4 +1,5 @@
 class ProjectLocationsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_project_location, only: [:show, :edit, :update, :destroy]
 
   # GET /project_locations

@@ -1,7 +1,8 @@
 class ApplicationController < ActionController::Base
     include Stampable
     include PublicActivity::StoreController
-
+     
+    #check_authorization 
     protect_from_forgery with: :exception
     before_filter :set_locale
     before_action :authenticate_user!

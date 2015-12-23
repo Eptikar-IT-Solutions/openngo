@@ -1,4 +1,5 @@
 class ProjectAttachmentsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_project_attachment, only: [:show, :edit, :update, :destroy]
 
   # GET /project_attachments

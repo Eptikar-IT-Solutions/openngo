@@ -53,7 +53,7 @@ class Ability
     # will apply to all users, including super user
 
     # Rule[1]: every authenticated user has the right to read some basic stuff
-    can :read, Project
+    can :read, [Project, Activity]
 
     # Rule[2]: user can edit his own profile
     can [:show, :write, :edit, :update] , User, :id => user.id
