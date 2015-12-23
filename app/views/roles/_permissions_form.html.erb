@@ -6,8 +6,15 @@
     <%- @controllers.map { |c| { c => [:manage, :read, :create, :update, :delete]} }.reduce(Hash.new, :merge).each do |controller, actions| %>
         <tr>
           <td><%= controller.controller_name.titleize %></td>
+          <% controller_hash = @role.permissions.fetch(controller.controller_name, false) %>
           <%- actions.each do |action| %>
-              <td><%= check_box_tag :"role[permissions][#{controller.controller_name}][#{action.to_sym}]", {checked: @ability.can?(action.to_sym, controller.controller_name.to_s.singularize.capitalize.constantize.new)},"true", "false" %> <%= action.to_s.titleize %></td>
+            <% unless controller_hash == false %>
+              <% action_value = controller_hash.fetch(action, false) %>
+              <% action_value = true if action_value != false %>
+            <% else%>  
+              <% action_value = false %>
+            <% end %>  
+            <td><%= f.check_box :"permissions[#{controller.controller_name}][#{action.to_sym}]", {checked: action_value}  %> <%= action.to_s.titleize %></td>
           <% end %>
         </tr>
   <% end %>
