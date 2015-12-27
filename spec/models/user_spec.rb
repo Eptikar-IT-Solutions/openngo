@@ -2,9 +2,10 @@ require "spec_helper"
 require "cancan/matchers"
 
 describe User do
-  let(:admin_role) { FactoryGirl.create(:role, name: 'admin',permissions: {all: true} ) }
-  let(:intern_role) { FactoryGirl.create(:role, name: 'intern', permissions: {all: false} ) }
-  let(:program_coordinater_role) { FactoryGirl.create(:role, name: 'program coordinater', permissions: 
+  #Roles
+  let!(:admin_role) { FactoryGirl.create(:role, name: 'admin',permissions: {all: true} ) }
+  let!(:intern_role) { FactoryGirl.create(:role, name: 'intern', permissions: {all: false} ) }
+  let!(:program_coordinater_role) { FactoryGirl.create(:role, name: 'program coordinater', permissions: 
       {
         all: false,
         projects: { manage: true, read: true },
@@ -12,8 +13,8 @@ describe User do
       } 
     ) 
   }
+  #Users
   let(:admin) { FactoryGirl.create(:user, role_id: admin_role.id ) }
-
   let(:intern) { FactoryGirl.create(:user, name: 'intern', role_id:  intern_role.id) }
   let(:program_coordinater) { FactoryGirl.create(:user, name: 'program coordinater', role_id: program_coordinater_role.id ) 
   }
@@ -29,7 +30,6 @@ describe User do
 
     context "when is a super user" do
       let(:user){ admin }
-      let(:another_user){ intern }
 
       it "should treated as admin" do
         expect(user.is_admin?).to eq true
@@ -55,29 +55,5 @@ describe User do
         should be_able_to(:write, User)
       end
     end
-  end  
-
-    context "when is non super user" do
-      let(:user){ intern}
-
-      it "should not treated as super user" do
-        expect(user.is_admin?).to eq false
-      end
-
-      it "should be able to read Project" do
-        should be_able_to(:read, Project)
-      end
-
-      it "should be able to read Activity" do
-        should be_able_to(:read, Activity)
-      end
-
-      it "should not be able to destroy User" do
-        should_not be_able_to(:destroy, User)
-      end
-
-      it "should allow user to edit his own profile" do
-        should be_able_to(:write, intern)
-      end
-    end   
+  end     
 end
