@@ -32,6 +32,8 @@ class User < ActiveRecord::Base
   end
 
   def is_admin?
-    self.role.permissions.fetch(:all, false)
+    if self.role
+     self.role.permissions.fetch(:all, false)
+    end
   end
 end

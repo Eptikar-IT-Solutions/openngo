@@ -13,7 +13,8 @@ class Ability
     #
     if user.is_admin?
       can :manage, :all
-      can :assign_roles, User   
+      can :assign_roles, User  
+      can [:create,:show, :write, :edit, :update] , User
     else
       # Need to eager load all models (development only, already ON in production)
       Rails.application.eager_load!
