@@ -55,6 +55,8 @@ class ProjectAttachmentsController < ApplicationController
   # DELETE /project_attachments/1
   # DELETE /project_attachments/1.json
   def destroy
+    @project = Project.find(params[:project_id])
+    @project_attachment = ProjectAttachment.find(params[:id])
     @project_attachment.destroy
     respond_to do |format|
       format.html { redirect_to project_attachments_url, notice: 'Project attachment was successfully destroyed.' }

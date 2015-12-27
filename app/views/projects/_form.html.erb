@@ -76,6 +76,8 @@
           <% @project.project_attachments.each do |project_attachment| %>
             <li>
               <%= link_to project_attachment.attachment_file_name %>
+              <%= link_to 'Destroy', project_project_attachment_path(@project, project_attachment),
+            :confirm => 'Are you sure?', :method => :delete %>
             </li>
           <% end %>
         </ul><% end %>
