@@ -7,10 +7,14 @@ module Stampable
   end
 
   def stamp_created_by
-    params[params[:controller].singularize.downcase.to_sym].merge!(:created_by => current_user.id.to_s, :updated_by => current_user.id.to_s) if params[params[:controller].singularize.downcase.to_sym]
+    unless params.fetch('commit', false) == 'Create User'
+      params[params[:controller].singularize.downcase.to_sym].merge!(:created_by => current_user.id.to_s, :updated_by => current_user.id.to_s) if params[params[:controller].singularize.downcase.to_sym]
+    end
   end
 
   def stamp_updated_by
-    params[params[:controller].singularize.downcase.to_sym].merge!(:updated_by => current_user.id.to_s) if params[params[:controller].singularize.downcase.to_sym]
+    unless params.fetch('commit') == 'Create User'
+      params[params[:controller].singularize.downcase.to_sym].merge!(:updated_by => current_user.id.to_s) if params[params[:controller].singularize.downcase.to_sym]
+    end
   end
 end

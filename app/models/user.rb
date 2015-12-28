@@ -3,7 +3,7 @@ class User < ActiveRecord::Base
  
   delegate :can?, :cannot?, :to => :ability
   
-  devise :database_authenticatable, :registerable,
+  devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter]
   
   def self.new_with_session(params, session)

@@ -20,21 +20,20 @@ class Ability
       Rails.application.eager_load!
       # Bootstraping permissions
       ActiveRecord::Base.descendants.each { |model| cannot [:manage, :read, :write, :delete], model }
-
-      user.role.permissions.except(:all).each do |controller,controller_permissions|
-        if controller_permissions.fetch(:manage, false).to_s == "true"
-          can [:manage, :read, :write, :delete], controller.to_s.singularize.capitalize.constantize
-        else
-          controller_permissions.each do |action, access_right|
-            case access_right.to_s
-            when "true" then
-              can action.to_sym, controller.to_s.singularize.capitalize.constantize
-            when "false" then
-              cannot action.to_sym, controller.to_s.singularize.capitalize.constantize
+        user.role.permissions.except(:all).each do |controller,controller_permissions|
+          if controller_permissions.fetch(:manage, false).to_s == "true"
+            can [:manage, :read, :write, :delete], controller.to_s.singularize.capitalize.constantize
+          else
+            controller_permissions.each do |action, access_right|
+              case access_right.to_s
+              when "true" then
+                can action.to_sym, controller.to_s.singularize.capitalize.constantize
+              when "false" then
+                cannot action.to_sym, controller.to_s.singularize.capitalize.constantize
+              end
             end
           end
         end
-      end
 
       # Rule[0]: User can manage his own resource
       ActiveRecord::Base.descendants.each do |model|
