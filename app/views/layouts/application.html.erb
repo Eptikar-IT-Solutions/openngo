@@ -56,7 +56,7 @@
             <% else %>
               <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
               <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
-            <% end %>
+            
             <!-- Messages: style can be found in dropdown.less-->
             <li class="dropdown messages-menu">
               <!-- Menu toggle button -->
@@ -219,6 +219,7 @@
              </li>
         </ul><!-- /.sidebar-menu -->
       </section>
+      <% end %>
       <!-- /.sidebar -->
       <div id="copyrights">Thank You for helping the world using <a href="https://github.com/Eptikar-IT-Solutions/openngo">OpenNGO</a></div>
     </aside>

@@ -14,7 +14,7 @@ class Ability
     if user.is_admin?
       can :manage, :all
       can :assign_roles, User  
-      can [:create,:show, :write, :edit, :update] , User
+      #can [:create,:show, :write, :edit, :update] , User
     else
       # Need to eager load all models (development only, already ON in production)
       Rails.application.eager_load!
@@ -56,7 +56,7 @@ class Ability
     can :read, [Project, Activity]
 
     # Rule[2]: user can edit his own profile
-    can [:show, :write, :edit, :update] , User, :id => user.id
+    can [:show, :write, :edit, :update] , User, id: user.id
 
     # Rule[3]: user deletion is locked in general
     cannot :destroy, User

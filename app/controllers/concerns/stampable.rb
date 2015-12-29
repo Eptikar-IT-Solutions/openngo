@@ -13,7 +13,7 @@ module Stampable
   end
 
   def stamp_updated_by
-    unless params.fetch('commit') == 'Create User'
+    unless params.fetch('commit', false) == 'Create User'
       params[params[:controller].singularize.downcase.to_sym].merge!(:updated_by => current_user.id.to_s) if params[params[:controller].singularize.downcase.to_sym]
     end
   end

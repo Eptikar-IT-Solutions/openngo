@@ -24,7 +24,9 @@ Rails.application.configure do
 
   # Raise an error on page load if there are pending migrations.
   config.active_record.migration_error = :page_load
-
+   
+  app_env_vars = File.join(Rails.root, 'config', 'initializers', 'app_env_vars.rb')
+  load(app_env_vars) if File.exists?(app_env_vars) 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.

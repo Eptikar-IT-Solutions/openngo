@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
-  skip_authorization_check
-  skip_before_filter :authenticate_user!, :only => [:new, :create]
+  
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
