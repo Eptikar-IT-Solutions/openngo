@@ -20,5 +20,5 @@ class Project < ActiveRecord::Base
   
 	validates :name, uniqueness: true 
 	validates :name, :goal, :budget, presence: true
- 	validates :budget, numericality: true 
+ 	validates :budget, numericality: { allow_blank: true }
 end
