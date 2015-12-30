@@ -13,9 +13,6 @@
               <th><%= t("views.donors.name") %></th>
               <th><%= t("views.donors.email") %></th>
               <th><%= t("views.donors.phone1") %></th>
-              <th><%= t("views.donors.phone2") %></th>
-              <th><%= t("views.donors.fax") %></th>
-              <th><%= t("views.donors.description") %></th>
               <th class="hidden-print"></th>
         </tr>
       </thead>
@@ -32,15 +29,6 @@
     
 
             <td><%= donor.phone1 %></td>
-    
-
-            <td><%= donor.phone2 %></td>
-    
-
-            <td><%= donor.fax %></td>
-    
-
-            <td><%= donor.description %></td>
                 <td class="hidden-print actions">
               <div class="btn-group">
                 <%= link_to t('views.epp.links.show'), donor , :class => 'btn btn-xs btn-default' %>

@@ -12,16 +12,9 @@
         <tr>
               <th><%= t("views.members.name") %></th>
               <th><%= t("views.members.avatar") %></th>
-              <th><%= t("views.members.gender") %></th>
-              <th><%= t("views.members.joined_at") %></th>
               <th><%= t("views.members.email") %></th>
-              <th><%= t("views.members.mobile") %></th>
-              <th><%= t("views.members.address") %></th>
-              <th><%= t("views.members.profession") %></th>
-              <th><%= t("views.members.education") %></th>
-              <th><%= t("views.members.branch_id") %></th>
+              <th><%= t("views.members.branch_id") %></th> 
               <th><%= t("views.members.role_id") %></th>
-              <th><%= t("views.members.bio") %></th>
               <th><%= t("views.members.active") %></th>
               <th class="hidden-print"></th>
         </tr>
@@ -35,33 +28,17 @@
             <td><%= member.name %></td>
         
            <td><%= image_tag member.avatar.url(:thumb)|| 'N/A' %></td> 
-           
-            <td><%= member.gender %></td>
-    
-
-            <td><%= member.joined_at %></td>
     
 
             <td><%= member.email %></td>
     
-
-            <td><%= member.mobile %></td>
-    
-
-            <td><%= member.address %></td>
-    
-
-            <td><%= member.profession_id %></td>
-    
-
-            <td><%= member.education %></td>
-    
-            <td><%= link_to member.branch.name, member.branch if member.branch_id %></td>
+            <% if member.branch %>
+              <td><%= link_to member.branch.name, member.branch if member.branch_id %></td>
+            <% else %>
+              <td> NA </td>
+            <% end %>
 
             <td><%= link_to member.role.name, member.role if member.role_id %></td>
-
-
-            <td><%= member.bio %></td>
     
 
             <td><%= member.active ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></td>

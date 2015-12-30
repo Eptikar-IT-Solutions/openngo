@@ -13,11 +13,8 @@
               <th><%= t("views.activities.name") %></th>
               <th><%= t("views.activities.project_id") %></th>
               <th><%= t("views.activities.branch_id") %></th>
-              <th><%= t("views.activities.budget") %></th>
-              <th><%= t("views.activities.description") %></th>
               <th><%= t("views.activities.from") %></th>
               <th><%= t("views.activities.to") %></th>
-              <th><%= t("views.activities.repeated") %></th>
               <th class="hidden-print"></th>
         </tr>
       </thead>
@@ -31,22 +28,18 @@
     
             <td><%= link_to activity.project.name, activity.project if activity.project_id %></td>
 
-            <td><%= link_to activity.branch.name, activity.branch if activity.branch_id %></td>
+            <% if activity.branch %>
+              <td><%= link_to activity.branch.name, activity.branch if activity.branch_id %></td>
+            <% else %>
+              <td> NA </td>
+            <% end %>
 
-
-            <td><%= activity.budget %></td>
-    
-
-            <td><%= activity.description %></td>
-    
-
+  
             <td><%= activity.from %></td>
     
 
             <td><%= activity.to %></td>
     
-
-            <td><%= activity.repeated %></td>
                 <td class="hidden-print actions">
               <div class="btn-group">
                 <%= link_to t('views.epp.links.show'), activity , :class => 'btn btn-xs btn-default' %>

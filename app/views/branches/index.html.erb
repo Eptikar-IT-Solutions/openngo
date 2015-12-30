@@ -11,7 +11,7 @@
       <thead>
         <tr>
               <th><%= t("views.branches.name") %></th>
-              <th><%= t("views.branches.description") %></th>
+              
               <th><%= t("views.branches.state_id") %></th>
               <th class="hidden-print"></th>
         </tr>
@@ -23,10 +23,7 @@
     
 
             <td><%= branch.name %></td>
-    
 
-            <td><%= branch.description %></td>
-    
             <td><%= link_to branch.state.name, branch.state if branch.state_id %></td>
             <td class="hidden-print actions">
               <div class="btn-group">
