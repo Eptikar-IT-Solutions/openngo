@@ -211,13 +211,23 @@
             <li class="<%= "active" if ["projects", "file", "items"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-truck'></i> <span>#{t "views.projects.projects"}</span>"), projects_path %></li>Settings
               <li class="<%= "active" if ["activities"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.activities.activities"}</span>"), activities_path %></li>
               <li class="<%= "active" if ["members"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.members.members"}</span>"), members_path %></li>
-              <li class="<%= "active" if ["branches"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.branches.branches"}</span>"), branches_path %></li>
+              
               <li class="<%= "active" if ["donors"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.donors.donors"}</span>"), donors_path %></li>
               <li class="<%= "active" if ["locations"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.locations.locations"}</span>"), locations_path %></li>
-              <li class="<%= "active" if ["roles"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.roles.roles"}</span>"), roles_path %></li>
-              <li class="<%= "active" if ["states"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.states.states"}</span>"), states_path %></li>
-             <li class="<%= "active" if ["users"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.users.users"}</span>"), users_path %>
+
+             <li class="treeview">
+              <a href="#">
+                <i class="fa fa-cog"></i> <span><%= t("views.application_layout.settings") %></span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="<%= "active" if ["states"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.states.states"}</span>"), states_path %></li>
+                <li class="<%= "active" if ["branches"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.branches.branches"}</span>"), branches_path %></li>
+                <li class="<%= "active" if ["roles"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.roles.roles"}</span>"), roles_path %></li>
+                <li class="<%= "active" if ["users"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.users.users"}</span>"), users_path %>
              </li>
+              </ul>
+            </li>
         </ul><!-- /.sidebar-menu -->
       </section>
       <% end %>
