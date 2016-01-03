@@ -1,7 +1,7 @@
 require 'api_constraints'
 Rails.application.routes.draw do
 
-  devise_for :users, :path => '', :path_names => {:sign_in => 'login', :sign_out => 'logout'}, :controllers => { omniauth_callbacks: "callbacks", sessions: "sessions" }
+  devise_for :users, :path => '', :path_names => { sign_in: 'login', sign_out: 'logout'}, :controllers => { omniauth_callbacks: "callbacks", confirmations: "confirmations", sessions: "sessions" }
 
   resources :project_roles
   resources :project_milestones
@@ -41,6 +41,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do 
     match '/sessions/user', to: 'devise/sessions#create', via: :post
+    patch "/confirm" => "confirmations#confirm"
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
