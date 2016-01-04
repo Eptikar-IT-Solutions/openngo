@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151228100205) do
+ActiveRecord::Schema.define(version: 20160103113858) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -47,6 +47,30 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.integer  "updated_by",  limit: 4
   end
 
+  create_table "activity_translations", force: :cascade do |t|
+    t.integer  "activity_id", limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+  end
+
+  add_index "activity_translations", ["activity_id"], name: "index_activity_translations_on_activity_id", using: :btree
+  add_index "activity_translations", ["locale"], name: "index_activity_translations_on_locale", using: :btree
+
+  create_table "branch_translations", force: :cascade do |t|
+    t.integer  "branch_id",   limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+  end
+
+  add_index "branch_translations", ["branch_id"], name: "index_branch_translations_on_branch_id", using: :btree
+  add_index "branch_translations", ["locale"], name: "index_branch_translations_on_locale", using: :btree
+
   create_table "branches", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
@@ -56,6 +80,18 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.integer  "created_by",  limit: 4
     t.integer  "updated_by",  limit: 4
   end
+
+  create_table "donor_translations", force: :cascade do |t|
+    t.integer  "donor_id",    limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+  end
+
+  add_index "donor_translations", ["donor_id"], name: "index_donor_translations_on_donor_id", using: :btree
+  add_index "donor_translations", ["locale"], name: "index_donor_translations_on_locale", using: :btree
 
   create_table "donors", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -69,6 +105,17 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.integer  "created_by",  limit: 4
     t.integer  "updated_by",  limit: 4
   end
+
+  create_table "location_translations", force: :cascade do |t|
+    t.integer  "location_id", limit: 4,   null: false
+    t.string   "locale",      limit: 255, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
+    t.string   "name",        limit: 255
+  end
+
+  add_index "location_translations", ["locale"], name: "index_location_translations_on_locale", using: :btree
+  add_index "location_translations", ["location_id"], name: "index_location_translations_on_location_id", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.integer  "state_id",   limit: 4
@@ -104,6 +151,18 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.integer  "user_id",             limit: 4
   end
 
+  create_table "organization_translations", force: :cascade do |t|
+    t.integer  "organization_id", limit: 4,     null: false
+    t.string   "locale",          limit: 255,   null: false
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "name",            limit: 255
+    t.text     "description",     limit: 65535
+  end
+
+  add_index "organization_translations", ["locale"], name: "index_organization_translations_on_locale", using: :btree
+  add_index "organization_translations", ["organization_id"], name: "index_organization_translations_on_organization_id", using: :btree
+
   create_table "organizations", force: :cascade do |t|
     t.string   "name",              limit: 255
     t.string   "website",           limit: 255
@@ -124,6 +183,17 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.integer  "logo_file_size",    limit: 4
     t.datetime "logo_updated_at"
   end
+
+  create_table "profession_translations", force: :cascade do |t|
+    t.integer  "profession_id", limit: 4,   null: false
+    t.string   "locale",        limit: 255, null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name",          limit: 255
+  end
+
+  add_index "profession_translations", ["locale"], name: "index_profession_translations_on_locale", using: :btree
+  add_index "profession_translations", ["profession_id"], name: "index_profession_translations_on_profession_id", using: :btree
 
   create_table "professions", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -170,6 +240,18 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.integer  "updated_by", limit: 4
   end
 
+  create_table "project_milestone_translations", force: :cascade do |t|
+    t.integer  "project_milestone_id", limit: 4,     null: false
+    t.string   "locale",               limit: 255,   null: false
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+    t.string   "name",                 limit: 255
+    t.text     "description",          limit: 65535
+  end
+
+  add_index "project_milestone_translations", ["locale"], name: "index_project_milestone_translations_on_locale", using: :btree
+  add_index "project_milestone_translations", ["project_milestone_id"], name: "index_project_milestone_translations_on_project_milestone_id", using: :btree
+
   create_table "project_milestones", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.text     "description", limit: 65535
@@ -196,6 +278,18 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.datetime "created_at",                null: false
     t.datetime "updated_at",                null: false
   end
+
+  create_table "project_translations", force: :cascade do |t|
+    t.integer  "project_id",  limit: 4,     null: false
+    t.string   "locale",      limit: 255,   null: false
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+    t.string   "name",        limit: 255
+    t.text     "description", limit: 65535
+  end
+
+  add_index "project_translations", ["locale"], name: "index_project_translations_on_locale", using: :btree
+  add_index "project_translations", ["project_id"], name: "index_project_translations_on_project_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",                           limit: 255
@@ -233,6 +327,17 @@ ActiveRecord::Schema.define(version: 20151228100205) do
   add_index "public_activities", ["recipient_id", "recipient_type"], name: "index_public_activities_on_recipient_id_and_recipient_type", using: :btree
   add_index "public_activities", ["trackable_id", "trackable_type"], name: "index_public_activities_on_trackable_id_and_trackable_type", using: :btree
 
+  create_table "role_translations", force: :cascade do |t|
+    t.integer  "role_id",    limit: 4,   null: false
+    t.string   "locale",     limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
+  end
+
+  add_index "role_translations", ["locale"], name: "index_role_translations_on_locale", using: :btree
+  add_index "role_translations", ["role_id"], name: "index_role_translations_on_role_id", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name",        limit: 255
     t.datetime "created_at"
@@ -242,6 +347,17 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.text     "permissions", limit: 65535
   end
 
+  create_table "state_translations", force: :cascade do |t|
+    t.integer  "state_id",   limit: 4,   null: false
+    t.string   "locale",     limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "name",       limit: 255
+  end
+
+  add_index "state_translations", ["locale"], name: "index_state_translations_on_locale", using: :btree
+  add_index "state_translations", ["state_id"], name: "index_state_translations_on_state_id", using: :btree
+
   create_table "states", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at"
@@ -249,6 +365,17 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.integer  "created_by", limit: 4
     t.integer  "updated_by", limit: 4
   end
+
+  create_table "user_translations", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4,   null: false
+    t.string   "locale",     limit: 255, null: false
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.string   "full_name",  limit: 255
+  end
+
+  add_index "user_translations", ["locale"], name: "index_user_translations_on_locale", using: :btree
+  add_index "user_translations", ["user_id"], name: "index_user_translations_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
@@ -272,7 +399,7 @@ ActiveRecord::Schema.define(version: 20151228100205) do
     t.string   "last_sign_in_ip",        limit: 255
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
-    t.string   "locale",                 limit: 255
+    t.string   "language",               limit: 255
     t.integer  "role_id",                limit: 4,   default: 1
     t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"

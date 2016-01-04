@@ -70,6 +70,6 @@ class ProfessionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def profession_params
-      params.require(:profession).permit(:name, :created_by, :updated_by)
+      params.require(:profession).permit(:name, :created_by, :updated_by, translations_attributes: [:id, :locale, :name])
     end
 end

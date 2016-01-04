@@ -9,12 +9,16 @@ ar:
       "Listing of all %{model}": "عرض جميع %{model}"
       links:
         "new %{model}": "%{model} جديد"
-        "edit %{model}": "%{model}تعديل "
+        "edit %{model}": "تعديل %{model}"
         "back": "رجوع"
         "save": "حفظ"
         "show": "عرض"
         "edit": "تعديل"
         "destroy": "حذف"
+        "in %{lang}": " بال%{lang}"
+        "en": "إنجليزية"
+        "ar": "العربية"
+        "translation fields": "حقول الترجمة"
     application_layout:
       "users": "المستخدمون"
       "login": "تسجيل الدخول"
@@ -37,7 +41,6 @@ ar:
       "project_milestones": "المراحل"
       "professions": "المهن"
       "search": "البحث..."
-
     sessions:
       "name": "إسم المستخدم"
       "password": "كلمة المرور"

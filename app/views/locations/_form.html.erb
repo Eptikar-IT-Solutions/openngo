@@ -27,6 +27,18 @@
       <div class="col-sm-10"><%= f.text_field :name, :class => 'form-control' %></div>
     </div>
 
+    <div class="page-header">
+      <h4><%= t("views.epp.links.translation fields") %></h4>
+    </div>
+    <%= f.globalize_fields_for other_locale do |ff| %>
+      <%= ff.hidden_field :locale, value: other_locale %>
+      <div class="form-group">
+        <%= ff.label t("views.locations.name")+t("views.epp.links.in %{lang}", lang: t("views.epp.links.#{other_locale.to_s}")), :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <%= ff.text_field :name, :class => 'form-control' %>
+        </div>
+      </div>
+    <% end %>
   
   <div class="form-group">
     <label class="col-sm-2 control-label" for="attachment_file"></label>

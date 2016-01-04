@@ -16,9 +16,13 @@ class Project < ActiveRecord::Base
   
   has_many :project_partners
   has_many :organizations, through: :project_partners
-  accepts_nested_attributes_for :project_attachments
   
 	validates :name, uniqueness: true 
 	validates :name, :goal, :budget, presence: true
  	validates :budget, numericality: { allow_blank: true }
+
+  accepts_nested_attributes_for :project_attachments
+
+  translates :name, :description, fallbacks_for_empty_translations: true
+  accepts_nested_attributes_for :translations
 end
