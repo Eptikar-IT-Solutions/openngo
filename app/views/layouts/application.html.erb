@@ -33,7 +33,7 @@
     <header class="main-header">
 
       <!-- Logo -->
-      <a href="jobs" class="logo">
+      <a href="projects" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
         <span class="logo-mini">OpenNGO</span>
         <!-- logo for regular state and mobile devices -->
@@ -53,10 +53,10 @@
           <p class="navbar-text pull-right">
             <% if user_signed_in? %>
               <strong><%= link_to current_user.name, edit_user_registration_path, class: 'profile-link' %></strong><a class="profile-link"> | </a>
-              <strong><%= link_to "Logout", destroy_user_session_path, method: :delete, :class => 'navbar-link', class: 'profile-link'  %></strong>
+              <strong><%= link_to t("views.application_layout.logout"), destroy_user_session_path, method: :delete, class: 'profile-link navbar-link'  %></strong>
             <% else %>
-              <%= link_to "Sign up", new_user_registration_path, :class => 'navbar-link'  %>
-              <%= link_to "Login", new_user_session_path, :class => 'navbar-link'  %>
+              <%= link_to t("views.application_layout.sign_up"), new_user_registration_path, :class => 'navbar-link'  %>
+              <%= link_to t("views.application_layout.login"), new_user_session_path, :class => 'navbar-link'  %>
             <% end %>
             <!-- Messages: style can be found in dropdown.less-->
             <li class="dropdown messages-menu">
@@ -208,7 +208,7 @@
         <ul class="sidebar-menu">
         <!-- Optionally, you can add icons to the links -->
         <!--  <li class="active"><a href="#"></a></li> -->
-            <li class="<%= "active" if ["projects", "file", "items"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-truck'></i> <span>#{t "views.projects.projects"}</span>"), projects_path %></li>Settings
+            <li class="<%= "active" if ["projects", "file", "items"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-truck'></i> <span>#{t "views.projects.projects"}</span>"), projects_path %></li>
               <li class="<%= "active" if ["activities"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.activities.activities"}</span>"), activities_path %></li>
               <li class="<%= "active" if ["members"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.members.members"}</span>"), members_path %></li>
               

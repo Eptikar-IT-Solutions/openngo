@@ -21,7 +21,7 @@
       <!-- /.login-logo -->
       <div class="login-box-body">
         <%= render 'layouts/messages' %>
-        <p class="login-box-msg">Login</p>
+        <p class="login-box-msg"><%= t('devise.sessions.new.login') %></p>
 
         <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
           
@@ -38,7 +38,7 @@
           <div class="row">
             <!-- /.col -->
             <div class="col-xs-offset-8 col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat"><%= t('devise.sessions.new.sign_in') %></button>
+              <button type="submit" class="btn btn-primary btn-block btn-flat"><%= t('devise.sessions.new.login') %></button>
             </div>
             <!-- /.col -->
           </div>

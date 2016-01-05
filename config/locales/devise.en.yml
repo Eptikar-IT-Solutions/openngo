@@ -56,12 +56,16 @@ en:
       signed_in: "Signed in successfully."
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
-      login: "Login"
+      new:
+        login: "Login"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
       unlocked: "Your account has been unlocked successfully. Please sign in to continue."
-
+    shared:
+      links:
+        sign_in_options: "You could also Sign in with"
+        dont_have_account: "Don't have an account?"
   activerecord:
     models:
       user: "User"

@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
         if params[:locale] && current_user
           current_user.update({ language: params[:locale] })
         end
-        I18n.locale =  (current_user && current_user.language) || 'en'
+        I18n.locale = (current_user && current_user.language) || params[:locale] || 'en'
       end
 
       def other_locale

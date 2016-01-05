@@ -54,7 +54,7 @@ ar:
         send_me_reset_password_instructions: "أرسلْ لي تعليمات تصفير كلمة المرور"
     registrations:
       new:
-        sign_up: "سجل الدخول"
+        sign_up: "تسجيل حساب جديد"
       edit:
         destroyed: "لقد تمت إزالة حسابك، نأمل في رؤيتك مجدداً في وقت قريب، إلى اللقاء!"
         signed_up: "تم تسجيلك في الموقع بنجاح، أهلاً بك!"
@@ -75,14 +75,18 @@ ar:
       signed_in: "تم تسجيل الدخول بنجاح."
       signed_out: "تم تسجيل الخروج بنجاح."
       new:
-        sign_in: "سجّلْ الدخول"
+        login: "سجّلْ الدخول"
     unlocks:
       new:
         resend_unlock_instructions: "أعدْ إرسال تعليمات فك الحظر"
       send_instructions: "ستصلك خلال دقائق رسالة بريد إلكتروني تتضمن المعلومات اللازمة لإعادة تفعيل الحساب."
       send_paranoid_instructions: "إذا كان حسابك موجوداً، فستصلك خلال دقائق رسالة بريد إلكتروني تتضمن المعلومات اللازمة لإعادة تفعيل الحساب."
       unlocked: "لقد تمت إعادة تفعيل حسابك، قم بتسجيل الدخول من فضلك."
-    errors:
+    shared:
+      links:
+        sign_in_options: "يمكنك تسجيل الدخول أيضا ب"
+        dont_have_account: "ليس لديك حساب؟"  
+  errors:
       messages:
         already_confirmed: "تم تأكيد الحساب مسبقاً، حاول تسجيل الدخول من فضلك. "
         confirmation_period_expired: "كان يجب تأكيده خلال %{period}، قم بطلب تأكيد الحساب من جديد من فضلك."
@@ -97,7 +101,7 @@ ar:
       user: "المستخدم"
     attributes:
       user:
-        email: "البريد"
+        email: "البريد الإلكتروني"
         password: "كلمة المرور"
         password_confirmation: "تأكيد كلمة المور"
         current_password: "كلمة المرور الحالية"

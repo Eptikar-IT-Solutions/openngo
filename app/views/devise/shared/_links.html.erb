@@ -8,7 +8,7 @@
 
 <%- if devise_mapping.omniauthable? %>
   <br /><br />
-  <p class="login-box-msg">You could also Sign in with: </p>
+  <p class="login-box-msg"><%= t('devise.shared.links.sign_in_options')%> </p>
   <div style="display: block-inline; text-align: center">
     <%- resource_class.omniauth_providers.each do |provider| %>
 
@@ -19,7 +19,7 @@
 
 <%- if devise_mapping.registerable? && controller_name != 'registrations' %>
     <div style="display: block-inline; text-align: center">
-      <br /><small>Don't have an account?</small>
+      <br /><small><%= t('devise.shared.links.dont_have_account') %></small>
       <%= link_to " Sign Up", new_registration_path(resource_name) %>
     </div>
 <% end -%>

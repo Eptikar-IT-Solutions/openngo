@@ -41,6 +41,7 @@ ar:
       "project_milestones": "المراحل"
       "professions": "المهن"
       "search": "البحث..."
+      "settings": "الإعدادت"
     sessions:
       "name": "إسم المستخدم"
       "password": "كلمة المرور"
@@ -54,6 +55,8 @@ ar:
       "mobile": "الجوال"
       "email": "البريد الإلكتروني"
       "active": "مفعل"
+      "role": "الدور"
+      "role_id": "الدور"
     activities:
       "activities": "النشاطات"
       "activity": "نشاط"
@@ -106,6 +109,9 @@ ar:
       "goal": "الهدف"
       "description": "الوصف"
       "branch_id": "الفرع"
+      "add_attachment": "الحق ملف"
+      "attachments": "الملفات الملحقة"
+
     locations:
       "locations": "المواقع"
       "location": "موقع" 
@@ -185,6 +191,7 @@ ar:
         "mobile": "الجوال"
         "email": "البريد الإلكتروني"
         "active": "حالة الحساب"
+        "role_id": "الدور"
       activity:
         "activities": "النشاطات"
         "activity": "نشاط"
@@ -227,6 +234,7 @@ ar:
         "phone2": "الهاتف آخر"
         "fax": "الفاكس"
         "description": "الوصف"
+        "attachments": "الملفات الملحقة"
       project:
         "projects": "المشاريع" 
         "project": "مشروع" 
@@ -237,6 +245,7 @@ ar:
         "goal": "الهدف"
         "description": "الوصف"
         "branch_id": "الفرع"
+        "attachment": "Attachment"
       location:
         "locations": "المواقع"
         "location": "موقع" 
