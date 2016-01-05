@@ -2,7 +2,8 @@
 
 <html>
   <head>
-    <title><%= "OpenNGO - #{t("views.devise.sessions.new.login")}" %></title>
+    <title><%= "OpenNGO - #{t("views.devise.sessions.new.sign_in")}" %></title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "prefixfree.min" %>
@@ -37,7 +38,7 @@
           <div class="row">
             <!-- /.col -->
             <div class="col-xs-offset-8 col-xs-4">
-              <button type="submit" class="btn btn-primary btn-block btn-flat"><%= t('views.sessions.login') %></button>
+              <button type="submit" class="btn btn-primary btn-block btn-flat"><%= t('devise.sessions.new.sign_in') %></button>
             </div>
             <!-- /.col -->
           </div>

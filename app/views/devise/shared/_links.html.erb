@@ -11,6 +11,7 @@
   <p class="login-box-msg">You could also Sign in with: </p>
   <div style="display: block-inline; text-align: center">
     <%- resource_class.omniauth_providers.each do |provider| %>
+
       <%= link_to "", omniauth_authorize_path(resource_name, provider), { class: "fa fa-#{provider.to_s.singularize} fa-3x" } %>
     <% end -%>
   </div>
@@ -23,9 +24,10 @@
     </div>
 <% end -%>
 
+<!-- 
 <%- if devise_mapping.confirmable? && controller_name != 'confirmations' %>
   <%= link_to "Didn't receive confirmation instructions?", new_confirmation_path(resource_name) %><br />
-<% end -%>
+<% end -%> -->
 
 <%- if devise_mapping.lockable? && resource_class.unlock_strategy_enabled?(:email) && controller_name != 'unlocks' %>
   <%= link_to "Didn't receive unlock instructions?", new_unlock_path(resource_name) %><br />

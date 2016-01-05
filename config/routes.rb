@@ -41,7 +41,7 @@ Rails.application.routes.draw do
 
   devise_scope :user do 
     match '/sessions/user', to: 'devise/sessions#create', via: :post
-    patch "/confirm" => "confirmations#confirm"
+    match "/confirm", to: "confirmations#confirm", via: :put
   end
 
   # The priority is based upon order of creation: first created -> highest priority.

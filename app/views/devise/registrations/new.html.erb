@@ -1,17 +1,17 @@
-<h2>Sign up</h2>
+<h2><%= t("t.devise.registrations.new.sign_up") %></h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= devise_error_messages! %>
   
   <h>Sign up. All we need is your email address.</h>
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
+
+  <div class="form-group">
+    <%= f.label :email , :class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10"><%= f.email_field :email, autofocus: true,  :class => 'form-control' %></div>
   </div>
 
-  <div class="actions">
-    <%= f.submit "Sign up" %>
+  <div class="form-group">
+    <label class="col-sm-2 control-label" for="attachment_file"></label>
+    <div class="col-sm-10"><button class="btn btn-primary" type="submit"> <%= t("devise.registrations.new.sign_up") %></button></div>
   </div>
 <% end %>
-
-<%= render "devise/shared/links" %>
