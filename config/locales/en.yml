@@ -10,6 +10,10 @@ en:
         "show": "Show"
         "edit": "Edit"
         "destroy": "Destroy"
+        "in %{lang}": " in %{lang}"
+        "en": "english"
+        "ar": "arabic"
+        "translation fields": "Translation Fields"
     application_layout:
       "users": "Users"
       "login": "Login"

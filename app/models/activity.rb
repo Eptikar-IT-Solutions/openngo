@@ -17,6 +17,9 @@ class Activity < ActiveRecord::Base
     
 	validates :name, uniqueness: true, presence: true
 	validates :budget, numericality: true
+
+  translates :name, :description, fallbacks_for_empty_translations: true
+  accepts_nested_attributes_for :translations
   
   before_destroy :remove_all_activities 
 

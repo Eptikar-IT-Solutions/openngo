@@ -70,6 +70,6 @@ class BranchesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def branch_params
-      params.require(:branch).permit(:name, :description, :state_id, :created_by, :updated_by)
+      params.require(:branch).permit(:name, :description, :state_id, :created_by, :updated_by, translations_attributes: [:id, :locale, :name, :description])
     end
 end

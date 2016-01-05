@@ -72,6 +72,6 @@ class RolesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def role_params
       permissions_params = params.require(:role).fetch(:permissions, nil).try(:permit!)
-      params.require(:role).permit(:name, :created_by, :updated_by).merge( permissions: permissions_params)
+      params.require(:role).permit(:name, :created_by, :updated_by, translations_attributes: [:id, :locale, :name]).merge( permissions: permissions_params)
     end
 end
