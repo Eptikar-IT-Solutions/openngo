@@ -10,4 +10,3 @@ doc/
 .DS_Store
 *.sublime-workspace
 *.sublime-project
-/config/initializers/app_env_vars.rb
