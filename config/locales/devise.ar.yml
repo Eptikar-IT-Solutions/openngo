@@ -75,7 +75,8 @@ ar:
       signed_in: "تم تسجيل الدخول بنجاح."
       signed_out: "تم تسجيل الخروج بنجاح."
       new:
-        login: "سجّلْ الدخول"
+        sign_in: "سجّلْ الدخول"
+        openngo_version: "OpenNGO النسخة 0.0.1 من "
     unlocks:
       new:
         resend_unlock_instructions: "أعدْ إرسال تعليمات فك الحظر"
@@ -86,6 +87,9 @@ ar:
       links:
         sign_in_options: "يمكنك تسجيل الدخول أيضا ب"
         dont_have_account: "ليس لديك حساب؟"  
+        forget_password: "هل نسيت كلمة مرورك؟"
+        log_in: "تسجيلالدخول"
+        sign_up: "تسجيل حساب"
   errors:
       messages:
         already_confirmed: "تم تأكيد الحساب مسبقاً، حاول تسجيل الدخول من فضلك. "

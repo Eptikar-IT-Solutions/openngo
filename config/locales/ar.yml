@@ -42,6 +42,7 @@ ar:
       "professions": "المهن"
       "search": "البحث..."
       "settings": "الإعدادت"
+      "copyrights": "شكرا لكم لجعل العالم مكانا أفضل بمساعدة"
     sessions:
       "name": "إسم المستخدم"
       "password": "كلمة المرور"
@@ -111,7 +112,7 @@ ar:
       "branch_id": "الفرع"
       "add_attachment": "الحق ملف"
       "attachments": "الملفات الملحقة"
-
+      "remove": "Remove"
     locations:
       "locations": "المواقع"
       "location": "موقع" 

@@ -213,6 +213,8 @@
               <li class="<%= "active" if ["members"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.members.members"}</span>"), members_path %></li>
               
               <li class="<%= "active" if ["donors"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.donors.donors"}</span>"), donors_path %></li>
+              
+              <li class="<%= "active" if ["donors"].include?(controller.controller_name) %>">reports %></li>
 
              <li class="treeview">
               <a href="#">
@@ -231,7 +233,7 @@
       </section>
       <% end %>
       <!-- /.sidebar -->
-      <div id="copyrights">Thank You for helping the world using <a href="https://github.com/Eptikar-IT-Solutions/openngo">OpenNGO</a></div>
+      <div id="copyrights"><%= t("views.application_layout.copyrights")%><a href="https://github.com/Eptikar-IT-Solutions/openngo">OpenNGO</a></div>
     </aside>
 
     <!-- Content Wrapper. Contains page content -->

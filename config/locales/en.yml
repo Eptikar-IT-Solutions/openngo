@@ -24,6 +24,7 @@ en:
       "Switch Language": "عربي"
       "search": "Search..."
       "settings": "Settings"
+      "copyrights": "Thank You for helping the world using"
     sessions:
       "new":
       "name": "User Name"
@@ -93,6 +94,7 @@ en:
       "branch_id": "Branch"
       "attachments": "attachments"
       "add_attachment": "Add Attachment"
+      "remove": "Remove"
     locations:
       "locations": "locations"
       "location": "location" 

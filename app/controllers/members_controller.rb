@@ -83,7 +83,7 @@ class MembersController < ApplicationController
     end
 
     def set_member_profession
-      other_profession_id = Profession.find_by(name: 'other').id
+      other_profession_id = Profession.where(name: 'other').take.id
       if member_params['profession_id'].to_i == other_profession_id
         params[:member][:profession_id] = Profession.find_or_create_by(name: member_params['other_profession']).id
       end

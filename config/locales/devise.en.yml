@@ -57,7 +57,8 @@ en:
       signed_out: "Signed out successfully."
       already_signed_out: "Signed out successfully."
       new:
-        login: "Login"
+        sign_in: "Login"
+        openngo_version: "OpenNGO Ver 0.0.1"
     unlocks:
       send_instructions: "You will receive an email with instructions for how to unlock your account in a few minutes."
       send_paranoid_instructions: "If your account exists, you will receive an email with instructions for how to unlock it in a few minutes."
@@ -66,6 +67,9 @@ en:
       links:
         sign_in_options: "You could also Sign in with"
         dont_have_account: "Don't have an account?"
+        forget_password: "Forgot your password?"
+        log_in: "Log in"
+        sign_up: "Sign up"
   activerecord:
     models:
       user: "User"
