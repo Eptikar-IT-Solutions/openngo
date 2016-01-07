@@ -104,6 +104,8 @@ en:
       "roles": "Roles" 
       "role": "Role"
       "name": "Name"
+      "informations": "Informations"
+      "permissions": "Permissions"
     states:
       "states": "States"
       "state": "State"

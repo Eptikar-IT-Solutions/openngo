@@ -126,6 +126,8 @@ ar:
       "states": "الولايات"
       "state": "ولاية"
       "name": "الإسم"
+      "informations": "المعلومات"
+      "permissions": "التصريحات"
     project_locations:
       "project_locations": "مواقع المشاريع"
       "project_location": "موقع مشروع"

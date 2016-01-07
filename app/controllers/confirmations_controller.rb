@@ -33,6 +33,6 @@
 
      private
        def permitted_params
-         params.require(resource_name).permit(:email, :confirmation_token, :password, :password_confirmation)
+         params.require(resource_name).permit(:name, :full_name, :email, :confirmation_token, :password, :password_confirmation)
        end
     end
