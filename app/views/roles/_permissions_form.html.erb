@@ -1,11 +1,11 @@
 <% Rails.application.eager_load! %>
-<%- @controllers = ApplicationController.descendants - [DeviseController,  ActivityLocationsController, ActivityMembersController,ProfessionsController, ProjectAttachmentsController, ProjectDonorsController, ProjectLocationsController, ProjectMembersController, ProjectPartnersController, ProjectRolesController, Devise::OmniauthCallbacksController, CallbacksController, Api::V1::ActivitiesController,Api::V1::ProjectsController, Devise::SessionsController,  Devise::ConfirmationsController, Devise::RegistrationsController, Devise::SessionsController, CallbacksController, ConfirmationsController, RegistrationsController, SessionsController] %>
+<%- @controllers = ApplicationController.descendants - [DeviseController,  ActivityLocationsController, ActivityMembersController,ProfessionsController, ProjectAttachmentsController, ProjectDonorsController, ProjectLocationsController, ProjectMembersController, ProjectPartnersController, ProjectRolesController, Devise::OmniauthCallbacksController, CallbacksController, Api::V1::ActivitiesController,Api::V1::ProjectsController, Devise::SessionsController,  Devise::ConfirmationsController, Devise::RegistrationsController, Devise::SessionsController, CallbacksController, ConfirmationsController, RegistrationsController, SessionsController, Devise::PasswordsController, Devise::UnlocksController] %>
 <div class="table-responsive">
   <table class="table table-striped permissions">
     <tbody>
     <%- @controllers.map { |c| { c => [:manage, :read, :create, :update, :delete]} }.reduce(Hash.new, :merge).each do |controller, actions| %>
         <tr>
-          <td><%= controller.controller_name.titleize %></td>
+          <td><%= t("views.roles.%{controller}", controller: t("controllers.application_controller.#{controller.controller_name.titleize}")) %></td>
           <% controller_hash = @role.permissions.fetch(controller.controller_name, false) %>
           <%- actions.each do |action| %>
             <% if controller_hash %>
@@ -14,7 +14,8 @@
             <% else%>  
               <% action_value = false %>
             <% end %>  
-            <td><%= f.check_box :"permissions[#{controller.controller_name}][#{action.to_sym}]", {checked: action_value}, true, false  %> <%= action.to_s.titleize %></td>
+            <td><%= f.check_box :"permissions[#{controller.controller_name}][#{action.to_sym}]", {checked: action_value}, true, false  %> 
+               <%=t("views.roles.%{action}", action: t("views.roles.#{action.to_s.titleize}"))%> </td>
           <% end %>
         </tr>
   <% end %>

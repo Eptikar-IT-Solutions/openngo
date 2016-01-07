@@ -62,6 +62,19 @@
       </div>
     </div>  
 
+          <div class="form-group">
+        <%= f.label :location, :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10">
+          <div class="input-group">
+            <%= f.select :location_id, Location.all.collect {|p| [ p.name, p.id ] }, {}, { :class => 'form-control' } %>
+            <span class="input-group-btn">
+            <%= link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_location_path, :class => 'btn btn-default', :target => '_blank' %>
+            <%= link_to raw('<span class="glyphicon glyphicon-play"></span>'), locations_path, :class => 'btn btn-default goto' %>
+            </span>
+          </div>
+        </div>
+      </div>
+
 
     <div class="form-group">
       <% if Project.exists?(@project.id) && @project.project_attachments.any? %>

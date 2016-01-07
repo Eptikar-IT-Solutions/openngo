@@ -106,6 +106,13 @@ en:
       "name": "Name"
       "informations": "Informations"
       "permissions": "Permissions"
+      "%{action}": "%{action}"
+      "Read": "Read"
+      "Create": "Create"
+      "Delete": "Delete"
+      "Manage": "Manage"
+      "Update": "Update"
+      "%{controller}": "%{controller}"    
     states:
       "states": "States"
       "state": "State"
