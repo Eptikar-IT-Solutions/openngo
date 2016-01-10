@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110073804) do
+ActiveRecord::Schema.define(version: 20160110081506) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -402,7 +402,7 @@ ActiveRecord::Schema.define(version: 20160110073804) do
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
     t.string   "language",               limit: 255
-    t.integer  "role_id",                limit: 4,   default: 2
+    t.integer  "role_id",                limit: 4,   default: 1
     t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"
