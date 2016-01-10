@@ -95,6 +95,7 @@ en:
       "attachments": "attachments"
       "add_attachment": "Add Attachment"
       "remove": "Remove"
+      "location": "location"
     locations:
       "locations": "locations"
       "location": "location" 
@@ -239,6 +240,7 @@ en:
           "description": "Description"
           "branch_id": "Branch"
           "attachments": "Attachments"
+          "location": "location"
       location:
         "locations": "locations"
         "location": "location" 
