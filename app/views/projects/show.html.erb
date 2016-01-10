@@ -46,6 +46,13 @@
 		<div class="col-sm-10"><%= @project.try(:description) || 'N/A' %></div>
 	</div>
 
+		<div class="col-sm-10"><%= link_to @project.location.name, @project.location if @project.location_id %></div>
+		</div>
+
+    	<div class="col-sm-10"><%= link_to @project.branch.name, @project.branch if @project.branch_id %></div>
+		</div>
+
+
   <div class="row">
   	<div class="col-sm-2"><strong><%= t("views.projects.attachments") %></strong></div>
     <div class="col-sm-10">

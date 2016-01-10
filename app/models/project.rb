@@ -4,8 +4,9 @@ class Project < ActiveRecord::Base
 
   has_many :project_attachments
   
-	has_many :project_locations
-  has_many :locations, through: :project_locations
+  belongs_to :location
+	# has_many :project_locations
+ #  has_many :locations, through: :project_locations
 
 	has_many :project_donors
   has_many :donors, through: :project_donors
