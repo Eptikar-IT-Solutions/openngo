@@ -191,7 +191,7 @@ en:
         "location_id": "Location"
       activity:
         "activities": "Activities"
-        "activitiy": "Activity"
+        "activity": "Activity"
         "name": "Name"
         "project": "Project"
         "branch": "Branch"

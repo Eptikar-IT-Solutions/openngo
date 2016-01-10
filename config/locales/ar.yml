@@ -273,7 +273,7 @@ ar:
         "description": "الوصف"
         "branch_id": "الفرع"
         "attachment": "الملف الملحق"
-        "location_id": "الموقع"
+        "location": "الموقع"
       location:
         "locations": "المواقع"
         "location": "موقع" 

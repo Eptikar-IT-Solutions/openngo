@@ -8,9 +8,10 @@ class Activity < ActiveRecord::Base
    
   belongs_to :project
   belongs_to :branch
-
-  has_many :activity_locations
-  has_many :locations, through: :activity_locations
+  
+  belongs_to :location
+  # has_many :activity_locations
+  # has_many :locations, through: :activity_locations
 
   has_many :activity_members
   has_many :members, through: :activity_members
