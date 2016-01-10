@@ -113,7 +113,7 @@ ar:
       "add_attachment": "الحق ملف"
       "attachments": "الملفات الملحقة"
       "remove": "Remove"
-      "location": "الموقع"
+      "location_id": "الموقع"
     locations:
       "locations": "المواقع"
       "location": "موقع" 
@@ -273,7 +273,7 @@ ar:
         "description": "الوصف"
         "branch_id": "الفرع"
         "attachment": "الملف الملحق"
-        "location": "الموقع"
+        "location_id": "الموقع"
       location:
         "locations": "المواقع"
         "location": "موقع" 

@@ -95,7 +95,7 @@ en:
       "attachments": "attachments"
       "add_attachment": "Add Attachment"
       "remove": "Remove"
-      "location": "location"
+      "location_id": "location"
     locations:
       "locations": "locations"
       "location": "location" 
@@ -188,6 +188,7 @@ en:
         "goal": "Goal"
         "description": "Description"
         "branch_id": "Branch"
+        "location_id": "Location"
       activity:
         "activities": "Activities"
         "activitiy": "Activity"
@@ -240,7 +241,7 @@ en:
           "description": "Description"
           "branch_id": "Branch"
           "attachments": "Attachments"
-          "location": "location"
+          "location_id": "location"
       location:
         "locations": "locations"
         "location": "location" 
@@ -286,7 +287,7 @@ en:
         "description": "Description"           
         "address": "Address"
         "active": "Active"    
-      projec_milestone:
+      project_milestone:
         "project_milestones": "project_milestones"
         "project_milestone": "project_milestone"          
         "name": "Name" 
