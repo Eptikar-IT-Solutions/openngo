@@ -263,6 +263,12 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    ruby-trello (1.4.1)
+      activemodel (>= 3.2.0)
+      addressable (~> 2.3)
+      json
+      oauth (~> 0.4.5)
+      rest-client (~> 1.8.0)
     rubyzip (1.1.7)
     sass (3.4.19)
     sass-rails (5.0.4)
@@ -338,9 +344,13 @@ DEPENDENCIES
   rails_12factor
   responders
   rspec-rails
+  ruby-trello
   sass-rails (~> 5.0.3)
   sdoc
   shoulda
   sqlite3
   therubyracer
   uglifier (>= 2.7.1)
+
+BUNDLED WITH
+   1.10.6
