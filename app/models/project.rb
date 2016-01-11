@@ -34,14 +34,9 @@ class Project < ActiveRecord::Base
     def create_trello_board 
       board_name = self.name
       board_description =  self.description
-      board = Trello::Board.all.detect do |board|
-        board.name =~ /#{board_name}/
-      end
-      unless board
-        board = Trello::Board.create(
+        Trello::Board.create(
           name: board_name,
           description: board_description
-        )
-      end  
+        ) 
     end
 end
