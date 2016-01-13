@@ -20,13 +20,7 @@
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
   <![endif]-->
-  <script type="text/javascript">
-  $(document).ready(function() {
-    $(".select2").select2();
-  });
-  </script>
-  <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
-  <script src="https://api.trello.com/1/client.js?key=[70f00a63003b8f4b28375ef65ab95ff1]"></script>
+  <script src="https://api.trello.com/1/client.js?key=[<%= ENV['TRELLO_KEY'] %>]"></script>
 </head>
 <body class="hold-transition skin-green fixed">
   <div class="wrapper">
@@ -206,31 +200,38 @@
         </form>
         <!-- /.search form -->
         <% if user_signed_in? %>
-        <!-- Sidebar Menu -->
-        <ul class="sidebar-menu">
-        <!-- Optionally, you can add icons to the links -->
-        <!--  <li class="active"><a href="#"></a></li> -->
+          <!-- Sidebar Menu -->
+          <ul class="sidebar-menu">
+            <!-- Optionally, you can add icons to the links -->
+            <!--  <li class="active"><a href="#"></a></li> -->
             <li class="<%= "active" if ["projects", "file", "items"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-truck'></i> <span>#{t "views.projects.projects"}</span>"), projects_path %></li>
-              <li class="<%= "active" if ["activities"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.activities.activities"}</span>"), activities_path %></li>
-              <li class="<%= "active" if ["members"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.members.members"}</span>"), members_path %></li>
+            <li class="<%= "active" if ["activities"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.activities.activities"}</span>"), activities_path %></li>
+            <li class="<%= "active" if ["members"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.members.members"}</span>"), members_path %></li>
               
-              <li class="<%= "active" if ["donors"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.donors.donors"}</span>"), donors_path %></li>
-              
-             <li class="treeview">
+            <li class="<%= "active" if ["donors"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.donors.donors"}</span>"), donors_path %></li>
+                
+            <li class="treeview">
               <a href="#">
                 <i class="fa fa-cog"></i> <span><%= t("views.application_layout.settings") %></span>
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
+
               <ul class="treeview-menu">
-                <li class="<%= "active" if ["states"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.states.states"}</span>"), states_path %></li>
-                <li class="<%= "active" if ["branches"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.branches.branches"}</span>"), branches_path %></li>
-                <li class="<%= "active" if ["roles"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.roles.roles"}</span>"), roles_path %></li>
+                <li class="<%= "active" if ["states"].include?(controller.controller_name) %>">
+                  <%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.states.states"}</span>"), states_path %>
+                </li>
+                <li class="<%= "active" if ["branches"].include?(controller.controller_name) %>">
+                  <%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.branches.branches"}</span>"), branches_path %>
+                </li>
+                <li class="<%= "active" if ["roles"].include?(controller.controller_name) %>">
+                  <%=link_to raw("<i class='fa fa-link'></i> <span>#{t "views.roles.roles"}</span>"), roles_path %>
                 </li>
               </ul>
             </li>
-        </ul><!-- /.sidebar-menu -->
+            
+          </ul><!-- /.sidebar-menu -->
+        <% end %> 
       </section>
-      <% end %>
       <!-- /.sidebar -->
       <div id="copyrights"><%= t("views.application_layout.copyrights")%><a href="https://github.com/Eptikar-IT-Solutions/openngo">OpenNGO</a></div>
     </aside>

@@ -1,6 +1,7 @@
 class Organization < ActiveRecord::Base
   has_many :project_partners
   has_many :members
+  has_many :projects 
   
 	validates :name, uniqueness: true 
 	validates :name, presence: true

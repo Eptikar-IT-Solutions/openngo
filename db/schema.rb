@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160112143242) do
+ActiveRecord::Schema.define(version: 20160113095751) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -165,24 +165,25 @@ ActiveRecord::Schema.define(version: 20160112143242) do
   add_index "organization_translations", ["organization_id"], name: "index_organization_translations_on_organization_id", using: :btree
 
   create_table "organizations", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.string   "website",           limit: 255
-    t.string   "subdomain",         limit: 255
-    t.string   "email",             limit: 255
-    t.string   "phone1",            limit: 255
-    t.string   "phone2",            limit: 255
-    t.string   "fax",               limit: 255
-    t.string   "address",           limit: 255
-    t.text     "description",       limit: 65535
+    t.string   "name",                limit: 255
+    t.string   "website",             limit: 255
+    t.string   "subdomain",           limit: 255
+    t.string   "email",               limit: 255
+    t.string   "phone1",              limit: 255
+    t.string   "phone2",              limit: 255
+    t.string   "fax",                 limit: 255
+    t.string   "address",             limit: 255
+    t.text     "description",         limit: 65535
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by",        limit: 4
-    t.integer  "updated_by",        limit: 4
-    t.string   "logo_file_name",    limit: 255
-    t.string   "logo_content_type", limit: 255
-    t.integer  "logo_file_size",    limit: 4
+    t.integer  "created_by",          limit: 4
+    t.integer  "updated_by",          limit: 4
+    t.string   "logo_file_name",      limit: 255
+    t.string   "logo_content_type",   limit: 255
+    t.integer  "logo_file_size",      limit: 4
     t.datetime "logo_updated_at"
+    t.string   "trello_member_token", limit: 255
   end
 
   create_table "profession_translations", force: :cascade do |t|
@@ -311,6 +312,7 @@ ActiveRecord::Schema.define(version: 20160112143242) do
     t.datetime "required_document_updated_at"
     t.integer  "location_id",                    limit: 4
     t.string   "trello_board_id",                limit: 255
+    t.integer  "organization_id",                limit: 4
   end
 
   create_table "public_activities", force: :cascade do |t|

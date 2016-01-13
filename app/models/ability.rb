@@ -62,6 +62,6 @@ class Ability
     cannot :destroy, User
 
     # Rule[4]: user cannot touch organizations in general
-    cannot [:read, :write, :edit, :update] , Organization
+    #cannot [:read, :write, :edit, :update] , Organization
   end
 end

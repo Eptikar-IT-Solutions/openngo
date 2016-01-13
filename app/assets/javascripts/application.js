@@ -16,10 +16,10 @@
 //= require jquery.tablesorter.min
 //= require jquery.slimscroll
 //= require admin-lte
-//= require jquery_ujs
-//= require_self
-//= require_tree . 
+//= require jquery_ujs 
 //= require depends_on.js
+//= require_self
+//= require_tree .
 
 $(document).ready(function() {
 	

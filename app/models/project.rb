@@ -1,4 +1,5 @@
 require 'trello'
+
 class Project < ActiveRecord::Base
 	belongs_to :branch
   has_many :project_milestones
@@ -8,7 +9,8 @@ class Project < ActiveRecord::Base
   belongs_to :location
 	# has_many :project_locations
   #  has_many :locations, through: :project_locations
-
+  belongs_to :organization 
+  
 	has_many :project_donors
   has_many :donors, through: :project_donors
 
@@ -31,13 +33,21 @@ class Project < ActiveRecord::Base
   after_create :create_trello_board 
 
   private
-    def create_trello_board 
-      board_name = self.name
-      board_description =  self.description
-      board = Trello::Board.create(
-                name: board_name,
-                description: board_description
-              ) 
-      webhook = Trello::Webhook.create(description: "A webhook that update project model every time the card updated", id_model: board.id, callback_url: "http://localhost:3000/trello_webhooks")  
+    def create_trello_board
+      organization = Organization.first
+
+      if organization.trello_member_token
+        
+        Trello.configure do |config|
+          config.developer_public_key = ENV['TRELLO-KEY'] 
+          config.member_token = organization.trello_member_token
+        end 
+
+        board = Trello::Board.create(
+          name: self.name,
+          description: self.description
+        ) 
+        #webhook = Trello::Webhook.create(description: "A webhook that update project model every time the card updated", id_model: board.id, callback_url: "http://localhost:3000/trello_webhooks")  
+      end
     end
 end

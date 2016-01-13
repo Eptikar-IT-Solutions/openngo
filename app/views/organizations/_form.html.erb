@@ -80,9 +80,19 @@
 
     <div class="form-group">
       <%= f.label :logo, :class => 'col-sm-2 control-label' %>
-      <div class="col-sm-10"><%= f.file_field :logo, :class => 'form-control' %></div>
+      <div class="col-sm-10"><%= f.file_field :logo, :class => 'form-control' %>
+      </div>
     </div>
 
+    <div class="form-group">
+      <div>
+        <%= f.label :trello_member_token , :class => 'col-sm-2 control-label' %>
+        <div class="col-sm-10"><%= f.text_field :trello_member_token, :class =>'form-control' %></div>
+        <small class="col-sm-10"><%= t('views.organizations.instructions')%>
+        <a class="btn btn-default" target="_blank" href="https://trello.com/1/connect?key=70f00a63003b8f4b28375ef65ab95ff1&name=OpenNGO&response_type=token&scope=read,write"><%= t('views.organizations.get_token') %></a></small>
+      </div>
+    </div> 
+    
 
       <div class="form-group">
         <%= f.label :active, :class => 'col-sm-2 control-label' %>
@@ -114,6 +124,7 @@
         </div>
       </div>
     <% end %>
+
 
   
   <div class="form-group">

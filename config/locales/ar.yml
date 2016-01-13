@@ -169,6 +169,9 @@ ar:
       "description": "الوصف"           
       "address": "العنوان"
       "active": "نشط" 
+      "trello_member_token": "ضبط trello"
+      "instructions": "لربط المنظمة بحساب Trello يرجى الضغط على زر 'احصل على الرمز' الرمز  و انسخ التوكين الموفر في الصفحة الموجه إليها و ثم ادخله على حقل النص هذا"
+      "get_token": "احصل على الرمز"
     project_milestones:
       "project_milestones": "المراحل"
       "project_milestone": "المرحلة"
@@ -320,6 +323,7 @@ ar:
         "description": "الوصف"           
         "address": "العنوان"
         "active": "نشط" 
+        "trello_member_token": "رمز Trello"
       profession:
         "professions": "المهن"
         "profession": "المهنة"

@@ -1,30 +1,29 @@
 class ApplicationController < ActionController::Base
-    include PublicActivity::StoreController
-    include Stampable
-     
-    protect_from_forgery with: :exception
+  include PublicActivity::StoreController
+  include Stampable
+   
+  protect_from_forgery with: :exception
 
-    before_filter :set_locale
-    before_action :authenticate_user!
+  before_filter :set_locale
+  before_action :authenticate_user!
 
-    layout :set_layout
+  layout :set_layout
 
-    private
-
-      def set_locale
-        if params[:locale] && current_user
-          current_user.update({ language: params[:locale] })
-        end
-        I18n.locale = (current_user && current_user.language) || params[:locale] || 'en'
+  private
+    def set_locale
+      if params[:locale] && current_user
+        current_user.update({ language: params[:locale] })
       end
+      I18n.locale = (current_user && current_user.language) || params[:locale] || 'en'
+    end
 
-      def other_locale
-        ([:en, :ar] - Array(I18n.locale)).first
-      end
+    def other_locale
+      ([:en, :ar] - Array(I18n.locale)).first
+    end
 
-      def set_layout
-        (request.xhr?) ? false : 'application'
-      end
+    def set_layout
+      (request.xhr?) ? false : 'application'
+    end
 
-      helper_method :other_locale
+    helper_method :other_locale
 end
