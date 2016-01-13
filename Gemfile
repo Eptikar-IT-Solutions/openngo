@@ -17,7 +17,8 @@ gem 'omniauth'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'cancancan', '~> 1.10'
-gem "ruby-trello"
+gem 'ruby-trello'
+gem 'trello_webhook'
 
 group :doc do
   gem 'sdoc', require: false

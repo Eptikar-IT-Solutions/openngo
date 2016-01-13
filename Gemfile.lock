@@ -301,6 +301,8 @@ GEM
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
+    trello_webhook (0.1.0)
+      activesupport (~> 4)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.7.2)
@@ -350,6 +352,7 @@ DEPENDENCIES
   shoulda
   sqlite3
   therubyracer
+  trello_webhook
   uglifier (>= 2.7.1)
 
 BUNDLED WITH

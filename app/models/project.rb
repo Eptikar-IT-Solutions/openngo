@@ -34,9 +34,10 @@ class Project < ActiveRecord::Base
     def create_trello_board 
       board_name = self.name
       board_description =  self.description
-        Trello::Board.create(
-          name: board_name,
-          description: board_description
-        ) 
+      board = Trello::Board.create(
+                name: board_name,
+                description: board_description
+              ) 
+      webhook = Trello::Webhook.create(description: "A webhook that update project model every time the card updated", id_model: board.id, callback_url: "http://localhost:3000/trello_webhooks")  
     end
 end

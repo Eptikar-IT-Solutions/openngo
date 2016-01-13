@@ -26,10 +26,11 @@ Rails.application.routes.draw do
   resources :locations
   resources :states
   resources :users
-  #resources :sessions
+  #resource :trello_webhooks, defaults: { formats: :json }
   resources :projects do
     resources :project_attachments
   end
+
   root :to => "projects#index"
 
   namespace :api, defaults: {format: 'json'} do
@@ -41,9 +42,9 @@ Rails.application.routes.draw do
 
   devise_scope :user do 
     match '/sessions/user', to: 'devise/sessions#create', via: :post
-    match "/confirm", to: "confirmations#confirm", via: :put
+    match "/confirm", to: "confirmations#confirm", via: :put 
   end
-
+  get "trello_webhooks" => "trello_webhooks#update_board", :as => "trello_webhooks"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
