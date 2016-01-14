@@ -1,4 +1,4 @@
-pclass Organization < ActiveRecord::Base
+class Organization < ActiveRecord::Base
   has_many :project_partners
   has_many :members
   has_many :projects 

@@ -40,7 +40,7 @@ branch12 = Branch.create(name: "Al Shebelya Island", state_id: state17)
 branch13 = Branch.create(name: "Kebkabya", state_id: state7.id)
 branch14 = Branch.create(name: "Enviromental Information Centere", state_id: state18.id)
 
-Organization.create(name: 'SECS', website: 'www.secs.org.sd',email: 'secs.org@gmail.com',active: true)
+#Organization.create(name: 'SECS', website: 'www.secs.org.sd',email: 'secs.org@gmail.com',active: true)
 
 Project.create(name: 'Eco Neighbouehoods Project', budget: 1908547.75, from: '2010-01-01', to: '2013-01-01', goal: 'To improve environmental management and reduce poverty in the state of Khartoum to contribute towards achieving the Millennium Development Goals (MDGs)')
 Project.create(name: 'Spreading Human and Environmental Rights', budget: 252605.93, from: '2007-01-01', to: '2010-01-01', goal: 'To spread human and environmental rights culture among sudanese communities')
