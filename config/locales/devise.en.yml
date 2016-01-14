@@ -45,6 +45,7 @@ en:
       updated: "Your account has been updated successfully."
       new:
         sign_up: "sign up. All we need is your email address."
+        sign_up_head: "Sign up"
       edit:
         are_you_sure: "Are you sure?"
         cancel_my_account: "Cancel my account"

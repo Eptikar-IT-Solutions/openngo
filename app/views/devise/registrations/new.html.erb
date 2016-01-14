@@ -1,16 +1,14 @@
-<%- title t("devise.registrations.new.sign_up") %>
+<%- title t("devise.registrations.new.sign_up_head") %>
 <div class="col-lg-12">
   <div class="page-header">
-    <h1><%= t("devise.registrations.new.sign_up") %></h1>
+    <h1><%= t("devise.registrations.new.sign_up_head") %></h1>
   </div>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
-    
-    <h>Sign up</h>
 
     <div class="form-group">
-      <%= f.label :email , :class => 'col-sm-2 control-label' %>
+      <%= f.label :email , :class => 'col-sm-3 control-label' %>
       <div class="col-sm-10"><%= f.email_field :email, autofocus: true,  :class => 'form-control' %></div>
     </div>
 
