@@ -16,7 +16,7 @@ class Organization < ActiveRecord::Base
   accepts_nested_attributes_for :members
 
   before_save :fill_website, :if => Proc.new { |organization| organization.website.blank? && !(organization.subdomain.blank?)}
-  after_create :create_trello_organization
+
   
   private
     def fill_website
