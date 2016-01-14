@@ -1,4 +1,4 @@
-class Organization < ActiveRecord::Base
+pclass Organization < ActiveRecord::Base
   has_many :project_partners
   has_many :members
   has_many :projects 
@@ -18,17 +18,6 @@ class Organization < ActiveRecord::Base
   before_save :fill_website, :if => Proc.new { |organization| organization.website.blank? && !(organization.subdomain.blank?)}
   after_create :create_trello_organization
   
-  after_create :create_trello_organization
-
-  # def create_trello_organization
-  #   organization_name = self.name
-  #   organization_description =  self.description
-  #   organization = Trello::Organization.create(
-  #   name: organization_name,
-  #   description: organization_description
-  #   )
-  # end
-
   private
     def fill_website
       self.website = self.subdomain + ".openngo.org"
