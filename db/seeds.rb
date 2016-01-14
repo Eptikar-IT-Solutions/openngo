@@ -40,7 +40,18 @@ branch12 = Branch.create(name: "Al Shebelya Island", state_id: state17)
 branch13 = Branch.create(name: "Kebkabya", state_id: state7.id)
 branch14 = Branch.create(name: "Enviromental Information Centere", state_id: state18.id)
 
-# organization1 = Organization.create(name: 'United Nations Convention To Combat Desertification', website: 'www.unccd.int', subdomain: 'unccd', email: 'info@unccd.int', phone1: '+49-228815-2800', phone2: '+249912412801', fax: '0+49-228815-289899', address: 'UNCCD
+Project.create(name: 'Eco Neighbouehoods Project', budget: 1908547.75, from: '2010-01-01', to: '2013-01-01', goal: 'To improve environmental management and reduce poverty in the state of Khartoum to contribute towards achieving the Millennium Development Goals (MDGs)')
+Project.create(name: 'Spreading Human and Environmental Rights', budget: 252605.93, from: '2007-01-01', to: '2010-01-01', goal: 'To spread human and environmental rights culture among sudanese communities')
+Project.create(name: 'Water and Sanitation Promotion Project', budget: 980479.0, from: '2011-01-01', to: '2011-12-01', goal: 'Provision of potable drinking water for the estimated 27,000 in two localities (Babnousa and Elsalam,South Kordofan) state  ')
+Project.create(name: 'Eco peace & Natural Resources Management', budget: 360.0, from: '2009-01-01', to: '2010-01-01 ', goal: 'Promotion of Eco peace (proactive) culture, advocates for environmental right to have access to land and to attain rational use of natural resources and to ensure sustainable livelihoods. ')
+Project.create(name: 'Community Environmental Governance Initiative (CEGI)  ', budget: 124.81 , from: '2012-01-01', to: '2012-12-01 ', goal: 'To strengthen community cohesion, ecological resilience and traditional forms of governance. ')
+Project.create(name: 'Eco peace project', budget: 449.46 , from: '2008-01-01', to: '2011-01-01', goal: 'The Eco peace program aims at promoting eco peace (proactive) culture and advocate for environmental rights to attain equitable accessibility of the natural resources and ensure sustainable livelihoods.')
+Project.create(name: 'Natural resource management and Environmental Recovery  ', budget: 790.0 , from: '2013-01-01', to: '2013-12-01', goal: 'To sustain rational resource management for sustainable peace building in the state.')
+Project.create(name: 'Environmental Forum', budget: 70.0 , from: '2004-01-01', to: '2004-12-01', goal: 'Discuss top priority environmental issues with decision makers')
+Project.create(name: 'SECS-FES Environmental Program', budget: 1056.89 , from: '2004-01-01', to: '2004-12-01', goal: 'Raise environmental awareness of different stakeholders')
+Project.create(name: 'SECS-DED Development Program', budget: 1484.0 , from: '2004-01-01', to: '2004-12-01', goal: 'Building of SECS branches capacity')
+
+
 # Platz der Vereinten Nationen 1, D-53113 Bonn, Germany', description: 'The Convention’s 195 parties work together to improve the living conditions for people in drylands, to maintain and restore land and soil productivity, and to mitigate the effects of drought. The UNCCD is particularly committed to a bottom-up approach, encouraging the participation of local people in combating desertification and land degradation. The UNCCD secretariat facilitates cooperation between developed and developing countries, particularly around knowledge and technology transfer for sustainable land management.', active: true )
 
 # organization2 = Organization.create(name: 'The Crop Trust', website: 'www.croptrust.org', subdomain: '', email: 'info@croptrust.org', phone1: '+49 (0) 228 85427 122', phone2: '', fax: '', address: 'The Crop Trust Platz Der Vereinten Nationen 7 53113 Bonn, Germany', description: 'The mission of the Crop Trust is to ensure the conservation and availability of plant diversity essential for food and agriculture, forever', active: true)
