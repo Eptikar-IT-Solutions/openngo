@@ -165,7 +165,7 @@ en:
       "address": "Address"
       "active": "Active" 
       "trello_member_token": "Trello integration" 
-      "instructions": "To integrate with trello press the get token button and get copy the token into the text field"
+      "instructions": "To integrate with trello press the get token button and copy the token into the text field"
       "get_token": "Get Token"
     project_milestones:
       "project_milestones": "project_milestones"

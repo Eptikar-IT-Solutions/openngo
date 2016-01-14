@@ -39,7 +39,7 @@ class Project < ActiveRecord::Base
       if organization.trello_member_token
         
         Trello.configure do |config|
-          config.developer_public_key = ENV['TRELLO-KEY'] 
+          config.developer_public_key = ENV['TRELLO_KEY'] 
           config.member_token = organization.trello_member_token
         end 
 
@@ -47,7 +47,7 @@ class Project < ActiveRecord::Base
           name: self.name,
           description: self.description
         ) 
-        #webhook = Trello::Webhook.create(description: "A webhook that update project model every time the card updated", id_model: board.id, callback_url: "http://localhost:3000/trello_webhooks")  
+        #webhook = Trello::Webhook.create(description: "A webhook that update project model every time the card updated", id_model: board.id, callback_url: "http://21e8a6c9.ngrok.com/trello_webhooks")  
       end
     end
 end
