@@ -70,6 +70,6 @@ class OrganizationsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def organization_params
-      params.require(:organization).permit(:name, :website, :subdomain, :email, :phone1, :phone2, :fax, :address, :description,:logo, :active, :created_by, :updated_by, members_attributes: [:id,:name, :role_id], translations_attributes: [:id, :locale, :name, :description])
+      params.require(:organization).permit(:name, :website, :subdomain, :email, :phone1, :phone2, :fax, :address, :description, :logo, :active, :trello_member_token, :created_by, :updated_by, members_attributes: [:id,:name, :role_id], translations_attributes: [:id, :locale, :name, :description])
     end
 end

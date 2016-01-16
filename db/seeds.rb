@@ -4,7 +4,6 @@ role1 = Role.create(name: 'Admin', permissions:{all: true})
 # role2 = Role.create(name: 'Program Coordinator')
 # role3 = Role.create(name: 'Treasury Secretary')
 
-user = User.create(name: 'admin', full_name: 'Administrator', email: 'info@example.com', password: '12345678', password_confirmation: '12345678', active: true, confirmed_at: Time.now, role_id: role1.id)
 
 state1 = State.create(name: "Al Jazirah")
 state2 = State.create(name: "Blue Nile ")
