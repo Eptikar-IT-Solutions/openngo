@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160113095751) do
+ActiveRecord::Schema.define(version: 20160118091404) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -369,6 +369,25 @@ ActiveRecord::Schema.define(version: 20160113095751) do
     t.datetime "updated_at"
     t.integer  "created_by", limit: 4
     t.integer  "updated_by", limit: 4
+  end
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "tag_id",        limit: 4
+    t.integer  "taggable_id",   limit: 4
+    t.string   "taggable_type", limit: 255
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
+  add_index "taggings", ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id", using: :btree
+
+  create_table "tags", force: :cascade do |t|
+    t.string  "name",            limit: 255
+    t.string  "color_code",      limit: 255
+    t.integer "projects_count",  limit: 4
+    t.integer "members_count",   limit: 4
+    t.integer "importers_count", limit: 4
   end
 
   create_table "user_translations", force: :cascade do |t|
