@@ -17,7 +17,14 @@
 
 		<div class="col-sm-10"><%= @project.try(:budget) || 'N/A' %></div>
 	</div>
+  
+  <div class="row">
+  	<div class="col-sm-2"><strong><%= t("views.projects.currency") %></strong></div>
 
+
+  	<div class="col-sm-10"><%= @project.try(:currency) || 'N/A' %></div>
+  </div>
+  
 	<div class="row">
 		<div class="col-sm-2"><strong><%= t("views.projects.from") %></strong></div>
 

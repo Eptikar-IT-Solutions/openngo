@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118121215) do
+ActiveRecord::Schema.define(version: 20160118125045) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -313,6 +313,7 @@ ActiveRecord::Schema.define(version: 20160118121215) do
     t.integer  "location_id",                    limit: 4
     t.string   "trello_board_id",                limit: 255
     t.integer  "organization_id",                limit: 4
+    t.integer  "currency",                       limit: 4
   end
 
   create_table "public_activities", force: :cascade do |t|

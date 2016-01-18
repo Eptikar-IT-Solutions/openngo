@@ -2,6 +2,8 @@ require 'trello'
 
 class Project < ActiveRecord::Base
   include Taggable
+  
+  enum currency: [ :USD, :SDG, :EUR ]
 
 	belongs_to :branch
   has_many :project_milestones
