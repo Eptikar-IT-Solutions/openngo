@@ -1,0 +1,4 @@
+<div class="form-group">
+  <%= f.label (t"views.indexes.tags"), :class => 'col-sm-2 control-label' %>
+  <div class="col-sm-10"><input type="text" name="<%= f.object.class.name.downcase %>[tag_names]" value="<%= f.object.tag_names %>" data-source='<%= Tag.all.collect(&:name).to_json %>' placeholder="Add tags" class="form-control tag-input-field"></div>
+</div>

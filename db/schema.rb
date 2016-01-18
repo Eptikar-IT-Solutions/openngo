@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160118091404) do
+ActiveRecord::Schema.define(version: 20160118121215) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -384,7 +384,7 @@ ActiveRecord::Schema.define(version: 20160118091404) do
 
   create_table "tags", force: :cascade do |t|
     t.string  "name",            limit: 255
-    t.string  "color_code",      limit: 255
+    t.string  "color_code",      limit: 255, default: "#5bc0de"
     t.integer "projects_count",  limit: 4
     t.integer "members_count",   limit: 4
     t.integer "importers_count", limit: 4

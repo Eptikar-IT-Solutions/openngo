@@ -1,0 +1,7 @@
+<div class="entity-tags">
+  <ul class="tags">
+  <% tags.each do |tag| %>
+    <li><a href="#" class="tag-link tag-<%= tag.id %>" data-path="<%= tag_path(tag) %>" data-color="<%= tag.color_code %>"><%= tag.name %></a></li>
+  <% end %>
+  </ul>
+</div>

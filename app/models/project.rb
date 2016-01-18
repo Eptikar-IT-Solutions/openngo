@@ -1,6 +1,8 @@
 require 'trello'
 
 class Project < ActiveRecord::Base
+  include Taggable
+
 	belongs_to :branch
   has_many :project_milestones
 
@@ -51,7 +53,3 @@ class Project < ActiveRecord::Base
       end
     end
 end
-   Trello.configure do |config|
-          config.developer_public_key = ENV['TRELLO_KEY'] 
-          config.member_token = Organization.first.trello_member_token
-        end 

@@ -2,19 +2,34 @@
 <div class="col-xs-12">
 
   <div class="page-header">
-    <h1><%= t "views.application_layout.projects" %> <small><%= t("views.epp.Listing of all %{model}", :model => t("views.projects.projects")) %></small>
+    <h1><%= t "views.application_layout.projects" %>
       <%= link_to link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_project_path , :class => 'btn btn-lg hidden-print' %>
     </h1>
   </div>
 </div>
 
+ <div class="tags-cloud" data-source='<%= Tag.all.collect(&:name).to_json %>'>
+    <ul class="tags">
+      <% Project.tags.each do |tag| %>
+        <li><a href="#" class="tag-link tag-<%= tag.id %>" data-path="<%= tag_path(tag) %>" data-color="<%= tag.color_code %>"><%= tag.name %></a></li>
+      <% end %>
+    </ul>
 
+    <style>
+      <% Tag.all.each do |tag| %>
+        a.tag-link.tag-<%= tag.id %> {background: <%= tag.color_code %>;}
+        a.tag-link.tag-<%= tag.id %>:before {border-color:transparent <%= tag.color_code %> transparent transparent;}
+      <% end %>
+    </style>
+  </div>
+  
 <% @projects.each do |project| %>
   <div class="entity-box col-md-3 col-sm-6 col-xs-12">
     <div class="info-box"  style="background-color: #000">
       <ul class="action-menu">
         <li><a title="show" href="<%= project_path(project) %>"><span class="glyphicon glyphicon-file"></span></a></li>
-        <li><a title="Edit" href="<%= edit_project_path(project) %>"><span class="glyphicon glyphicon-pencil"></span></a></li>   
+        <li><a title="Edit" href="<%= edit_project_path(project) %>"><span class="glyphicon glyphicon-pencil"></span></a></li>  
+        <li><a title="edit_tags" class="edit-tags" href="#" data-tags="<%= project.tag_names %>" data-path="<%= project_path(project) %>" data-model="project" ><span class="glyphicon glyphicon-tag"></span></a></li> 
       </ul>
 
   <div class="info-box-content">
@@ -31,6 +46,7 @@
             <p><%= project.goal %></p>
         </span>
         </a>
+        <%= render :partial => "layouts/entity_tags", :locals => {tags: project.tags } if project.tags.count > 0 %>
       </div>
     </div>
   </div>

@@ -1,5 +1,6 @@
 class Member < ActiveRecord::Base
-   
+  include Taggable
+  
   attr_accessor :other_profession
 
   enum gender: [ :male, :female ]

@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   resources :locations
   resources :states
   resources :users
+  resources :tags
   #resource :trello_webhooks, defaults: { formats: :json }
   resources :projects do
     resources :project_attachments
