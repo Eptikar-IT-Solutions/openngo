@@ -4,7 +4,8 @@ class Member < ActiveRecord::Base
   attr_accessor :other_profession
 
   enum gender: [ :male, :female ]
-   
+  enum education: { "Secondary"=>0, "Bachelor"=>1, "Master"=>2, "Diploma"=>3, "Doctorate"=>4, "Undergraduate"=>5}  
+
   belongs_to :user 
   belongs_to :branch
   belongs_to :role
@@ -22,6 +23,6 @@ class Member < ActiveRecord::Base
   
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-	validates :name, uniqueness: true
-	validates :name, :email, :mobile, presence: true
+	#validates :name, uniqueness: true
+	#validates :name, :email, :mobile, presence: true
 end

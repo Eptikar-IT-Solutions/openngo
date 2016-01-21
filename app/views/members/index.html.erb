@@ -6,50 +6,48 @@
       <%= link_to link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_member_path , :class => 'btn btn-lg hidden-print' %>
     </h1>
   </div>
+
+  <div class="tags-cloud" data-source='<%= Tag.all.collect(&:name).to_json %>'>
+    <ul class="tags">
+      <% Member.tags.each do |tag| %>
+        <li><a href="#" class="tag-link tag-<%= tag.id %>" data-path="<%= tag_path(tag) %>" data-color="<%= tag.color_code %>"><%= tag.name %></a></li>
+      <% end %>
+    </ul>
+
+    <style>
+      <% Tag.all.each do |tag| %>
+        a.tag-link.tag-<%= tag.id %> {background: <%= tag.color_code %>;}
+        a.tag-link.tag-<%= tag.id %>:before {border-color:transparent <%= tag.color_code %> transparent transparent;}
+      <% end %>
+    </style>
+  </div>
 </div>
 
-<div class="tags-cloud" data-source='<%= Tag.all.collect(&:name).to_json %>'>
-  <ul class="tags">
-    <% Member.tags.each do |tag| %>
-      <li><a href="#" class="tag-link tag-<%= tag.id %>" data-path="<%= tag_path(tag) %>" data-color="<%= tag.color_code %>"><%= tag.name %></a></li>
-    <% end %>
-  </ul>
+<% @members.all.each do |member| %> 
+  <div class="entity-box col-md-3 col-sm-6 col-xs-12">
+    <div class="info-box" style="background-color: #000">
+    <ul class="action-menu">
+      <li><a title="show" href="<%= member_path(member) %>"><span class="glyphicon glyphicon-file"></span></a></li>
+      <li><a title="Edit" href="<%= edit_member_path(member) %>"><span class="glyphicon glyphicon-pencil"></span></a></li>
+      <li><a title="edit_tags" class="edit-tags" href="#" data-tags="<%= member.tag_names %>" data-path="<%= member_path(member) %>" data-model="member" ><span class="glyphicon glyphicon-tag"></span></a></li>    
+    </ul>
 
-  <style>
-    <% Tag.all.each do |tag| %>
-      a.tag-link.tag-<%= tag.id %> {background: <%= tag.color_code %>;}
-      a.tag-link.tag-<%= tag.id %>:before {border-color:transparent <%= tag.color_code %> transparent transparent;}
-    <% end %>
-  </style>
-</div>
-
-<% @members.each do |member| %>  <div class="entity-box col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box"  style="background-color: #000">
-      <ul class="action-menu">
-        <li><a title="show" href="<%= member_path(member) %>"><span class="glyphicon glyphicon-file"></span></a></li>
-        <li><a title="Edit" href="<%= edit_member_path(member) %>"><span class="glyphicon glyphicon-pencil"></span></a></li>
-        <li><a title="edit_tags" class="edit-tags" href="#" data-tags="<%= member.tag_names %>" data-path="<%= member_path(member) %>" data-model="member" ><span class="glyphicon glyphicon-tag"></span></a></li>    
-      </ul>
-
-  <div class="info-box-content">
-        <a href="<%= member_path(member) %>">
+    <div class="info-box-content members" >
+      <a href="<%= member_path(member) %>">
+        <div class="image" id="avatar" style="background-image: url(<%= member.avatar%>);"></div>
         <span class="info-box-text"><%=  member.name %></span>
-        
         <span class="progress-description"> 
-            <p><%= member.email  %></p>
-
-             <% if member.branch %>
-              <p><%= link_to member.branch.name, member.branch if member.branch_id %></p>
+           <% if member.branch %>
+            <p><%= link_to member.branch.name, member.branch if member.branch_id %></p>
             <% else %>
               <p> NA </p>
             <% end %>
-            <p><%= link_to member.role.name, member.role if member.role_id %></p>
 
-            <p><%= member.active ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></p>
+            <p><%= member.active ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></p>   
         </span>
-        </a>
-        <%= render :partial => "layouts/entity_tags", :locals => {tags: member.tags } if member.tags.count > 0 %>
-      </div>
+      </a>
+      <%= render :partial => "layouts/entity_tags", :locals => {tags: member.tags } if member.tags.count > 0 %>
     </div>
+  </div>
   </div>
 <% end %>

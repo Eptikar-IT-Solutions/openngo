@@ -280,6 +280,9 @@ GEM
     sdoc (0.4.1)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    seed_dump (3.2.2)
+      activerecord (~> 4)
+      activesupport (~> 4)
     shellany (0.0.1)
     shoulda (3.5.0)
       shoulda-context (~> 1.0, >= 1.0.1)
@@ -349,6 +352,7 @@ DEPENDENCIES
   ruby-trello
   sass-rails (~> 5.0.3)
   sdoc
+  seed_dump
   shoulda
   sqlite3
   therubyracer

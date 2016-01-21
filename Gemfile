@@ -19,6 +19,7 @@ gem 'omniauth-twitter'
 gem 'cancancan', '~> 1.10'
 gem 'ruby-trello'
 gem 'trello_webhook'
+gem 'seed_dump'
 
 group :doc do
   gem 'sdoc', require: false

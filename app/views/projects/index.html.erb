@@ -6,9 +6,9 @@
       <%= link_to link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_project_path , :class => 'btn btn-lg hidden-print' %>
     </h1>
   </div>
-</div>
 
- <div class="tags-cloud" data-source='<%= Tag.all.collect(&:name).to_json %>'>
+
+  <div class="tags-cloud" data-source='<%= Tag.all.collect(&:name).to_json %>'>
     <ul class="tags">
       <% Project.tags.each do |tag| %>
         <li><a href="#" class="tag-link tag-<%= tag.id %>" data-path="<%= tag_path(tag) %>" data-color="<%= tag.color_code %>"><%= tag.name %></a></li>
@@ -22,6 +22,7 @@
       <% end %>
     </style>
   </div>
+</div>  
   
 <% @projects.each do |project| %>
   <div class="entity-box col-md-3 col-sm-6 col-xs-12">

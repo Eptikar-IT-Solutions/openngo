@@ -11,6 +11,22 @@
   background: #ECF0F5;
 }
 
+#avatar {
+width: 60px;
+height: 60px;
+background-size: cover;
+background-position: center;
+border-radius: 50%;
+/* float: right; */
+position: absolute;
+top: -30px;
+left: 50%;
+margin-left: -30px;
+}
+.members.info-box-content {
+  background: #1BB099;
+  padding-top: 40px;
+}
 #process_line{
   overflow: hidden;
   width: 100%;
@@ -362,6 +378,12 @@ a.navbar-brand {
 .action-menu {
   float: right;
   list-style: none;
+}
+
+.action-menu a{
+  color: #fff;
+  margin: 5px;
+  display: block;
 }
 
 .reply p {
