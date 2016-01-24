@@ -23,10 +23,13 @@
         <% @activities.each do |activity| %>
           <tr>
     
-
+            
             <td><%= activity.name %></td>
-    
+            <% if activity.branch %>
             <td><%= link_to activity.project.name, activity.project if activity.project_id %></td>
+            <% else %>
+              <td> NA </td>
+            <% end %>
 
             <% if activity.branch %>
               <td><%= link_to activity.branch.name, activity.branch if activity.branch_id %></td>
@@ -58,6 +61,7 @@
       </tbody>
     </table>
   </div>
+  <div class="paginator"><%= paginate @activities %></div>
 
   <%= link_to t('views.epp.links.new %{model}', :model => t("views.activities.activity")), new_activity_path, :class => 'btn btn-primary btn-lg hidden-print' %>
 </div>

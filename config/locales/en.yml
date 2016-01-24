@@ -39,6 +39,12 @@ en:
       "professions": "Professions"
       "settings": "Settings"
       "copyrights": "Thank You for helping the world using"
+    pagination:
+      "previous": "&lt; Previous"
+      "next": "Next &gt;"
+      "last": "Last &gt;"
+      "first": "First &lt;"
+      "truncate": "..."
     sessions:
       "new": "new"
       "name": "User Name"

@@ -34,7 +34,7 @@ class Project < ActiveRecord::Base
   translates :name, :description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
 
-  #after_create :create_trello_board 
+  after_create :create_trello_board 
 
   private
     def create_trello_board
@@ -51,7 +51,7 @@ class Project < ActiveRecord::Base
           name: self.name,
           description: self.description
         ) 
-        #webhook = Trello::Webhook.create(description: "A webhook that update project model every time the card updated", id_model: board.id, callback_url: "http://21e8a6c9.ngrok.com/trello_webhooks")  
+        webhook = Trello::Webhook.create(description: "A webhook that update project model every time the card updated", id_model: board.id, callback_url: "https://blooming-woodland-20439.herokuapp.com/trello_webhooks")  
       end
     end
 end

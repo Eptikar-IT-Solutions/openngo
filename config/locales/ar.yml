@@ -43,6 +43,12 @@ ar:
       "search": "البحث..."
       "settings": "الإعدادت"
       "copyrights": "شكرا لكم لجعل العالم مكانا أفضل بمساعدة"
+    pagination:
+      "previous": "&lt; السابقة"
+      "next": "اللاحقة &gt;"
+      "last": "الأخيرة"
+      "first": "الأولى"
+      "truncate": "..."
     sessions:
       "name": "إسم المستخدم"
       "password": "كلمة المرور"

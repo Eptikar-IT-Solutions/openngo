@@ -20,6 +20,7 @@ gem 'cancancan', '~> 1.10'
 gem 'ruby-trello'
 gem 'trello_webhook'
 gem 'seed_dump'
+gem 'kaminari'
 
 group :doc do
   gem 'sdoc', require: false

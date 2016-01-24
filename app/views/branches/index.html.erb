@@ -43,6 +43,8 @@
       </tbody>
     </table>
   </div>
+  
+  <div class="paginator"><%= paginate @branches %></div>
 
   <%= link_to t('views.epp.links.new %{model}', :model => t("views.branches.branch")), new_branch_path, :class => 'btn btn-primary btn-lg hidden-print' %>
 </div>

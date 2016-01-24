@@ -39,6 +39,7 @@
       </tbody>
     </table>
   </div>
+  <div class="paginator"><%= paginate @roles %></div>
 
   <%= link_to t('views.epp.links.new %{model}', :model => t("views.roles.role")), new_role_path, :class => 'btn btn-primary btn-lg hidden-print' %>
 </div>

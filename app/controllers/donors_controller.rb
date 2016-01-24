@@ -5,7 +5,7 @@ class DonorsController < ApplicationController
   # GET /donors
   # GET /donors.json
   def index
-    @donors = Donor.all
+    @donors = Donor.page(params[:page]).per(12)
   end
 
   # GET /donors/1

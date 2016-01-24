@@ -6,7 +6,7 @@
       <%= link_to link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_member_path , :class => 'btn btn-lg hidden-print' %>
     </h1>
   </div>
-
+  
   <div class="tags-cloud" data-source='<%= Tag.all.collect(&:name).to_json %>'>
     <ul class="tags">
       <% Member.tags.each do |tag| %>
@@ -51,3 +51,4 @@
   </div>
   </div>
 <% end %>
+<div style="margin-top:40px; text-align: center; color: "#757D81";"><%= paginate @members %></div>

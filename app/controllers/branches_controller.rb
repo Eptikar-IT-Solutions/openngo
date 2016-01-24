@@ -5,7 +5,7 @@ class BranchesController < ApplicationController
   # GET /branches
   # GET /branches.json
   def index
-    @branches = Branch.all
+    @branches = Branch.page(params[:page]).per(12)
   end
 
   # GET /branches/1
