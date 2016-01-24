@@ -51,7 +51,7 @@ class Project < ActiveRecord::Base
           name: self.name,
           description: self.description
         ) 
-        webhook = Trello::Webhook.create(description: "A webhook that update project model every time the card updated", id_model: board.id, callback_url: "https://blooming-woodland-20439.herokuapp.com/trello_webhooks")  
+        Trello::Webhook.create(description: "A webhook that update project model every time the card updated", id_model: board.id, callback_url: "https://blooming-woodland-20439.herokuapp.com/trello_webhooks")  
       end
     end
 end

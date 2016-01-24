@@ -7,4 +7,8 @@ class TrelloWebhooksController < ActionController::Base
     # project.update(name: board.name, description: board.desc)
     render :nothing => true
   end
+
+  def webhook_secret
+    ENV['TRELLO_KEY']
+  end
 end
