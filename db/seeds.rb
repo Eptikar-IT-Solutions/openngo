@@ -1344,3 +1344,4 @@ State::Translation.create!([
   {state_id: 90, locale: "en", name: "Khartoum"},
   {state_id: 90, locale: "ar", name: "الخرطوم"}
 ])
+User.create(name: "admin", email: "info@example.com", password: "12345678", password_confirmation: "12345678", confirmed_at: Time.now)
