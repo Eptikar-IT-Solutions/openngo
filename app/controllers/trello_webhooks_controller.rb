@@ -18,9 +18,9 @@ class TrelloWebhooksController < ActionController::Base
       Activity.create(name: json_body["action"]["data"]["card"]["name"], project_id: Project.find_by(board_id: json_body["model"]["id"]))
     elsif event == "update_board"
       if json_body["action"]["data"]["old"].include? "name"
-        Project.find_by(board_id: json_body["model"]["id"]).update_attributes(name: json_body["action"]["data"]["board"]["name"], description: json_body["model"]["desc"]) 
+        Project.find_by(board: json_body["model"]["id"]).update_attributes(name: json_body["action"]["data"]["board"]["name"]) 
       elsif  json_body["action"]["data"]["old"].include? "desc"
-        Project.find_by(board_id: json_body["model"]["id"]).update_attributes(description: json_body["action"]["data"]["board"]["desc"], description: json_body["model"]["desc"]) 
+        Project.find_by(board: json_body["model"]["id"]).update_attributes(description: json_body["action"]["data"]["board"]["desc"], description: json_body["model"]["desc"]) 
       end  
     # elsif event = "update_card"
     #     Activity.update(status:  json_body["action"]["data"]["card"]["idList"])
