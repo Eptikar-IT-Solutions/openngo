@@ -17,7 +17,7 @@ class Activity < ActiveRecord::Base
   has_many :members, through: :activity_members
     
 	validates :name, uniqueness: true, presence: true
-	validates :budget, numericality: true
+	validates :budget, numericality: {allow_blank: true}
 
   translates :name, :description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
