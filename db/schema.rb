@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125085646) do
+ActiveRecord::Schema.define(version: 20160125130349) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -100,6 +100,12 @@ ActiveRecord::Schema.define(version: 20160125085646) do
     t.integer  "updated_by",  limit: 4
   end
 
+  create_table "costs", force: :cascade do |t|
+    t.decimal  "total_cost", precision: 10
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
+  end
+
   create_table "donor_translations", force: :cascade do |t|
     t.integer  "donor_id",    limit: 4,     null: false
     t.string   "locale",      limit: 255,   null: false
@@ -127,6 +133,15 @@ ActiveRecord::Schema.define(version: 20160125085646) do
     t.datetime "updated_at"
     t.integer  "created_by",  limit: 4
     t.integer  "updated_by",  limit: 4
+  end
+
+  create_table "lines", force: :cascade do |t|
+    t.string   "name",       limit: 255
+    t.integer  "quantity",   limit: 4
+    t.decimal  "price",                  precision: 10
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
+    t.integer  "cost_id",    limit: 4
   end
 
   create_table "location_translations", force: :cascade do |t|

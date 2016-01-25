@@ -1,0 +1,19 @@
+<%- title "#{@cost.total_cost}" %>
+<div class="col-lg-12 show">
+	<div class="page-header">
+		<h1><%= @cost.total_cost %></h1>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.costs.total_cost") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @cost.try(:total_cost) || 'N/A' %></div>
+	</div>
+
+
+	<div class="buttons">
+		<%= link_to t('views.epp.links.edit'), edit_cost_path(@cost), :class => 'btn btn-warning' %>
+		<%= link_to t('views.epp.links.back'), costs_path, :class => 'btn btn-default' %>
+	</div>
+</div>

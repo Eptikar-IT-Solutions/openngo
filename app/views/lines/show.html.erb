@@ -1,0 +1,33 @@
+<%- title "#{@line.name}" %>
+<div class="col-lg-12 show">
+	<div class="page-header">
+		<h1><%= @line.name %></h1>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.lines.name") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @line.try(:name) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.lines.quantity") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @line.try(:quantity) || 'N/A' %></div>
+	</div>
+
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.lines.cost") %></strong></div>
+
+
+		<div class="col-sm-10"><%= @line.try(:cost) || 'N/A' %></div>
+	</div>
+
+
+	<div class="buttons">
+		<%= link_to t('views.epp.links.edit'), edit_line_path(@line), :class => 'btn btn-warning' %>
+		<%= link_to t('views.epp.links.back'), lines_path, :class => 'btn btn-default' %>
+	</div>
+</div>

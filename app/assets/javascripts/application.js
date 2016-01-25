@@ -18,6 +18,7 @@
 //= require jquery.tablesorter.min
 //= require jquery.slimscroll
 //= require jquery.autosize
+//= require jquery.lineitems
 //= require admin-lte
 //= require jquery_ujs
 //= require select2.min
@@ -39,6 +40,7 @@ $( document ).ready(function() {
 //     name: 'countries',
 //     source: jobs_file_numbers
 //   });
+  if ($('.line-items').length > 0)$('.line-items').lineItems(products_url);
 
   $('input[type!=hidden]').first().focus();
 

@@ -1,0 +1,31 @@
+<div class="form_group">
+<table class="table line-items" data-model="<%= f.object.class.name.downcase %>">
+    <thead>
+      <tr>
+            <th><%= t("views.lines.name") %></th>
+            <th><%= t("views.lines.quantity") %></th>
+            <th><%= t("views.lines.price") %></th>
+            <th class="hidden-print"></th>
+      </tr>
+    </thead>
+
+
+    <tbody>
+      <% counter = 0 %>
+      <%= f.fields_for :lines, :html => {:class => 'form-horizontal'} do |ff| %>
+        <tr class="line-item" id="line-<%= counter %>">
+          <td><%= ff.text_field :name, :class => 'form-control' %></td>
+          <td><%= ff.number_field :quantity, :class => 'form-control' %></td>
+          <td><%= ff.number_field :price, :class => 'form-control product-price' %></td>
+          <td class="hidden-print">
+            <a class="btn btn-default add-attribute" href="javascript:newAttribute(<%= counter %>,'line-<%= counter %>')" rel="nofollow"<%= raw(' style="visibility:visible;"')  %>><span class="glyphicon glyphicon-plus"></span></a>
+            <a class="btn btn-danger delete-line" href="#" rel="nofollow"><span class="glyphicon glyphicon-remove"></span></a>
+            <%= ff.hidden_field :_destroy %>
+          </td>
+        </tr>
+        <% counter += 1 %>
+      <% end %>
+      
+    </tbody>
+  </table>
+</div>
