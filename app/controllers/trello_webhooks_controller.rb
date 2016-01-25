@@ -1,7 +1,7 @@
 class TrelloWebhooksController < ActionController::Base
   include TrelloWebhook::Processor
 
-  def board_webhooks
+  def update_board
     puts '################################################3'
     puts json_body
     puts '################################################3'
