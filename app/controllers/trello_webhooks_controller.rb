@@ -1,10 +1,10 @@
 class TrelloWebhooksController < ActionController::Base
   include TrelloWebhook::Processor
 
-  def update_board
-    puts '################################################3'
-    puts json_body
-    puts '################################################3'
+  def update_board(args)
+    puts '################################################'
+    puts args
+    puts '################################################'
     case json_body["action"]["data"]["old"].keys.first
       when "desc"
         Project.find_by(board: json_body["model"]["id"]).update_attributes(description: json_body["action"]["data"]["board"]["desc"]) 
@@ -14,9 +14,9 @@ class TrelloWebhooksController < ActionController::Base
   end
 
   def webhook_secret
-    puts '################################################3'
-    puts json_body
-    puts '################################################3'
+    puts '################################################'
+    puts event
+    puts '################################################'
     ENV['TRELLO_KEY']
   end
 end
