@@ -19,6 +19,8 @@ class TrelloWebhooksController < ActionController::Base
     puts '################################################'
     puts request_body
     puts '#########3#############'
+    puts request_url
+    puts '##############################'
     ENV['TRELLO_KEY']
   end
 end
