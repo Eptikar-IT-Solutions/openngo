@@ -5,12 +5,13 @@ class TrelloWebhooksController < ActionController::Base
     puts '##########################################OVER HERE############'
     puts event
     puts '^^^^^^^^^^^^^^^^^^^^json_body^^^^^^^^^^#{json_body}'
-    board =  json_body["action"]["data"]["board"]
+    puts json_body
     puts '####################333board#########'
-    puts '^^^^^^^^^^^^^^^^^^^^json_body^^^^^^^^^^#{board}'
-    card =  json_body["action"]["data"]["card"]
+    puts '^^^^^^^^^^^^^^^^^^^^json_body^^^^^^^^^^^^^^#{board}'
+    puts json_body["action"]["data"]["board"]
     puts '####################card#########'
     puts '^^^^^^^^^^^^^^^^^^^^json_body^^^^^^^^^^#{card}'
+    puts json_body["action"]["data"]["card"]
     puts '##########################################OVER HERE############'
     if event == "create_card"
       Activity.create(name: json_body["action"]["data"]["card"]["name"], project_id: Project.find_by(board_id: json_body["model"]["id"]))
