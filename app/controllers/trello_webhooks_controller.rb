@@ -14,6 +14,9 @@ class TrelloWebhooksController < ActionController::Base
   end
 
   def webhook_secret
+    puts '################################################3'
+    puts json_body
+    puts '################################################3'
     ENV['TRELLO_KEY']
   end
 end
