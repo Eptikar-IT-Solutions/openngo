@@ -5,17 +5,22 @@
     <tbody>
     <%- @controllers.map { |c| { c => [:manage, :read, :create, :update, :delete]} }.reduce(Hash.new, :merge).each do |controller, actions| %>
         <tr>
+
           <td><%= t("views.roles.%{controller}", controller: t("controllers.application_controller.#{controller.controller_name.titleize}")) %></td>
+
           <% controller_hash = @role.permissions.fetch(controller.controller_name, false) %>
           <%- actions.each do |action| %>
             <% if controller_hash %>
+              
               <% action_value = controller_hash.fetch(action, false) %>
               <% action_value = true if action_value %>
             <% else%>  
               <% action_value = false %>
-            <% end %>  
+            <% end %> 
+
             <td><%= f.check_box :"permissions[#{controller.controller_name}][#{action.to_sym}]", {checked: action_value}, true, false  %> 
                <%=t("views.roles.%{action}", action: t("views.roles.#{action.to_s.titleize}"))%> </td>
+
           <% end %>
         </tr>
   <% end %>

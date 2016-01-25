@@ -41,12 +41,11 @@ class Project < ActiveRecord::Base
       organization = Organization.first
 
       if organization.trello_member_token
-        
         Trello.configure do |config|
           config.developer_public_key = ENV['TRELLO_KEY'] 
           config.member_token = organization.trello_member_token
         end 
-
+        
         board = Trello::Board.create(
           name: self.name,
           description: self.description
