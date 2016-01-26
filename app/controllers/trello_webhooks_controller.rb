@@ -14,14 +14,16 @@ class TrelloWebhooksController < ActionController::Base
   end
 
   def webhook_secret
-    puts '################################################'
+    puts '#################event###############################'
     puts event
-    puts '################################################'
+    puts '############request_body####################################'
     puts request_body
-    puts '#########3#############'
-    puts signature_header
-    puts '##############################'
-    puts request.headers['X-Trello-Webhook']
+    puts '#########json_body3#############'
+    puts json_body
+    puts '############normalized_body####################################'
+    puts "#{request_body}#{request_url}".unpack('U*').pack('c*')
+    puts '######################3request.body'
+    puts request.body
     ENV['TRELLO_SECRET']
   end
 end
