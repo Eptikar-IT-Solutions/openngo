@@ -14,6 +14,7 @@ class TrelloWebhooksController < ActionController::Base
   end
 
   def webhook_secret
+    ENV['TRELLO_SECRET']
     puts '#################event###############################'
     puts event
     puts '############request_body####################################'
@@ -24,6 +25,6 @@ class TrelloWebhooksController < ActionController::Base
     puts "#{request_body}#{request_url}".unpack('U*').pack('c*')
     puts '######################3request.body'
     puts request.body
-    ENV['TRELLO_SECRET']
   end
 end
+ TrelloWebhook::Processor::SignatureError (Actual: 4ipCjUQ6OH1OyFR0Q7jbjJhxw6Q=, Expected: +HRF5Qx0M72zJdUIVueBUgYFlcw=):
