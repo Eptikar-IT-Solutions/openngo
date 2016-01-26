@@ -21,7 +21,7 @@ class TrelloWebhooksController < ActionController::Base
     puts '#########3#############'
     puts signature_header
     puts '##############################'
-    puts request.headers
+    puts request.headers['X-Trello-Webhook']
     ENV['TRELLO_SECRET']
   end
 end
