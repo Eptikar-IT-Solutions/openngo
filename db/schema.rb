@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160125130349) do
+ActiveRecord::Schema.define(version: 20160126075536) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -101,9 +101,11 @@ ActiveRecord::Schema.define(version: 20160125130349) do
   end
 
   create_table "costs", force: :cascade do |t|
-    t.decimal  "total_cost", precision: 10
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
+    t.decimal  "total_cost",            precision: 10
+    t.datetime "created_at",                           null: false
+    t.datetime "updated_at",                           null: false
+    t.integer  "activity_id", limit: 4
+    t.integer  "cost_id",     limit: 4
   end
 
   create_table "donor_translations", force: :cascade do |t|

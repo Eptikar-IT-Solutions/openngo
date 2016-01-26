@@ -43,6 +43,7 @@ ar:
       "search": "البحث..."
       "settings": "الإعدادت"
       "copyrights": "شكرا لكم لجعل العالم مكانا أفضل بمساعدة"
+      "costs": "التكاليف"
     pagination:
       "previous": "&lt; السابقة"
       "next": "اللاحقة &gt;"
@@ -131,7 +132,7 @@ ar:
       "name": "الإسم"
       "%{action}": "%{action}"
       "Read": "قراءة"
-      "Create": "قراءة"
+      "Create": "إنشاء"
       "Delete": "حذف"
       "Manage": "إدارة"
       "Update": "تعديل"
@@ -189,8 +190,15 @@ ar:
       "professions": "المهن"
       "profession": "المهنة"
       "name": "الإسم" 
-    
-      
+    costs:
+      "cost": "التكلفة"
+      "costs": "التكاليف"
+      "total_cost": "التكاليف الكلية"
+    lines:
+      "lines": "الوحدات" 
+      "line": "الوحدو" 
+      "price": "السعر"
+      "quantity": "الكمية"       
   controllers:
     application_controller:
       "You need access right to view this section !": "ليست لديك الصلاحية اللازمة للإطلاع علي هذا الجزء من النظام !"
@@ -208,8 +216,10 @@ ar:
       "ProjectDonors": "المتبرعين المشاريع"
       "ProjectMembers": "أعضاء المشاريع"
       "Organizations": "المنظمات"
-      "ProjectMilestones": "المراحل"
+      "Project Milestones": "المراحل"
       "Professions": "المهن"  
+      "Lines": "الخطوط"
+      "Costs": "التكاليف"
     sessions:
       "Logged in Successfully": "تم تسجيل الدخول بنجاح"
       "Failed to log in!": "لم ينجح تسجيل الدخول !"
@@ -334,10 +344,19 @@ ar:
         "professions": "المهن"
         "profession": "المهنة"
         "name": "الإسم"
-      project_milestones:
+      project_milestone:
         "project_milestones": "المراحل"
         "project_milestone": "المرحلة"
         "name": "الإسم" 
         "description": "الوصف"
         "expences": "المصروفات"    
-        "project_id": "المشروع"    
+        "project_id": "المشروع"  
+      cost:
+      "cost": "التكلفة"
+      "costs": "التكاليف"
+      "total_cost": "التكاليف الكلية"
+      line:
+        "lines": "الوحدات" 
+        "line": "الوحدو" 
+        "price": "السعر"
+        "quantity": "الكمية"     

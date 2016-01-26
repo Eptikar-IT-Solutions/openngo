@@ -39,6 +39,7 @@ en:
       "professions": "Professions"
       "settings": "Settings"
       "copyrights": "Thank You for helping the world using"
+      "costs": "costs"
     pagination:
       "previous": "&lt; Previous"
       "next": "Next &gt;"
@@ -133,7 +134,8 @@ en:
       "Delete": "Delete"
       "Manage": "Manage"
       "Update": "Update"
-      "%{controller}": "%{controller}"    
+      "%{controller}": "%{controller}"  
+
     states:
       "states": "States"
       "state": "State"
@@ -180,9 +182,35 @@ en:
       "description": "Description"
       "expences": "Expences"    
       "project_id": "Project"
+    costs:
+      "cost": "Cost"  
+      "costs": "Costs"
+      "total_cost": "Total Cost"
+    lines:
+      "lines": "Lines" 
+      "line": "Line" 
+      "price": "Price"
+      "quantity": "Quantity"
   controllers:
     application_controller:
       "You need access right to view this section !": "You need access right to view this section !"
+      "Users": "Users"
+      "Donors": "Donors"
+      "Activities": "Activities"
+      "Branches": "Branches"
+      "Projects": "Projects" 
+      "Locations": "Locations"
+      "Roles": "Roles" 
+      "States": "States"
+      "Members": "Members"
+      "Activity Locations": "Activity Locations"
+      "Project Locations": "Project Locations"
+      "Project Donors": "Project Donors"
+      "Project Members": "Project Members"
+      "Organizations": "Organizations"
+      "Project Milestones": "Project Milestones"
+      "Professions": "Professions"
+      "Costs": "Costs"
     sessions:
       "Logged in Successfully": "Logged in Successfully"
       "Failed to log in!": "Failed to log in!"
@@ -317,3 +345,12 @@ en:
         "description": "Description"
         "expences": "Expences"    
         "project_id": "Project"
+      cost:
+        "cost": "Cost"  
+        "costs": "Costs"
+        "total_cost": "Total Cost"
+      line:
+        "lines": "Lines" 
+        "line": "Line" 
+        "price": "Price"
+        "quantity": "Quantity"        

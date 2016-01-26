@@ -7,9 +7,8 @@
   
   <ul class="nav nav-tabs">
     <li class="active"><a href="#info" data-toggle="tab"><%= t("views.roles.informations") %></a></li>
-    <% if can? :assign_roles, @user %>
+    
       <li><a href="#permissions" data-toggle="tab"><%= t("views.roles.permissions") %></a></li>
-    <% end %>
   </ul>
 
   <div class="tab-content">

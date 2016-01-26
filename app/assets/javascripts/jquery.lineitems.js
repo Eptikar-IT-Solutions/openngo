@@ -1,5 +1,5 @@
 var products_data = false;
-var lines_parent_type = 'quote';
+var lines_parent_type = 'cost';
 
 $.fn.lineItems = function(url){
   lines_parent_type = $(this).data('model');
@@ -121,23 +121,30 @@ function getOptionPrice(id){
 
 function newLine(){
   var line = $('.line-item').length + 1;
+  var price = getPrice(products_data[0].id);
   
   $('.line-items').append('<tr class="line-item" id="line-'+ line +'">\
-     <td><input class="form-control" name="' + lines_parent_type + '[lines_attributes][' + line + '][name]" type="text"></td>\
+    <td>\
+      <input name="' + lines_parent_type + '[lines_attributes][' + line + '][document_id]" type="hidden" value="' + $('#quote_document_id').val() + '">\
+      <select class="form-control product-select select2" name="' + lines_parent_type + '[lines_attributes][' + line + '][product_id]"></select>\
+    </td>\
     <td><input class="form-control" name="' + lines_parent_type + '[lines_attributes][' + line + '][quantity]" type="number" value="1"></td>\
     <td><input class="form-control product-price" name="' + lines_parent_type + '[lines_attributes][' + line + '][price]" type="number" value="'+ price +'"></td>\
+    <td><input class="form-control" name="' + lines_parent_type + '[lines_attributes][' + line + '][note]" type="text"></td>\
     <td class="hidden-print">\
       <a class="btn btn-default add-attribute" href="javascript:newAttribute(' + line + ', \'line-'+ line +'\')" rel="nofollow" style="visibility:hidden;"><span class="glyphicon glyphicon-plus"></span></a>\
       <a class="btn btn-danger delete-line" href="#" rel="nofollow"><span class="glyphicon glyphicon-remove"></span></a>\
       <input name="' + lines_parent_type + '[lines_attributes][' + line + '][_destroy]" type="hidden" value="false">\
     </td>\
   </tr>');
+  fillSelect($('[name="' + lines_parent_type + '[lines_attributes][' + line + '][product_id]"]'), products_data);
+  $('[name="' + lines_parent_type + '[lines_attributes][' + line + '][product_id]"]').select2();
   
   afterLine();
   
   if(products_data[0].product_attributes && products_data[0].product_attributes.length > 0) $('#line-'+ line + ' .add-attribute').css('visibility','visible');
 
-}
+
 
 function newAttribute(line, line_id){
   if( $('.line-' + line + '-attribute').length == 0 ) var attribute = 0;

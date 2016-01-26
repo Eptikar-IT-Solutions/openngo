@@ -40,7 +40,7 @@ $( document ).ready(function() {
 //     name: 'countries',
 //     source: jobs_file_numbers
 //   });
-  if ($('.line-items').length > 0)$('.line-items').lineItems(products_url);
+ if ($('.line-items').length > 0)$('.line-items').lineItems(products_url);
 
   $('input[type!=hidden]').first().focus();
 
