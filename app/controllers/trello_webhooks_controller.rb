@@ -27,4 +27,3 @@ class TrelloWebhooksController < ActionController::Base
     ENV['TRELLO_SECRET']
   end
 end
- TrelloWebhook::Processor::SignatureError (Actual: 4ipCjUQ6OH1OyFR0Q7jbjJhxw6Q=, Expected: +HRF5Qx0M72zJdUIVueBUgYFlcw=):
