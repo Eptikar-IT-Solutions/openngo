@@ -24,6 +24,6 @@ class TrelloWebhooksController < ActionController::Base
     puts "#{request_body}#{request_url}".unpack('U*').pack('c*')
     puts '######################3request.body'
     puts request.body
-    ENV['TRELLO_SECRET']
+    ENV['TRELLO_SECRET_KEY']
   end
 end
