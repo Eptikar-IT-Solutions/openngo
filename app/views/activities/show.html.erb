@@ -62,7 +62,8 @@
 
 		<div class="col-sm-10"><%= @activity.try(:repeated) || 'N/A' %></div>
 	</div>
-  
+
+  <div><%= link_to 'Activity Cost', edit_activity_cost_path(@activity) %></div>
 
 	<div class="buttons">
 		<%= link_to t('views.epp.links.edit'), edit_activity_path(@activity), :class => 'btn btn-warning' %>

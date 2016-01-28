@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160126075536) do
+ActiveRecord::Schema.define(version: 20160128103404) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -101,11 +101,12 @@ ActiveRecord::Schema.define(version: 20160126075536) do
   end
 
   create_table "costs", force: :cascade do |t|
-    t.decimal  "total_cost",            precision: 10
-    t.datetime "created_at",                           null: false
-    t.datetime "updated_at",                           null: false
+    t.decimal  "total_cost",            precision: 7, scale: 2, default: 0.0
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
     t.integer  "activity_id", limit: 4
-    t.integer  "cost_id",     limit: 4
+    t.integer  "updated_by",  limit: 4
+    t.integer  "created_by",  limit: 4
   end
 
   create_table "donor_translations", force: :cascade do |t|
@@ -140,9 +141,9 @@ ActiveRecord::Schema.define(version: 20160126075536) do
   create_table "lines", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.integer  "quantity",   limit: 4
-    t.decimal  "price",                  precision: 10
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.decimal  "price",                  precision: 7, scale: 2
+    t.datetime "created_at",                                     null: false
+    t.datetime "updated_at",                                     null: false
     t.integer  "cost_id",    limit: 4
   end
 

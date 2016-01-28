@@ -15,16 +15,16 @@ class Activity < ActiveRecord::Base
 
   has_many :activity_members
   has_many :members, through: :activity_members
-  belongs_to :cost
+  has_one :cost
   
-
 	validates :name, uniqueness: true
   validates :name, presence: true
 	validates :budget, numericality: {allow_blank: true}
-
+  
   translates :name, :description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
   
+  before_create :create_cost
   before_destroy :remove_all_activities 
 
   def to_ics
@@ -57,5 +57,9 @@ class Activity < ActiveRecord::Base
 
   def remove_all_activities
     PublicActivity::Activity.destroy_all(:trackable => self)
+  end
+
+  def create_cost
+    self.cost = Cost.create()
   end
 end

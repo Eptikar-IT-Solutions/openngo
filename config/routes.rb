@@ -33,6 +33,9 @@ Rails.application.routes.draw do
   resources :projects do
     resources :project_attachments
   end
+  resources :activities do
+    resource :cost
+  end
 
   root :to => "projects#index"
 

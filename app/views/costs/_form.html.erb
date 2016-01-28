@@ -1,11 +1,12 @@
-<%= form_for @cost, :html => {:class => 'form-horizontal'} do |f| %>
+<%= form_for [@activity, @cost], url: activity_cost_url, :html => {:class => 'form-horizontal'} do |f| %> 
   <% if @cost.errors.any? %>
     <% @cost.errors.full_messages.each do |msg| %>
       <div class="alert alert-danger"><%= msg %></div>
     <% end %>
   <% end %>
-  
 
+
+  <%= f.hidden_field :activity_id, value: @cost.activity_id%>
 
   <%= render :partial => "lines/form", :locals => {f: f} %>
 

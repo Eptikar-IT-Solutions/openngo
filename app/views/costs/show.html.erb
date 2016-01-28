@@ -10,10 +10,51 @@
 
 		<div class="col-sm-10"><%= @cost.try(:total_cost) || 'N/A' %></div>
 	</div>
+   
+    <div class="table-responsive">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+              <th><%= t("views.lines.name") %></th>
+              <th><%= t("views.lines.quantity") %></th>
+              <th><%= t("views.lines.price") %></th>
+              <th class="hidden-print"></th>
+        </tr>
+      </thead>
 
+      <tbody>
+        <% @cost.lines.each do |line| %>
+          <tr>
+    
+
+            <td><%= line.name %></td>
+    
+
+            <td><%= line.quantity %></td>
+    
+
+            <td><%= line.price %></td>
+                <td class="hidden-print actions">
+              <div class="btn-group">
+                <%= link_to t('views.epp.links.show'), line , :class => 'btn btn-xs btn-default' %>
+                <button type="button" class="btn btn-xs btn-default dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                  <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu" role="menu">
+                  <li><%= link_to t('views.epp.links.edit'), edit_line_path(line) %></li>
+                  <li><%= link_to t('views.epp.links.destroy'), line, method: :delete, data: { confirm: 'Are you sure?' } %></li>
+                </ul>
+              </div>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div> 
 
 	<div class="buttons">
-		<%= link_to t('views.epp.links.edit'), edit_cost_path(@cost), :class => 'btn btn-warning' %>
-		<%= link_to t('views.epp.links.back'), costs_path, :class => 'btn btn-default' %>
+		<%= link_to t('views.epp.links.edit'), edit_activity_cost_path(@cost.activity), :class => 'btn btn-warning' %>
+		<%= link_to t('views.epp.links.back'), activity_path(@cost.activity), :class => 'btn btn-default' %>
 	</div>
 </div>
