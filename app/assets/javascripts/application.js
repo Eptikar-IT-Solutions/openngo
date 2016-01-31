@@ -18,7 +18,6 @@
 //= require jquery.tablesorter.min
 //= require jquery.slimscroll
 //= require jquery.autosize
-//= require jquery.lineitems
 //= require admin-lte
 //= require jquery_ujs
 //= require select2.min
@@ -28,20 +27,24 @@
 //= require bloodhound.min
 //= require_self
 //= require_tree .
+//= require jquery.lineitems
 
 $( document ).ready(function() {
-  var jobs_file_numbers = new Bloodhound({
-    datumTokenizer: Bloodhound.tokenizers.whitespace,
-    queryTokenizer: Bloodhound.tokenizers.whitespace,
-    prefetch: '/jobs.json'
-  });
+  // var jobs_file_numbers = new Bloodhound({
+  //   datumTokenizer: Bloodhound.tokenizers.whitespace,
+  //   queryTokenizer: Bloodhound.tokenizers.whitespace,
+  //   prefetch: '/jobs.json'
+  // });
 
   // $('#search').typeahead(null, {
 //     name: 'countries',
 //     source: jobs_file_numbers
 //   });
- if ($('.line-items').length > 0)$('.line-items').lineItems(products_url);
-
+ // if ($('.entity-box').length > 0 && $('.tab-pane').length == 0){
+ //    var maxHeight = Math.max.apply(null, $(".entity-box").map(function (){return $(this).height();}).get());
+ //    $('.entity-box').css('height', maxHeight + 15);
+ //  }
+  
   $('input[type!=hidden]').first().focus();
 
   var tabindex = 1;

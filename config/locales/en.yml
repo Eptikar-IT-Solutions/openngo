@@ -189,6 +189,7 @@ en:
     lines:
       "lines": "Lines" 
       "line": "Line" 
+      "name": "Name"
       "price": "Price"
       "quantity": "Quantity"
   controllers:

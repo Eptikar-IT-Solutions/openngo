@@ -21,10 +21,9 @@
         <% @branches.each do |branch| %>
           <tr>
     
-
             <td><%= branch.name %></td>
-
-            <td><%= link_to branch.state.name, branch.state if branch.state_id %></td>
+           
+            <td><%= link_to branch.state.name, branch.state if branch.state %></td>
             <td class="hidden-print actions">
               <div class="btn-group">
                 <%= link_to t('views.epp.links.show'), branch , :class => 'btn btn-xs btn-default' %>

@@ -7,10 +7,10 @@ RSpec.describe Project, type: :model do
     it {should validate_uniqueness_of :name}
 
 	it {should belong_to :branch }
+    it { should belong_to(:location)}
+
 	it { should have_many :project_milestones }
 
-    it { should have_many :project_locations }
-    it { should have_many(:locations).through(:project_locations) }
     it { should have_many :project_donors}
     it { should have_many(:donors).through(:project_donors) }
     it { should have_many :project_partners }

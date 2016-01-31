@@ -25,19 +25,11 @@
     
             
             <td><%= activity.name %></td>
-            <% if activity.branch %>
-            <td><%= link_to activity.project.name, activity.project if activity.project_id %></td>
-            <% else %>
-              <td> NA </td>
-            <% end %>
-
-            <% if activity.branch %>
-              <td><%= link_to activity.branch.name, activity.branch if activity.branch_id %></td>
-            <% else %>
-              <td> NA </td>
-            <% end %>
-
-  
+            
+            <td><%= link_to activity.project.name, activity.project if activity.project %></td>
+     
+            <td><%= link_to activity.branch.name, activity.branch if activity.branch_id %></td>
+         
             <td><%= activity.from %></td>
     
 

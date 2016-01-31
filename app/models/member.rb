@@ -23,6 +23,6 @@ class Member < ActiveRecord::Base
   
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
-	#validates :name, uniqueness: true
-	#validates :name, :email, :mobile, presence: true
+	validates :name, uniqueness: true
+	validates :name, :email, :mobile, presence: true
 end

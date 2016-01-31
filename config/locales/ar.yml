@@ -197,6 +197,7 @@ ar:
     lines:
       "lines": "الوحدات" 
       "line": "الوحدو" 
+      "name": "الإسم"
       "price": "السعر"
       "quantity": "الكمية"       
   controllers:
