@@ -1,6 +1,6 @@
 [![Build Status](https://travis-ci.org/Eptikar-IT-Solutions/openngo.svg?branch=master)](https://travis-ci.org/Eptikar-IT-Solutions/openngo)
 
-![](app/assets/images/openngo.svg)
+![Logo](app/assets/images/openngo.png)
 
 OpenNGO is a free, open source project to help non-governmental organizations (NGOs) best manage their resoures and projects.
 
