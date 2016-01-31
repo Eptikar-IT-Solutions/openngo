@@ -20,9 +20,9 @@
         <% @project_attachments.each do |project_attachment| %>
           <tr>
     
-            <td><%= link_to project_attachment.attachment.name, project_attachment.attachment if project_attachment.attachment_id %></td>
+            <td><%= link_to project_attachment.file%></td>
 
-            <td><%= link_to project_attachment.project.name, project_attachment.project if project_attachment.project_id %></td>
+            <td><%= link_to project_attachment.project.name, project_attachment.project if project_attachment.project %></td>
             <td class="hidden-print actions">
               <div class="btn-group">
                 <%= link_to t('views.epp.links.show'), project_attachment , :class => 'btn btn-xs btn-default' %>

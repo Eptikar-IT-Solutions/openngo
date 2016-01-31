@@ -22,7 +22,9 @@ class Member < ActiveRecord::Base
   has_attached_file :avatar, styles:  { :small => "150x150>",thumb: "100x100" }, default_url: "/images/:style/missing.png"
   
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-
+  
 	validates :name, uniqueness: true
 	validates :name, :email, :mobile, presence: true
+  validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ } , allow_blank: true
+
 end

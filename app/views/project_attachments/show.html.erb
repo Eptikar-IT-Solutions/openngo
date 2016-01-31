@@ -1,19 +1,18 @@
-<%- title "#{@project_attachment.attachment_id}" %>
+<%- title "#{@project_attachment.project}" %>
 <div class="col-lg-12 show">
 	<div class="page-header">
-		<h1><%= @project_attachment.attachment_id %></h1>
 	</div>
 
 	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.project_attachments.attachment_id") %></strong></div>
+		<div class="col-sm-2"><strong><%= t("views.project_attachments.file") %></strong></div>
 
-		<div class="col-sm-10"><%= link_to @project_attachment.attachment.name, @project_attachment.attachment if @project_attachment.attachment_id %></div>
+		<div class="col-sm-10"><%= link_to @project_attachment.file %></div>
 		</div>
 
 	<div class="row">
 		<div class="col-sm-2"><strong><%= t("views.project_attachments.project_id") %></strong></div>
 
-		<div class="col-sm-10"><%= link_to @project_attachment.project.name, @project_attachment.project if @project_attachment.project_id %></div>
+		<div class="col-sm-10"><%= link_to @project_attachment.project.name, @project_attachment.project if @project_attachment.project %></div>
 		</div>
 
 

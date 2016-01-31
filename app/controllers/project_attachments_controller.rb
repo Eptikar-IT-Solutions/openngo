@@ -72,6 +72,6 @@ class ProjectAttachmentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_attachment_params
-      params.require(:project_attachment).permit(:project_id, :attachment [:tempfile, :original_filename, :content_type, :headers], :created_by, :updated_by)
+      params.require(:project_attachment).permit(:project_id, :file)
     end
 end

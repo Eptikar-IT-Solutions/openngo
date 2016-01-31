@@ -14,12 +14,10 @@ Rails.application.routes.draw do
   resources :states
   resources :activity_members
   resources :organizations
-  resources :activity_locations
   resources :activities
   resources :project_members
   resources :project_donors
   resources :project_partners
-  resources :project_locations
   resources :projects
   resources :members
   resources :roles

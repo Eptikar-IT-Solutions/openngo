@@ -44,6 +44,7 @@ ar:
       "settings": "الإعدادت"
       "copyrights": "شكرا لكم لجعل العالم مكانا أفضل بمساعدة"
       "costs": "التكاليف"
+      "project_attchments": "ملحقات المشروع"
     pagination:
       "previous": "&lt; السابقة"
       "next": "اللاحقة &gt;"
@@ -190,6 +191,11 @@ ar:
       "professions": "المهن"
       "profession": "المهنة"
       "name": "الإسم" 
+    project_attachments:
+      "project_attchment": "ملحق المشروع" 
+      "project_attchments": "ملحقات المشروع"
+      "file": "ملف"
+      "project_id": "المشروع"
     costs:
       "cost": "التكلفة"
       "costs": "التكاليف"
@@ -360,4 +366,9 @@ ar:
         "lines": "الوحدات" 
         "line": "الوحدو" 
         "price": "السعر"
-        "quantity": "الكمية"     
+        "quantity": "الكمية"
+      project_attachment:
+        "project_attchment": "ملحق المشروع" 
+        "project_attchments": "ملحقات المشروع"
+        "file": "ملف"
+        "project_id": "المشروع"       
