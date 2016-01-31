@@ -11,13 +11,13 @@ class Organization < ActiveRecord::Base
   validates_attachment_content_type :logo, content_type: /\Aimage\/.*\Z/
 
   translates :name, :description, fallbacks_for_empty_translations: true
+  
   accepts_nested_attributes_for :translations
   
   accepts_nested_attributes_for :members
 
   before_save :fill_website, :if => Proc.new { |organization| organization.website.blank? && !(organization.subdomain.blank?)}
 
-  
   private
     def fill_website
       self.website = self.subdomain + ".openngo.org"

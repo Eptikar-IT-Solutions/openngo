@@ -11,11 +11,10 @@ class Member < ActiveRecord::Base
   belongs_to :role
   belongs_to :profession
   belongs_to :organization
-  has_many :project_roles
 
+  has_many :project_roles
   has_many :project_members
   has_many :projects, through: :project_members
-
   has_many :activity_members
   has_many :activities, through: :activity_members
 

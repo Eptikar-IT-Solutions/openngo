@@ -6,6 +6,7 @@ class Location < ActiveRecord::Base
 	has_many :activity_locations
   has_many :activities, through: :activity_locations
 
-  translates :name, fallbacks_for_empty_translations: true  
+  translates :name, fallbacks_for_empty_translations: true
+
   accepts_nested_attributes_for :translations
 end

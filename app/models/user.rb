@@ -4,9 +4,11 @@ class User < ActiveRecord::Base
   delegate :can?, :cannot?, :to => :ability
   
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :twitter]
+         :recoverable, :rememberable, :trackable, :validatable, 
+         :omniauthable, :omniauth_providers => [:facebook, :twitter]
   
   translates :full_name, fallbacks_for_empty_translations: true
+  
   accepts_nested_attributes_for :translations
   
   def self.new_with_session(params, session)
