@@ -7,11 +7,10 @@ states = {"en" => [ "Al Jazirah", "Blue Nile ", "Sennar", "White Nile", "Central
 end  
 
 
-role1 = Role.create(name: 'Admin', permissions: {:all=>true})
+role1 = Role.create(name: 'Guest', permissions:{all: false})
+role2 = Role.create(name: 'Admin', permissions:{all: true})
 
-role2 = Role.create(name: 'Guest', permissions: {:all=>false})
-
-User.create(name: 'admin', full_name: 'Administrator', email: 'alias@example.com', password: '12345678', password_confirmation: '12345678', active: true, confirmed_at: Time.now, role_id: role1.id)
+User.create(name: 'admin', full_name: 'Administrator', email: 'alias@example.com', password: '12345678', password_confirmation: '12345678', active: true, confirmed_at: Time.now, role_id: role2.id)
 
 organization1 = Organization.create(name: 'United Nations Convention To Combat Desertification', website: 'www.unccd.int', subdomain: 'unccd', email: 'info@unccd.int', phone1: '+49-228815-2800', phone2: '+249912412801', fax: '0+49-228815-289899', address: 'UNCCD
 Platz der Vereinten Nationen 1, D-53113 Bonn, Germany', description: 'The Convention’s 195 parties work together to improve the living conditions for people in drylands, to maintain and restore land and soil productivity, and to mitigate the effects of drought. The UNCCD is particularly committed to a bottom-up approach, encouraging the participation of local people in combating desertification and land degradation. The UNCCD secretariat facilitates cooperation between developed and developing countries, particularly around knowledge and technology transfer for sustainable land management.', active: true )
