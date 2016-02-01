@@ -22,19 +22,19 @@
       <tbody>
         <% @activities.each do |activity| %>
           <tr>
-    
-            
+
+
             <td><%= activity.name %></td>
-            
+
             <td><%= link_to activity.project.name, activity.project if activity.project %></td>
-     
-            <td><%= link_to activity.branch.name, activity.branch if activity.branch_id %></td>
-         
+
+            <td><%= link_to activity.branch.name, activity.branch if activity.branch %></td>
+
             <td><%= activity.from %></td>
-    
+
 
             <td><%= activity.to %></td>
-    
+
                 <td class="hidden-print actions">
               <div class="btn-group">
                 <%= link_to t('views.epp.links.show'), activity , :class => 'btn btn-xs btn-default' %>
