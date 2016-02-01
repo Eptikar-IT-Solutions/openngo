@@ -23,6 +23,9 @@ gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem 'cancancan', '~> 1.10'
 gem "ruby-trello"
+gem 'trello_webhook'
+gem 'seed_dump'
+gem 'kaminari'
 
 gem 'rspec-rails'
 gem 'guard-rspec'
