@@ -4,7 +4,7 @@ states = {"en" => [ "Al Jazirah", "Blue Nile ", "Sennar", "White Nile", "Central
 (0..17).each do |n|
   State.create(name: states["en"][n])
   State::Translation.create(name: states["ar"][n], state_id: State.last.id, locale: "ar")
-end  
+end
 
 
 role1 = Role.create(name: 'Guest', permissions:{all: false})
@@ -20,7 +20,7 @@ organization2 = Organization.create(name: 'The Crop Trust', website: 'www.croptr
 
 state = State.create(name: 'Khartoum')
 
-branch = Branch.create(name: 'Africa-sudan', description: " The Regional Implementation Annex for Africa of the UNCCD outlines an approach for addressing desertification, land degradation and drought on the African continent.  This Annex is the most detailed and comprehensive of all the regional annexes to the Convention. 
+branch = Branch.create(name: 'Africa-sudan', description: " The Regional Implementation Annex for Africa of the UNCCD outlines an approach for addressing desertification, land degradation and drought on the African continent.  This Annex is the most detailed and comprehensive of all the regional annexes to the Convention.
   ",  state_id: state.id )
 
 project = Project.create(name: 'UNCCD Capacity Building Marketplace', budget: 100000, from: '2016-08-01', to: '2015-12-01', goal: 'invites communities to make their own contributions and so help to  make  this the most comprehensive marketplace of its kind in the world.', description: 'The Capacity Building Marketplace links all existing and emerging supply and demand there are relating to capacity for the meaningful implementation of the Convention, thus making for quick and easy transactions. It further invites them to make their own contributions and so help to  make  this the most comprehensive marketplace of its kind in the world.')
@@ -29,6 +29,8 @@ activity1 = Activity.create(name: 'Sustainable Urban Land Use Planning course', 
 ',from: '2016-08-01', to: '2016-08-20', repeated: '1')
 
 activity2 = Activity.create(name: 'World Soil Day celebration', project_id: project.id, budget: 12000,branch_id: branch.id, description: '',from: '2016-11-24', to: '2016-11-24', repeated: '1')
+
+profession1 = Profession.create(name: 'other')
 
 profession1 = Profession.create(name: 'College Professor')
 
@@ -51,7 +53,7 @@ ProjectMilestone.create(name: 'Crowd Fund The Hope Link OrphanageProject ', desc
 #ProjectMilestone.create(name: 'Desertification Degerdation in North State ', description: 'By Implementing the best practices by planting in the smallest spaces ,The Problem of Desertification is declining', expences: 60000, project_id: project.id)
 
 project_member1 = ProjectMember.create(member_id: member1.id, project_id: project.id)
- 
+
 project_member2 = ProjectMember.create(member_id: member2.id, project_id: project.id)
 
 ProjectDonor.create(donor_id: donor.id,project_id: project.id)
