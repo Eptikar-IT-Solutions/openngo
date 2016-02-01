@@ -13,9 +13,11 @@ feature "Members" do
     click_button "Login"
 
     visit new_member_url
-    fill_in "member[mobile]", with: "0916162240"
+
+    fill_in "member[mobile]", with: "0910662240"
     fill_in "member[email]", with: "info@eptikar.com"
-    select("Farmer", :from => "member[profession_id]")
+    
+    select("Farmer", from: "member[profession_id]")
     click_button "Save"
     expect(page).to have_content("Member was successfully created.")
     
@@ -33,7 +35,7 @@ feature "Members" do
     visit new_member_url
 
     fill_in "member[email]", with: "info@eptikar.com"
-    select('other', :from => 'member[profession_id]')
+    select('other', from: 'member[profession_id]')
     fill_in "member[other_profession]", with: "Doctor"
     click_button "Save"
     expect(page).to have_content('Member was successfully created.')

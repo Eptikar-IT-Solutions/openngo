@@ -20,7 +20,7 @@ RSpec.describe Member, type: :model do
   let(:profession) { FactoryGirl.create :profession }
 
   it "should save a valid member" do
-    member = FactoryGirl.create(:member, profession: profession)
+    member = FactoryGirl.create(:member, email: 'info@example.com', profession: profession)
     expect(member.save!).to be true
   end
 end

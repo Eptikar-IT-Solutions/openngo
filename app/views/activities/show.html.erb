@@ -63,8 +63,11 @@
 		<div class="col-sm-10"><%= @activity.try(:repeated) || 'N/A' %></div>
 	</div>
 
-  <div><%= link_to 'Activity Cost', edit_activity_cost_path(@activity) %></div>
-
+  <% if @activity.cost%>
+  	<div><%= link_to 'Edit Activity Cost', edit_activity_cost_path(@activity) %></div>
+  <% else %>
+ 		<div><%= link_to 'New Activity Cost', new_activity_cost_path(@activity) %></div>  
+ 	<% end %>
 	<div class="buttons">
 		<%= link_to t('views.epp.links.edit'), edit_activity_path(@activity), :class => 'btn btn-warning' %>
 		<%= link_to t('views.epp.links.back'), activities_path, :class => 'btn btn-default' %>

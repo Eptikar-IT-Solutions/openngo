@@ -7,7 +7,9 @@ describe "user registration" do
     fill_in "Email",                 :with => "alias@example.com"
     
     click_button "Sign up"
+    
+    expect(User.where(Email: "alias@example.com")).to exist
 
-    page.should have_content("Welcome! You have signed up successfully.")
+    #page.should have_content("Welcome! You have signed up successfully.")
   end
 end
