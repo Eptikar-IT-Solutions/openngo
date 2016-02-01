@@ -11,8 +11,6 @@ class Project < ActiveRecord::Base
   has_many :project_attachments
   
   belongs_to :location
-	# has_many :project_locations
-  #  has_many :locations, through: :project_locations
   
   belongs_to :organization 
   
@@ -34,8 +32,6 @@ class Project < ActiveRecord::Base
 
   translates :name, :description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
-
- #after_create :create_trello_board 
 
   private
     def create_trello_board
