@@ -1,6 +1,7 @@
 class ProjectMilestone < ActiveRecord::Base
   include StampableRelations
   include PublicActivity::Model
+
   tracked owner: proc { |controller, model| model.updater }
   
   belongs_to :project
@@ -10,6 +11,7 @@ class ProjectMilestone < ActiveRecord::Base
   validates :expences, numericality: true 
 
   translates :name, :description, fallbacks_for_empty_translations: true
+  
   accepts_nested_attributes_for :translations
 
   before_destroy :remove_all_activities

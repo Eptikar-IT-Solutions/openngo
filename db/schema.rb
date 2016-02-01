@@ -29,15 +29,6 @@ ActiveRecord::Schema.define(version: 20160131072406) do
     t.integer  "location_id", limit: 4
   end
 
-  create_table "activity_locations", force: :cascade do |t|
-    t.integer  "activity_id", limit: 4
-    t.integer  "location_id", limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "created_by",  limit: 4
-    t.integer  "updated_by",  limit: 4
-  end
-
   create_table "activity_members", force: :cascade do |t|
     t.integer  "activity_id", limit: 4
     t.integer  "member_id",   limit: 4
@@ -57,22 +48,8 @@ ActiveRecord::Schema.define(version: 20160131072406) do
     t.text     "description", limit: 65535
   end
 
-  add_index "activity_translations", ["activity_id"], name: "activity_id", using: :btree
-  add_index "activity_translations", ["activity_id"], name: "activity_id_2", using: :btree
   add_index "activity_translations", ["activity_id"], name: "index_activity_translations_on_activity_id", using: :btree
   add_index "activity_translations", ["locale"], name: "index_activity_translations_on_locale", using: :btree
-  add_index "activity_translations", ["locale"], name: "locale", using: :btree
-  add_index "activity_translations", ["locale"], name: "locale_2", using: :btree
-
-  create_table "attachments", force: :cascade do |t|
-    t.string   "name",              limit: 255
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
-    t.string   "file_file_name",    limit: 255
-    t.string   "file_content_type", limit: 255
-    t.integer  "file_file_size",    limit: 4
-    t.datetime "file_updated_at",               null: false
-  end
 
   create_table "branch_translations", force: :cascade do |t|
     t.integer  "branch_id",   limit: 4,     null: false
@@ -83,12 +60,8 @@ ActiveRecord::Schema.define(version: 20160131072406) do
     t.text     "description", limit: 65535
   end
 
-  add_index "branch_translations", ["branch_id"], name: "branch_id", using: :btree
-  add_index "branch_translations", ["branch_id"], name: "branch_id_2", using: :btree
   add_index "branch_translations", ["branch_id"], name: "index_branch_translations_on_branch_id", using: :btree
   add_index "branch_translations", ["locale"], name: "index_branch_translations_on_locale", using: :btree
-  add_index "branch_translations", ["locale"], name: "locale", using: :btree
-  add_index "branch_translations", ["locale"], name: "locale_2", using: :btree
 
   create_table "branches", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -118,12 +91,8 @@ ActiveRecord::Schema.define(version: 20160131072406) do
     t.text     "description", limit: 65535
   end
 
-  add_index "donor_translations", ["donor_id"], name: "donor_id", using: :btree
-  add_index "donor_translations", ["donor_id"], name: "donor_id_2", using: :btree
   add_index "donor_translations", ["donor_id"], name: "index_donor_translations_on_donor_id", using: :btree
   add_index "donor_translations", ["locale"], name: "index_donor_translations_on_locale", using: :btree
-  add_index "donor_translations", ["locale"], name: "locale", using: :btree
-  add_index "donor_translations", ["locale"], name: "locale_2", using: :btree
 
   create_table "donors", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -156,11 +125,7 @@ ActiveRecord::Schema.define(version: 20160131072406) do
   end
 
   add_index "location_translations", ["locale"], name: "index_location_translations_on_locale", using: :btree
-  add_index "location_translations", ["locale"], name: "locale", using: :btree
-  add_index "location_translations", ["locale"], name: "locale_2", using: :btree
   add_index "location_translations", ["location_id"], name: "index_location_translations_on_location_id", using: :btree
-  add_index "location_translations", ["location_id"], name: "location_id", using: :btree
-  add_index "location_translations", ["location_id"], name: "location_id_2", using: :btree
 
   create_table "locations", force: :cascade do |t|
     t.integer  "state_id",   limit: 4
@@ -209,11 +174,7 @@ ActiveRecord::Schema.define(version: 20160131072406) do
   end
 
   add_index "organization_translations", ["locale"], name: "index_organization_translations_on_locale", using: :btree
-  add_index "organization_translations", ["locale"], name: "locale", using: :btree
-  add_index "organization_translations", ["locale"], name: "locale_2", using: :btree
   add_index "organization_translations", ["organization_id"], name: "index_organization_translations_on_organization_id", using: :btree
-  add_index "organization_translations", ["organization_id"], name: "organization_id", using: :btree
-  add_index "organization_translations", ["organization_id"], name: "organization_id_2", using: :btree
 
   create_table "organizations", force: :cascade do |t|
     t.string   "name",                limit: 255
@@ -246,11 +207,7 @@ ActiveRecord::Schema.define(version: 20160131072406) do
   end
 
   add_index "profession_translations", ["locale"], name: "index_profession_translations_on_locale", using: :btree
-  add_index "profession_translations", ["locale"], name: "locale", using: :btree
-  add_index "profession_translations", ["locale"], name: "locale_2", using: :btree
   add_index "profession_translations", ["profession_id"], name: "index_profession_translations_on_profession_id", using: :btree
-  add_index "profession_translations", ["profession_id"], name: "profession_id", using: :btree
-  add_index "profession_translations", ["profession_id"], name: "profession_id_2", using: :btree
 
   create_table "professions", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -281,15 +238,6 @@ ActiveRecord::Schema.define(version: 20160131072406) do
     t.integer  "updated_by", limit: 4
   end
 
-  create_table "project_locations", force: :cascade do |t|
-    t.integer  "project_id",  limit: 4
-    t.integer  "location_id", limit: 4
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "created_by",  limit: 4
-    t.integer  "updated_by",  limit: 4
-  end
-
   create_table "project_members", force: :cascade do |t|
     t.integer  "project_id", limit: 4
     t.integer  "member_id",  limit: 4
@@ -310,11 +258,7 @@ ActiveRecord::Schema.define(version: 20160131072406) do
   end
 
   add_index "project_milestone_translations", ["locale"], name: "index_project_milestone_translations_on_locale", using: :btree
-  add_index "project_milestone_translations", ["locale"], name: "locale", using: :btree
-  add_index "project_milestone_translations", ["locale"], name: "locale_2", using: :btree
   add_index "project_milestone_translations", ["project_milestone_id"], name: "index_project_milestone_translations_on_project_milestone_id", using: :btree
-  add_index "project_milestone_translations", ["project_milestone_id"], name: "project_milestone_id", using: :btree
-  add_index "project_milestone_translations", ["project_milestone_id"], name: "project_milestone_id_2", using: :btree
 
   create_table "project_milestones", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -353,11 +297,7 @@ ActiveRecord::Schema.define(version: 20160131072406) do
   end
 
   add_index "project_translations", ["locale"], name: "index_project_translations_on_locale", using: :btree
-  add_index "project_translations", ["locale"], name: "locale", using: :btree
-  add_index "project_translations", ["locale"], name: "locale_2", using: :btree
   add_index "project_translations", ["project_id"], name: "index_project_translations_on_project_id", using: :btree
-  add_index "project_translations", ["project_id"], name: "project_id", using: :btree
-  add_index "project_translations", ["project_id"], name: "project_id_2", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",                           limit: 255
@@ -397,14 +337,8 @@ ActiveRecord::Schema.define(version: 20160131072406) do
   end
 
   add_index "public_activities", ["owner_id", "owner_type"], name: "index_public_activities_on_owner_id_and_owner_type", using: :btree
-  add_index "public_activities", ["owner_id", "owner_type"], name: "owner_id", using: :btree
-  add_index "public_activities", ["owner_id", "owner_type"], name: "owner_id_2", using: :btree
   add_index "public_activities", ["recipient_id", "recipient_type"], name: "index_public_activities_on_recipient_id_and_recipient_type", using: :btree
-  add_index "public_activities", ["recipient_id", "recipient_type"], name: "recipient_id", using: :btree
-  add_index "public_activities", ["recipient_id", "recipient_type"], name: "recipient_id_2", using: :btree
   add_index "public_activities", ["trackable_id", "trackable_type"], name: "index_public_activities_on_trackable_id_and_trackable_type", using: :btree
-  add_index "public_activities", ["trackable_id", "trackable_type"], name: "trackable_id", using: :btree
-  add_index "public_activities", ["trackable_id", "trackable_type"], name: "trackable_id_2", using: :btree
 
   create_table "role_translations", force: :cascade do |t|
     t.integer  "role_id",    limit: 4,   null: false
@@ -415,11 +349,7 @@ ActiveRecord::Schema.define(version: 20160131072406) do
   end
 
   add_index "role_translations", ["locale"], name: "index_role_translations_on_locale", using: :btree
-  add_index "role_translations", ["locale"], name: "locale", using: :btree
-  add_index "role_translations", ["locale"], name: "locale_2", using: :btree
   add_index "role_translations", ["role_id"], name: "index_role_translations_on_role_id", using: :btree
-  add_index "role_translations", ["role_id"], name: "role_id", using: :btree
-  add_index "role_translations", ["role_id"], name: "role_id_2", using: :btree
 
   create_table "roles", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -439,11 +369,7 @@ ActiveRecord::Schema.define(version: 20160131072406) do
   end
 
   add_index "state_translations", ["locale"], name: "index_state_translations_on_locale", using: :btree
-  add_index "state_translations", ["locale"], name: "locale", using: :btree
-  add_index "state_translations", ["locale"], name: "locale_2", using: :btree
   add_index "state_translations", ["state_id"], name: "index_state_translations_on_state_id", using: :btree
-  add_index "state_translations", ["state_id"], name: "state_id", using: :btree
-  add_index "state_translations", ["state_id"], name: "state_id_2", using: :btree
 
   create_table "states", force: :cascade do |t|
     t.string   "name",       limit: 255
@@ -481,11 +407,7 @@ ActiveRecord::Schema.define(version: 20160131072406) do
   end
 
   add_index "user_translations", ["locale"], name: "index_user_translations_on_locale", using: :btree
-  add_index "user_translations", ["locale"], name: "locale", using: :btree
-  add_index "user_translations", ["locale"], name: "locale_2", using: :btree
   add_index "user_translations", ["user_id"], name: "index_user_translations_on_user_id", using: :btree
-  add_index "user_translations", ["user_id"], name: "user_id", using: :btree
-  add_index "user_translations", ["user_id"], name: "user_id_2", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
@@ -510,7 +432,7 @@ ActiveRecord::Schema.define(version: 20160131072406) do
     t.string   "provider",               limit: 255
     t.string   "uid",                    limit: 255
     t.string   "language",               limit: 255
-    t.integer  "role_id",                limit: 4,   default: 1
+    t.integer  "role_id",                limit: 4,   default: 2
     t.string   "confirmation_token",     limit: 255
     t.datetime "confirmed_at"
     t.datetime "confirmation_sent_at"

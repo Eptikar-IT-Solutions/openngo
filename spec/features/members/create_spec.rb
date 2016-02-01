@@ -1,4 +1,6 @@
 require "rails_helper"
+require 'spec_helper'
+
 feature "Members" do
 
   before(:each) do
@@ -7,6 +9,7 @@ feature "Members" do
     FactoryGirl.create(:profession, name: 'other')
   end
 
+it {puts page.body}
   scenario "creating a new member with existing profession" do
     visit root_url
     fill_in "Email", with: "test@example.com"
@@ -14,7 +17,7 @@ feature "Members" do
 
     visit new_member_url
 
-    fill_in "member[mobile]", with: "0910662240"
+    fill_in "mobile", with: "0910662240"
     fill_in "member[email]", with: "info@eptikar.com"
     
     select("Farmer", from: "member[profession_id]")

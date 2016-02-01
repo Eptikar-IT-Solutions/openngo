@@ -5,6 +5,7 @@ class Branch < ActiveRecord::Base
    
   validates :name, uniqueness: true, presence: true
 
-  translates :name, :description, fallbacks_for_empty_translations: true 
+  translates :name, :description, fallbacks_for_empty_translations: true
+
   accepts_nested_attributes_for :translations
 end
