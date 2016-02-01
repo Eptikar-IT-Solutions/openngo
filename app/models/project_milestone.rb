@@ -11,15 +11,10 @@ class ProjectMilestone < ActiveRecord::Base
 
   translates :name, :description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
-  
-  after_save :update_project_overall_expences
+
   before_destroy :remove_all_activities
 
   private
-    def update_project_overall_expences
-      self.project.update(overall_expences: self.project.overall_expences + self.expences)
-    end
-
     def remove_all_activities
       PublicActivity::Activity.destroy_all(:trackable => self)
     end
