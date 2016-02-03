@@ -13,9 +13,9 @@
  *= require bootstrap
  *= require bootstrap-theme
  *= require datepicker
- *= require epp
  *= require prettify
  *= require AdminLTE
  *= require skin-green.min
  *= require tablecloth
+ *= require epp
  */

@@ -22,6 +22,24 @@
 //= require_tree .
 
 $(document).ready(function() {
+  if($(".mainbar").length > 0)
+  {
+    $("#menu-togle").click(function () {
+      $('body').toggleClass('menu-on');
+      if($('body').hasClass('menu-on')){
+        document.cookie = 1;
+        $("#menu-togle").find('i').removeClass('fa-bars').addClass('fa-times');
+      } else {
+        document.cookie = 0;
+        $("#menu-togle").find('i').removeClass('fa-times').addClass('fa-bars');
+      }
+    });
+  
+    if(document.cookie == 1 && $(window).width() > 720) {
+      $('body').addClass('menu-on');
+      $("#menu-togle").find('i').removeClass('fa-bars').addClass('fa-times');
+    }
+  }
   
   $('input[type!=hidden]').first().focus();
 
