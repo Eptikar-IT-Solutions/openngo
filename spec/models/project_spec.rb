@@ -56,7 +56,7 @@ RSpec.describe Project, type: :model do
     end
 
     it "should be able to create a trello board" do
-      expect(@project.board).to_not be nil
+      expect(@project.board).to eq "4eea4ffc91e31d1746000046"
     end
 
   end
