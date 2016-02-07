@@ -21,6 +21,7 @@ gem 'ruby-trello'
 gem 'trello_webhook'
 gem 'seed_dump'
 gem 'kaminari'
+gem 'webmock'
 
 group :doc do
   gem 'sdoc', require: false
@@ -35,7 +36,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'mysql2', '~> 0.3.18'
   gem 'sqlite3'
-end 
+end
 
 group :production do
   gem 'pg'

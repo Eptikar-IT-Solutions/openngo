@@ -309,7 +309,6 @@ ActiveRecord::Schema.define(version: 20160202120021) do
     t.datetime "updated_at"
     t.integer  "created_by",                     limit: 4
     t.integer  "updated_by",                     limit: 4
-    t.decimal  "overall_expences",                             precision: 12, scale: 2, default: 0.0
     t.string   "required_document_file_name",    limit: 255
     t.string   "required_document_content_type", limit: 255
     t.integer  "required_document_file_size",    limit: 4
