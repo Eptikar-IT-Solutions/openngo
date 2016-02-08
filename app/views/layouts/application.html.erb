@@ -30,8 +30,19 @@
       <%= link_to raw('<i class="fa fa-globe fa-lg"></i> '), url_for(params.merge({locale: I18n.locale == :ar ? 'en' : 'ar'})) , class: "action right" %>
     </div>
     <div class="menu-drawer">
-      <div class="inner">
-        <ul class="mainmenu">
+      <div class="account">
+        <div class="account">
+          <% if user_signed_in? %>
+            <img class="avatar" src="<%= current_user.avatar %>">
+            <div class="username"><%= link_to current_user.full_name, user_path(current_user) %></div>
+          <% else %>
+            <%= link_to t("views.application_layout.sign_up"), new_user_registration_path, :class => 'navbar-link'  %> | 
+            <%= link_to t("views.application_layout.login"), new_user_session_path, :class => 'navbar-link'  %>
+          <% end %>
+        </div>
+      </div>
+      <div class="inner nano">
+        <ul class="mainmenu nano-content">
           <li class="<%= "active" if ["projects", "file", "items"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-fw fa-truck'></i> <span>#{t "views.projects.projects"}</span>"), projects_path %></li>
           <li class="<%= "active" if ["activities"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-fw fa-binoculars'></i> <span>#{t "views.activities.activities"}</span>"), activities_path %></li>
           <li class="<%= "active" if ["members"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-fw fa-users'></i> <span>#{t "views.members.members"}</span>"), members_path %></li>
@@ -55,16 +66,10 @@
               </li>
             </ul>
           </li>
+          
+          <li><%= link_to raw("<i class='fa fa-fw fa-sign-out'></i> <span>#{t "views.application_layout.logout"}</span>"), destroy_user_session_path, method: :delete, class: 'profile-link navbar-link'  %></li>
+          
         </ul>
-        <div class="account">
-          <% if user_signed_in? %>
-            <strong><%= link_to current_user.name, edit_user_registration_path, class: 'profile-link' %></strong><a class="profile-link"> | </a>
-            <strong><%= link_to t("views.application_layout.logout"), destroy_user_session_path, method: :delete, class: 'profile-link navbar-link'  %></strong>
-          <% else %>
-            <%= link_to t("views.application_layout.sign_up"), new_user_registration_path, :class => 'navbar-link'  %>
-            <%= link_to t("views.application_layout.login"), new_user_session_path, :class => 'navbar-link'  %>
-          <% end %>
-        </div>
       </div>
     </div>
     <div class="container-fluid body">

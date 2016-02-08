@@ -51,6 +51,11 @@ class User < ActiveRecord::Base
     self.errors[:password_confirmation] << "does not match password" if password != password_confirmation
     password == password_confirmation && !password.blank?
   end
+  
+  def avatar
+    gravatar_id = Digest::MD5.hexdigest(email.downcase)
+    return "http://gravatar.com/avatar/#{gravatar_id}.jpg?s=40"
+  end
 
   def self.find_by_confirmation_token!(confirmation_token)
     original_token = confirmation_token
