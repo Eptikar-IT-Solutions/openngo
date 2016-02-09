@@ -1,8 +1,8 @@
 FactoryGirl.define do
   factory :organization do
-    name "MyString"
+    sequence(:name) { |n| "Test Organization#{n}" }
 	website "MyString"
-	subdomain "MyString"
+	sequence(:subdomain) { |n| "o#{n}.example.com" }
 	email "MyString"
 	phone1 "MyString"
 	phone2 "MyString"
