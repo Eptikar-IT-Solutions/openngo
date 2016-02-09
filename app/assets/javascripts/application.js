@@ -15,6 +15,7 @@
 //= require datepicker
 //= require jquery.tablesorter.min
 //= require jquery.slimscroll
+//= require jquery.nanoscroller.min
 //= require admin-lte
 //= require jquery_ujs 
 //= require depends_on.js
@@ -22,24 +23,27 @@
 //= require_tree .
 
 $(document).ready(function() {
+  
   if($(".mainbar").length > 0)
   {
     $("#menu-togle").click(function () {
       $('body').toggleClass('menu-on');
       if($('body').hasClass('menu-on')){
-        document.cookie = 1;
+        if(typeof(Storage) !== "undefined") localStorage.setItem("menu", "1");
         $("#menu-togle").find('i').removeClass('fa-bars').addClass('fa-times');
       } else {
-        document.cookie = 0;
+        if(typeof(Storage) !== "undefined") localStorage.setItem("menu", "0");
         $("#menu-togle").find('i').removeClass('fa-times').addClass('fa-bars');
       }
     });
-  
-    if(document.cookie == 1 && $(window).width() > 720) {
+    
+    if(typeof(Storage) !== "undefined" && localStorage.getItem("menu") == "1" && $(window).width() > 720) {
       $('body').addClass('menu-on');
       $("#menu-togle").find('i').removeClass('fa-bars').addClass('fa-times');
     }
+    
   }
+  $(".nano").nanoScroller();
   
   $('input[type!=hidden]').first().focus();
 
