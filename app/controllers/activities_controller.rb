@@ -11,6 +11,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1
   # GET /activities/1.json
   def show
+    @members = Member.where.not(id: @activity.members.ids)   
   end
 
   # GET /activities/new
@@ -61,6 +62,11 @@ class ActivitiesController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+  def add_member
+    ActivityMember.create({activity_id: params[:activity_id], member_id: params[:member_id]})
+    redirect_to activity_path(params[:activity_id])
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -70,6 +76,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:name, :project_id, :branch_id, :budget, :description, :from, :to, :repeated, :location_id, :created_by, :updated_by, translations_attributes: [:id, :locale, :name, :description])
+      params.require(:activity).permit(:name, :project_id, :branch_id, :budget, :description, :from, :to, :repeated, :location_id, :created_by, :updated_by, translations_attributes: [:id, :locale, :name, :description], members_attributes: [:id,:name])
     end
 end

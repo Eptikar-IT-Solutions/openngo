@@ -55,9 +55,10 @@ class ActivityMembersController < ApplicationController
   # DELETE /activity_members/1
   # DELETE /activity_members/1.json
   def destroy
+    @activity = @activity_member.activity
     @activity_member.destroy
     respond_to do |format|
-      format.html { redirect_to activity_members_url, notice: 'Activity member was successfully destroyed.' }
+      format.html { redirect_to @activity, notice: 'Activity member was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

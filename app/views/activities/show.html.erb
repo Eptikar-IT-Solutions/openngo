@@ -63,10 +63,31 @@
 		<div class="col-sm-10"><%= @activity.try(:repeated) || 'N/A' %></div>
 	</div>
 
+	<div class="row">
+		<div class="col-sm-2"><strong><%= t("views.activities.members") %></strong></div>
+    <div class="col-sm-10">
+		<ul class="quite">
+			<% @activity.activity_members.each do |activity_member|  %>
+				<li>
+					<%= link_to activity_member.member.name, member_path(activity_member.member.id)%>	
+					<%= link_to raw("<i class='fa fa-times'></i> " + t("views.activities.Remove")), activity_member_path(activity_member.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+				</li>
+			<% end %>
+		</ul>		
+		<% if @members.size > 0 %>
+			<%= form_tag({controller: "activities" , action: "add_member" , method: "post"}, {class:"form-inline"}) do %>
+				<%= select_tag(:member_id,options_for_select(@members.collect{|member| [member.name, member.id]}), class: "select2 form-control") %>
+				<%= hidden_field_tag(:activity_id, @activity.id) %>
+				<%= submit_tag t('views.activities.Add Member'), class: 'btn btn-default'%>
+			<% end %>
+		<% end %>
+    </div>
+  </div>
+
   <% if @activity.cost%>
-  	<div><%= link_to 'Edit Activity Cost', edit_activity_cost_path(@activity) %></div>
+  	<div><%= link_to t('views.activities.edit_activity_cost'), edit_activity_cost_path(@activity) %></div>
   <% else %>
- 		<div><%= link_to 'New Activity Cost', new_activity_cost_path(@activity) %></div>  
+ 		<div><%= link_to t('views.activities.new_activity_cost'), new_activity_cost_path(@activity) %></div>  
  	<% end %>
 	<div class="buttons">
 		<%= link_to t('views.epp.links.edit'), edit_activity_path(@activity), :class => 'btn btn-warning' %>

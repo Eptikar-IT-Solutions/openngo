@@ -59,7 +59,7 @@ class ProjectAttachmentsController < ApplicationController
     @project_attachment = ProjectAttachment.find(params[:id])
     @project_attachment.destroy
     respond_to do |format|
-      format.html { redirect_to project_attachments_url, notice: 'Project attachment was successfully destroyed.' }
+      format.html { redirect_to @project, notice: 'Project attachment was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

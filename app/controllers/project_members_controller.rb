@@ -55,9 +55,10 @@ class ProjectMembersController < ApplicationController
   # DELETE /project_members/1
   # DELETE /project_members/1.json
   def destroy
+    @project = @project_member.project
     @project_member.destroy
     respond_to do |format|
-      format.html { redirect_to project_members_url, notice: 'Project member was successfully destroyed.' }
+      format.html { redirect_to @project, notice: 'Project member was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

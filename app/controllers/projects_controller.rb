@@ -11,6 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
+     @members = Member.where.not(id: @project.members.ids)   
     @activities = PublicActivity::Activity.all.order("created_at desc")
   end
 
@@ -64,7 +65,11 @@ class ProjectsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
+  def add_member
+    ProjectMember.create({project_id: params[:project_id], member_id: params[:member_id]})
+    redirect_to project_path(params[:project_id])
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
@@ -74,6 +79,6 @@ class ProjectsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def project_params
-      params.require(:project).permit(:name, :budget, :from, :to, :branch_id, :location_id, :goal, :description, :tag_names, :currency, :created_by, :updated_by, project_attachments_attributes: [ :id, :attachment], translations_attributes: [:id, :locale, :name, :description])
+      params.require(:project).permit(:name, :budget, :from, :to, :branch_id, :location_id, :goal, :description, :tag_names, :currency, :created_by, :updated_by, project_attachments_attributes: [ :id, :file], translations_attributes: [:id, :locale, :name, :description], members_attributes: [:id,:name])
     end
 end
