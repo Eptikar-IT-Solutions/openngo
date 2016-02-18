@@ -6,6 +6,7 @@ OpenNGO is a free, open source project to help non-governmental organizations (N
 
 OpenNGO is a web-based [Ruby on Rails](https://github.com/rails/rails) app
 
+
 # Technology Stack
 
 OS:
@@ -52,6 +53,9 @@ Databases (tested on):
 - [x] Basic Integration with [Trello](http://trello.com)
 - [ ] Ability to Add Milestones
 - [ ] Members Notifications (email, sms)
+
+# Current Status
+OpenNGO is is currently stable, nonetheless it is under heavy development. 
 
 # How to contribute
 
