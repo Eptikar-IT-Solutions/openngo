@@ -60,8 +60,9 @@
 		<div class="col-sm-2"><strong><%= t("views.activities.repeated") %></strong></div>
 
 
-		<div class="col-sm-10"><%= @activity.try(:repeated) || 'N/A' %></div>
+		<div class="col-sm-10"><%= @activity.repeated ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></div>
 	</div>
+
 
 	<div class="row">
 		<div class="col-sm-2"><strong><%= t("views.activities.members") %></strong></div>

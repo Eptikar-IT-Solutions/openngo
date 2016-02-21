@@ -30,7 +30,9 @@ activity1 = Activity.create(name: 'Sustainable Urban Land Use Planning course', 
 
 activity2 = Activity.create(name: 'World Soil Day celebration', project_id: project.id, budget: 12000,branch_id: branch.id, description: '',from: '2016-11-24', to: '2016-11-24', repeated: '1')
 
-profession1 = Profession.create(name: 'other')
+profession1 = Profession.create(name: 'Other')
+
+Profession::Translation.create(name: 'أخرى', profession_id: profession1.id, locale: "ar")
 
 profession1 = Profession.create(name: 'College Professor')
 

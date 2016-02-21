@@ -104,6 +104,7 @@ en:
       "role": "Role"
       "bio": "Bio"
       "active": "Active"
+      "other_profession": "Other Profession"
     branches:
       "branches": "Branches"
       "branch": "Branch"
@@ -274,6 +275,7 @@ en:
         "from": "From"
         "to": "To"
         "repeated": "Repeated" 
+        "location_id": "Location"
       member:
         "members": "Members"
         "member": "Member"
