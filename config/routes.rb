@@ -46,5 +46,7 @@ Rails.application.routes.draw do
 
   devise_for :users, :path => '', :path_names => { sign_in: 'login', sign_out: 'logout'}, :controllers => { omniauth_callbacks: "callbacks", confirmations: "confirmations", sessions: "sessions", registrations: "registrations" }
 
+  get 'settings' => 'dashboard#settings', :as => "settings"
+
   root :to => "projects#index"
 end
