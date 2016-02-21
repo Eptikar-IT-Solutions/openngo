@@ -52,6 +52,7 @@ Databases (tested on):
 - [x] Basic Integration with [Trello](http://trello.com)
 - [ ] Ability to Add Milestones
 - [ ] Members Notifications (email, sms)
+
 # Current Status
 
 OpenNGO is is currently stable, nonetheless it is under heavy development. 
