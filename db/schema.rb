@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202120021) do
+ActiveRecord::Schema.define(version: 20160221071535) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -29,10 +29,18 @@ ActiveRecord::Schema.define(version: 20160202120021) do
     t.integer  "location_id", limit: 4
   end
 
+  create_table "activity_locations", force: :cascade do |t|
+    t.integer  "activity_id", limit: 4
+    t.integer  "location_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "created_by",  limit: 4
+    t.integer  "updated_by",  limit: 4
+  end
+
   create_table "activity_members", force: :cascade do |t|
     t.integer  "activity_id", limit: 4
     t.integer  "member_id",   limit: 4
-    t.integer  "role_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "created_by",  limit: 4
@@ -50,6 +58,16 @@ ActiveRecord::Schema.define(version: 20160202120021) do
 
   add_index "activity_translations", ["activity_id"], name: "index_activity_translations_on_activity_id", using: :btree
   add_index "activity_translations", ["locale"], name: "index_activity_translations_on_locale", using: :btree
+
+  create_table "attachments", force: :cascade do |t|
+    t.string   "name",              limit: 255
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size",    limit: 4
+    t.datetime "file_updated_at",               null: false
+  end
 
   create_table "branch_translations", force: :cascade do |t|
     t.integer  "branch_id",   limit: 4,     null: false
@@ -214,16 +232,12 @@ ActiveRecord::Schema.define(version: 20160202120021) do
   end
 
   create_table "project_attachments", force: :cascade do |t|
-    t.integer  "project_id",              limit: 4
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "attachment_file_name",    limit: 255
-    t.string   "attachment_content_type", limit: 255
-    t.integer  "attachment_file_size",    limit: 4
-    t.datetime "attachment_updated_at"
-    t.string   "file_file_name",          limit: 255
-    t.string   "file_content_type",       limit: 255
-    t.integer  "file_file_size",          limit: 4
+    t.integer  "project_id",        limit: 4
+    t.datetime "created_at",                    null: false
+    t.datetime "updated_at",                    null: false
+    t.string   "file_file_name",    limit: 255
+    t.string   "file_content_type", limit: 255
+    t.integer  "file_file_size",    limit: 4
     t.datetime "file_updated_at"
   end
 
@@ -236,10 +250,18 @@ ActiveRecord::Schema.define(version: 20160202120021) do
     t.integer  "updated_by", limit: 4
   end
 
+  create_table "project_locations", force: :cascade do |t|
+    t.integer  "project_id",  limit: 4
+    t.integer  "location_id", limit: 4
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "created_by",  limit: 4
+    t.integer  "updated_by",  limit: 4
+  end
+
   create_table "project_members", force: :cascade do |t|
     t.integer  "project_id", limit: 4
     t.integer  "member_id",  limit: 4
-    t.integer  "role_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "created_by", limit: 4
@@ -298,27 +320,22 @@ ActiveRecord::Schema.define(version: 20160202120021) do
   add_index "project_translations", ["project_id"], name: "index_project_translations_on_project_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",                           limit: 255
-    t.decimal  "budget",                                       precision: 12, scale: 2, default: 0.0
+    t.string   "name",            limit: 255
+    t.decimal  "budget",                        precision: 12, scale: 2, default: 0.0
     t.date     "from"
     t.date     "to"
-    t.text     "goal",                           limit: 65535
-    t.text     "description",                    limit: 65535
-    t.integer  "branch_id",                      limit: 4
+    t.text     "goal",            limit: 65535
+    t.text     "description",     limit: 65535
+    t.integer  "branch_id",       limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "created_by",                     limit: 4
-    t.integer  "updated_by",                     limit: 4
-    t.decimal  "overall_expences",                             precision: 12, scale: 2, default: 0.0
-    t.string   "required_document_file_name",    limit: 255
-    t.string   "required_document_content_type", limit: 255
-    t.integer  "required_document_file_size",    limit: 4
-    t.datetime "required_document_updated_at"
-    t.integer  "location_id",                    limit: 4
-    t.string   "trello_board_id",                limit: 255
-    t.integer  "organization_id",                limit: 4
-    t.integer  "currency",                       limit: 4
-    t.string   "board",                          limit: 255
+    t.integer  "created_by",      limit: 4
+    t.integer  "updated_by",      limit: 4
+    t.integer  "location_id",     limit: 4
+    t.string   "trello_board_id", limit: 255
+    t.integer  "organization_id", limit: 4
+    t.integer  "currency",        limit: 4
+    t.string   "board",           limit: 255
   end
 
   create_table "public_activities", force: :cascade do |t|
@@ -436,6 +453,7 @@ ActiveRecord::Schema.define(version: 20160202120021) do
     t.datetime "confirmation_sent_at"
     t.string   "unconfirmed_email",      limit: 255
     t.integer  "member_id",              limit: 4
+    t.string   "avatar_url",             limit: 255
   end
 
   add_index "users", ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true, using: :btree

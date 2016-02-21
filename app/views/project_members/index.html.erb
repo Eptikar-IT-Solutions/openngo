@@ -12,7 +12,6 @@
         <tr>
               <th><%= t("views.project_members.project_id") %></th>
               <th><%= t("views.project_members.member_id") %></th>
-              <th><%= t("views.project_members.role_id") %></th>
               <th class="hidden-print"></th>
         </tr>
       </thead>
@@ -25,7 +24,6 @@
 
             <td><%= link_to project_member.member.name, project_member.member if project_member.member_id %></td>
 
-            <td><%= link_to project_member.role.name, project_member.role if project_member.role_id %></td>
             <td class="hidden-print actions">
               <div class="btn-group">
                 <%= link_to t('views.epp.links.show'), project_member , :class => 'btn btn-xs btn-default' %>

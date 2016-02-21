@@ -71,6 +71,6 @@ class ActivityMembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_member_params
-      params.require(:activity_member).permit(:activity_id, :member_id, :role_id, :created_by, :updated_by)
+      params.require(:activity_member).permit(:activity_id, :member_id, :created_by, :updated_by)
     end
 end
