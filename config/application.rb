@@ -19,6 +19,7 @@ module Openngo
     config.assets.paths << "#{Rails.root}/app/assets/fonts"
     config.i18n.fallbacks = true
     config.assets.initialize_on_precompile = false
+    config.serve_static_assets = true
     # rails will fallback to en, no matter what is set as config.i18n.default_locale
     # config.i18n.fallbacks = [:en]
 
