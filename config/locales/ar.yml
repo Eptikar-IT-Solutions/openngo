@@ -115,7 +115,7 @@ ar:
       "name": "الإسم"
       "email": "البريد الإلكتروني"
       "phone1": "الهاتف"
-      "phone2": "الهاتف آخر"
+      "phone2": "هاتف آخر"
       "fax": "الفاكس"
       "description": "الوصف"
     projects:
@@ -134,6 +134,7 @@ ar:
       "location_id": "الموقع"
       "Add Member": "اضف عضو"
       "members": "أعضاء المشروع"
+      "currency": "العملة"
     locations:
       "locations": "المواقع"
       "location": "موقع" 
@@ -184,7 +185,7 @@ ar:
       "subdomain": "لدومين الفرعي"
       "email": "البريد الإلكتروني"
       "phone1": "الهاتف"
-      "phone2": "الهاتف آخر"
+      "phone2": "هاتف آخر"
       "fax": "الفاكس"
       "description": "الوصف"           
       "address": "العنوان"
@@ -267,7 +268,7 @@ ar:
         "description": "الوصف"
         "from": "من"
         "to": "إلى"
-        "repeated": "تتكرر"
+        "repeated": "دوري"
         "location_id": "الموقع"
       member:
         "members": "الأعضاء"
@@ -313,6 +314,7 @@ ar:
         "branch_id": "الفرع"
         "attachment": "الملف الملحق"
         "location_id": "الموقع"
+        "currency": "العملة"
       location:
         "locations": "المواقع"
         "location": "موقع" 

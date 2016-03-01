@@ -137,6 +137,7 @@ en:
       "location_id": "Location"
       "Add Member": "Add Member"
       "members": "Members"
+      "currency": "Currency"
     locations:
       "locations": "locations"
       "location": "location" 
@@ -264,6 +265,7 @@ en:
         "description": "Description"
         "branch_id": "Branch"
         "location_id": "Location"
+        "currency": "Currency"
       activity:
         "activities": "Activities"
         "activity": "Activity"
