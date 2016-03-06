@@ -69,9 +69,9 @@ Project_partner = ProjectPartner.create(project_id: project.id, organization_id:
 puts 'Seeding <ConversationTypes>'
 default_i18n = I18n.locale
 I18n.locale = :en
-ConversationType.create(title: "Upload Job Attachment Request", attributes: {title: 'طلب تحميل ملحق ملف', locale: :ar})
-ConversationType.create(title: "Physical Document Request", attributes: {title: 'طلب إرسال مستند', locale: :ar})
-ConversationType.create(title: 'Progress Update')
+ConversationType.create(title: "Upload Project Attachment Request", partial: true, attributes: {title: 'طلب تحميل ملحق ملف', locale: :ar})
+ConversationType.create(title: "Physical Document Request", partial: true, attributes: {title: 'طلب إرسال مستند', locale: :ar})
+ConversationType.create(title: 'Progress Update', partial: false)
 I18n.locale = default_i18n
 
 PublicActivity.enabled = true
