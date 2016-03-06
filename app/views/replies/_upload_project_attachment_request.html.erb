@@ -1,0 +1,3 @@
+<%= f.fields_for :message_attachments,  f.object.message_attachments.build , :html => {:class => 'form-horizontal'} do |ff| %>
+  <%= ff.file_field :attachment, :class => 'form-control' %>
+<% end %>

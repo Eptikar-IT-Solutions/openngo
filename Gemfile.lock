@@ -1,3 +1,10 @@
+PATH
+  remote: /home/arwa/zajil
+  specs:
+    zajil (0.0.1)
+      globalize (~> 5.0.0)
+      rails
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -359,3 +366,7 @@ DEPENDENCIES
   therubyracer
   trello_webhook
   uglifier (>= 2.7.1)
+  zajil!
+
+BUNDLED WITH
+   1.10.6

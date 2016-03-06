@@ -1,9 +1,12 @@
 <%- title "#{@project.name}" %>
 <div class="col-lg-12 show">
 	<div class="page-header">
-		<h1><%= @project.name %></h1>
+		<h1>
+			<%= @project.name %>
+			<%= zajil_new_message_button %>
+		</h1>
 	</div>
-
+	
 	<div class="row">
 		<div class="col-sm-2"><strong><%= t("views.projects.name") %></strong></div>
 
@@ -97,6 +100,16 @@
 				<%= submit_tag t('views.projects.Add Member'), class: 'btn btn-default'%>
 			<% end %>
 		<% end %>
+    </div>
+  </div>
+  
+  <div class="col-lg-6">
+    <div class="row">
+      <div class="col-lg-12">
+        <% if Conversation.all.any? %>
+          <%= render template: 'conversations/index.html.erb', locals: { :@conversations => Conversation.where(messageable: @project), style: "mini" }  %>
+        <% end %>
+      </div>
     </div>
   </div>
 

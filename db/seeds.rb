@@ -32,7 +32,7 @@ activity2 = Activity.create(name: 'World Soil Day celebration', project_id: proj
 
 profession1 = Profession.create(name: 'Other')
 
-Profession::Translation.create(name: 'أخرى', profession_id: profession1.id, locale: "ar")
+#Profession::Translation.create(name: 'أخرى', profession_id: profession1.id, locale: "ar")
 
 profession1 = Profession.create(name: 'College Professor')
 
@@ -65,4 +65,13 @@ activity_member1= ActivityMember.create(activity_id: activity1.id, member_id: me
 activity_member2= ActivityMember.create(activity_id: activity2.id, member_id: member2.id)
 
 Project_partner = ProjectPartner.create(project_id: project.id, organization_id: organization2.id)
+
+puts 'Seeding <ConversationTypes>'
+default_i18n = I18n.locale
+I18n.locale = :en
+ConversationType.create(title: "Upload Job Attachment Request", attributes: {title: 'طلب تحميل ملحق ملف', locale: :ar})
+ConversationType.create(title: "Physical Document Request", attributes: {title: 'طلب إرسال مستند', locale: :ar})
+ConversationType.create(title: 'Progress Update')
+I18n.locale = default_i18n
+
 PublicActivity.enabled = true
