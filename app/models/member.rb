@@ -31,8 +31,7 @@ class Member < ActiveRecord::Base
   private
     def create_user
       role = Role.find_or_create_by(name: "Member")
-      role.update(permissions: {members: {read: true}, branches: {read: true}}) if role.permissions.empty?
-      User.create( email: self.email, member_id: self.id, role_id: role.id )
+      role.update(permissions: { members: { read: true }, branches: { read: true }}) if role.permissions.empty?
+      User.create(email: self.email, member_id: self.id, role_id: role.id, confirmed_at: Time.now)
     end
-
 end

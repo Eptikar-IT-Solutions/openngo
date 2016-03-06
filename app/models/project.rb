@@ -1,7 +1,9 @@
 require 'trello'
+require 'action_view'
 
 class Project < ActiveRecord::Base
   include Taggable
+  include ActionView::Helpers::DateHelper
 
   enum currency: [ :USD, :SDG, :EUR ]
 
@@ -47,11 +49,12 @@ class Project < ActiveRecord::Base
 
         default_locale = I18n.locale
         I18n.locale = :en
-        message.update(body: "<a href=/project_attachments/#{project_attachment.id}>#{project_attachment.attachment_file_name}</a> was recieved #{Project.new.distance_of_time_in_words(message.created_at, project_attachment.created_at)} later at #{project_attachment.created_at.strftime("%d-%m-%Y %H:%M %p")}", alert_class: "alert-success", system_message: true)
+        message.update(body: "<a href=/project_attachments/#{project_attachment.id}>#{project_attachment.file_file_name}</a> was recieved #{Project.new.distance_of_time_in_words(message.created_at, project_attachment.created_at)} later at #{project_attachment.created_at.strftime("%d-%m-%Y %H:%M %p")}", alert_class: "alert-success", system_message: true)
         I18n.locale = :ar
-        Message::Translation.create!(message_id: message.id, locale: 'ar', body: "لقد تم إستلام مستتند <a href=/project_attachments/#{projct_attachment.id}>#{project_attachment.attachment_file_name}</a> في   #{Project.new.distance_of_time_in_words(message.created_at, project_attachment.created_at)}  لاحقا في #{project_attachment.created_at.strftime("%d-%m-%Y %H:%M %p")}")
+        Message::Translation.create!(message_id: message.id, locale: 'ar', body: "لقد تم إستلام مستتند <a href=/project_attachments/#{project_attachment.id}>#{project_attachment.attachment_file_name}</a> في   #{Project.new.distance_of_time_in_words(message.created_at, project_attachment.created_at)}  لاحقا في #{project_attachment.created_at.strftime("%d-%m-%Y %H:%M %p")}")
         I18n.locale = default_locale
-      }}
+      }
+    }
 
   private
     def create_trello_board

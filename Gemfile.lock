@@ -1,5 +1,5 @@
 PATH
-  remote: /home/arwa/zajil
+  remote: /home/nimir/eptikar_git/zajil
   specs:
     zajil (0.0.1)
       globalize (~> 5.0.0)
@@ -367,6 +367,3 @@ DEPENDENCIES
   trello_webhook
   uglifier (>= 2.7.1)
   zajil!
-
-BUNDLED WITH
-   1.10.6
