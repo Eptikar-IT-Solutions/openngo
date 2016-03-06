@@ -16,5 +16,6 @@
  *= require AdminLTE
  *= require skin-green.min
  *= require tablecloth
+ *= require zajil/timeline
  *= require epp
  */

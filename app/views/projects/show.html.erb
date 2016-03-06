@@ -3,105 +3,111 @@
 	<div class="page-header">
 		<h1>
 			<%= @project.name %>
+			<a title="Edit" href="<%= edit_project_path(@project) %>"><span class="glyphicon glyphicon-pencil"></span></a> 
 			<%= zajil_new_message_button %>
 		</h1>
 	</div>
-	
-	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.projects.name") %></strong></div>
 
-
-		<div class="col-sm-10"><%= @project.try(:name) || 'N/A' %></div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.projects.budget") %></strong></div>
-
-
-		<div class="col-sm-10"><%= @project.try(:budget) || 'N/A' %></div>
-	</div>
-  
-  <div class="row">
-  	<div class="col-sm-2"><strong><%= t("views.projects.currency") %></strong></div>
-
-
-  	<div class="col-sm-10"><%= @project.try(:currency) || 'N/A' %></div>
-  </div>
-  
-	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.projects.from") %></strong></div>
-
-
-		<div class="col-sm-10"><%= @project.try(:from) || 'N/A' %></div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.projects.to") %></strong></div>
-
-
-		<div class="col-sm-10"><%= @project.try(:to) || 'N/A' %></div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.projects.goal") %></strong></div>
-
-
-		<div class="col-sm-10"><%= @project.try(:goal) || 'N/A' %></div>
-	</div>
-
-	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.projects.description") %></strong></div>
-
-
-		<div class="col-sm-10"><%= @project.try(:description) || 'N/A' %></div>
-	</div>
-   
-  <div class="row">
-		<div class="col-sm-2"><strong><%= t("views.projects.location_id") %></strong></div>
-		<div class="col-sm-10"><%= link_to @project.location.name, @project.location if @project.location_id %></div>
-		</div>
-    
-     	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.projects.branch_id") %></strong></div>
-    	<div class="col-sm-10"><%= link_to @project.branch.name, @project.branch if @project.branch_id %></div>
-		</div>
-
+	<div class="col-lg-6">
 	  <div class="row">
-	  	<div class="col-sm-2"><strong><%= t("views.projects.attachments") %></strong></div>
-	    <div class="col-sm-10">
-	    	<% if @project.project_attachments.any? %>
-			  	<ul>
-				  	<% @project.project_attachments.each do |project_attachment| %>
-							<li><%= link_to project_attachment.file_file_name, project_attachment_path(project_attachment) %></li>
-				    <% end %>
-				  </ul>
-				<% else %>
-					<p>NA</p>
-				<% end %>
-	    <div>
-		</div>
-  </div>
+	    <div class="col-lg-12">
+				<div class="row">
+					<div class="col-sm-2"><strong><%= t("views.projects.name") %></strong></div>
 
-	<div class="row">
-		<div class="col-sm-2"><strong><%= t("views.projects.members") %></strong></div>
-    <div class="col-sm-10">
-		<ul class="quite">
-			<% @project.project_members.each do |project_member|  %>
-				<li>
-					<%= link_to project_member.member.name, member_path(project_member.member.id)%>	
-					<%= link_to raw("<i class='fa fa-times'></i> " + t("views.projects.Remove")), project_member_path(project_member.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-				</li>
-			<% end %>
-		</ul>		
-		<% if @members.size > 0 %>
-			<%= form_tag({controller: "projects" , action: "add_member" , method: "post"}, {class:"form-inline"}) do %>
-				<%= select_tag(:member_id,options_for_select(@members.collect{|member| [member.name, member.id]}), class: "select2 form-control") %>
-				<%= hidden_field_tag(:project_id, @project.id) %>
-				<%= submit_tag t('views.projects.Add Member'), class: 'btn btn-default'%>
-			<% end %>
-		<% end %>
-    </div>
-  </div>
+
+					<div class="col-sm-10"><%= @project.try(:name) || 'N/A' %></div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2"><strong><%= t("views.projects.budget") %></strong></div>
+
+
+					<div class="col-sm-10"><%= @project.try(:budget) || 'N/A' %></div>
+				</div>
+			  
+			  <div class="row">
+			  	<div class="col-sm-2"><strong><%= t("views.projects.currency") %></strong></div>
+
+
+			  	<div class="col-sm-10"><%= @project.try(:currency) || 'N/A' %></div>
+			  </div>
+			  
+				<div class="row">
+					<div class="col-sm-2"><strong><%= t("views.projects.from") %></strong></div>
+
+
+					<div class="col-sm-10"><%= @project.try(:from) || 'N/A' %></div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2"><strong><%= t("views.projects.to") %></strong></div>
+
+
+					<div class="col-sm-10"><%= @project.try(:to) || 'N/A' %></div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2"><strong><%= t("views.projects.goal") %></strong></div>
+
+
+					<div class="col-sm-10"><%= @project.try(:goal) || 'N/A' %></div>
+				</div>
+
+				<div class="row">
+					<div class="col-sm-2"><strong><%= t("views.projects.description") %></strong></div>
+
+
+					<div class="col-sm-10"><%= @project.try(:description) || 'N/A' %></div>
+				</div>
+			   
+			  <div class="row">
+					<div class="col-sm-2"><strong><%= t("views.projects.location_id") %></strong></div>
+					<div class="col-sm-10"><%= link_to @project.location.name, @project.location if @project.location_id %></div>
+					</div>
+			    
+			     	<div class="row">
+					<div class="col-sm-2"><strong><%= t("views.projects.branch_id") %></strong></div>
+			    	<div class="col-sm-10"><%= link_to @project.branch.name, @project.branch if @project.branch_id %></div>
+					</div>
+
+				  <div class="row">
+				  	<div class="col-sm-2"><strong><%= t("views.projects.attachments") %></strong></div>
+				    <div class="col-sm-10">
+				    	<% if @project.project_attachments.any? %>
+						  	<ul>
+							  	<% @project.project_attachments.each do |project_attachment| %>
+										<li><%= link_to project_attachment.file_file_name, project_attachment_path(project_attachment) %></li>
+							    <% end %>
+							  </ul>
+							<% else %>
+								<p>NA</p>
+							<% end %>
+				    </div>
+					</div>
+      
+				<div class="row">
+					<div class="col-sm-2"><strong><%= t("views.projects.members") %></strong></div>
+			    <div class="col-sm-10">
+						<ul class="quite">
+							<% @project.project_members.each do |project_member|  %>
+								<li>
+									<%= link_to project_member.member.name, member_path(project_member.member.id)%>	
+									<%= link_to raw("<i class='fa fa-times'></i> " + t("views.projects.Remove")), project_member_path(project_member.id), method: :delete, data: { confirm: 'Are you sure?' } %>
+								</li>
+							<% end %>
+						</ul>		
+						<% if @members.size > 0 %>
+							<%= form_tag({controller: "projects" , action: "add_member" , method: "post"}, {class:"form-inline"}) do %>
+								<%= select_tag(:member_id,options_for_select(@members.collect{|member| [member.name, member.id]}), class: "select2 form-control") %>
+								<%= hidden_field_tag(:project_id, @project.id) %>
+								<%= submit_tag t('views.projects.Add Member'), class: 'btn btn-default'%>
+							<% end %>
+						<% end %>
+			    </div>
+			  </div>	
+			 </div>
+	    </div>
+	  </div>	
   
   <div class="col-lg-6">
     <div class="row">
@@ -112,9 +118,5 @@
       </div>
     </div>
   </div>
-
-	<div class="buttons">
-		<%= link_to t('views.epp.links.edit'), edit_project_path(@project), :class => 'btn btn-warning' %>
-		<%= link_to t('views.epp.links.back'), projects_path, :class => 'btn btn-default' %>
-	</div>
 </div>
+ 
