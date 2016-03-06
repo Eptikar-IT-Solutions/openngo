@@ -37,6 +37,22 @@ class Project < ActiveRecord::Base
   translates :name, :description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
   
+  acts_as_messageable subscribers: Proc.new { |project| project.members.collect{ |member| member.user}}, conversation_types: ['Upload Project Attachment Request', 'Announcement'],
+    hooks: {
+      upload_project_attachment_request: Proc.new { |dady, fields, messageable| 
+        project_attachment = ProjectAttachment.create(project_id: messageable.id) 
+        project_attachment.file = dady.attachment 
+        project_attachment.save!
+        message = dady.message
+
+        default_locale = I18n.locale
+        I18n.locale = :en
+        message.update(body: "<a href=/project_attachments/#{project_attachment.id}>#{project_attachment.attachment_file_name}</a> was recieved #{Project.new.distance_of_time_in_words(message.created_at, project_attachment.created_at)} later at #{project_attachment.created_at.strftime("%d-%m-%Y %H:%M %p")}", alert_class: "alert-success", system_message: true)
+        I18n.locale = :ar
+        Message::Translation.create!(message_id: message.id, locale: 'ar', body: "لقد تم إستلام مستتند <a href=/project_attachments/#{projct_attachment.id}>#{project_attachment.attachment_file_name}</a> في   #{Project.new.distance_of_time_in_words(message.created_at, project_attachment.created_at)}  لاحقا في #{project_attachment.created_at.strftime("%d-%m-%Y %H:%M %p")}")
+        I18n.locale = default_locale
+      }}
+
   private
     def create_trello_board
       organization = Organization.first
