@@ -15,3 +15,5 @@ before_script:
   - cp config/travis/database.yml config/database.yml
   - mysql -e 'create database openngo_test'
   - psql -c 'create database openngo_test' -U postgres
+  - echo -e "Host eptikar.com\n\tStrictHostKeyChecking no\n" >> ~/.ssh/config
+  - echo ssh-keyscan -H -t rsa, dsa eptikar.com >> ~/.ssh/known_hosts
