@@ -56,11 +56,10 @@ class Project < ActiveRecord::Base
       },
       call_for_volunteers: Proc.new{|dady|
         user = User.find(dady.created_by)
-        member = Member.find(user.member_id)
-        project_member = ProjectMember.create(member_id: member.id, project_id: dady.conversation.messageable.id)     
+        project_member = ProjectMember.create(member_id: Member.find(user.member_id), project_id: dady.conversation.messageable.id)     
         default_locale = I18n.locale
         I18n.locale = :en
-        dady.update(body: "<a href=/users/#{dady.created_by}>#{member.name}</a> has_joined  the project", system_message: true, alert_class: 'alert-success',attributes: {locale: 'ar', body: "لقد انضم <a href=/users/#{dady.created_by}>#{project_member.member.name} إلى المشروع"})
+        dady.update(body: "<a href=/users/#{dady.created_by}>#{project_member.member.name}</a> has_joined  the project", system_message: true, alert_class: 'alert-success',attributes: {locale: 'ar', body: "لقد انضم <a href=/users/#{dady.created_by}>#{project_member.member.name} إلى المشروع"})
         I18n.locale = default_locale
       }  
     }
