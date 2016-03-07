@@ -39,7 +39,7 @@ class Project < ActiveRecord::Base
   translates :name, :description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
   
-  acts_as_messageable subscribers: Proc.new { |project| project.members.collect{ |member| member.user}}, conversation_types: ['Upload Project Attachment Request', 'Announcement'],
+  acts_as_messageable subscribers: Proc.new { |project| project.members.collect{ |member| member.user}}, conversation_types: ['Upload Project Attachment Request', 'Announcement', 'Call For Volunteers'],
     hooks: {
       upload_project_attachment_request: Proc.new { |dady, fields, messageable| 
         project_attachment = ProjectAttachment.create(project_id: messageable.id) 
@@ -53,7 +53,16 @@ class Project < ActiveRecord::Base
         I18n.locale = :ar
         Message::Translation.create!(message_id: message.id, locale: 'ar', body: "لقد تم إستلام مستتند <a href=/project_attachments/#{project_attachment.id}>#{project_attachment.attachment_file_name}</a> في   #{Project.new.distance_of_time_in_words(message.created_at, project_attachment.created_at)}  لاحقا في #{project_attachment.created_at.strftime("%d-%m-%Y %H:%M %p")}")
         I18n.locale = default_locale
-      }
+      },
+      call_for_volunteers: Proc.new{|dady|
+        user = User.find(dady.created_by)
+        member = Member.find(user.member_id)
+        project_member = ProjectMember.create(member_id: member.id, project_id: dady.conversation.messageable.id)     
+        default_locale = I18n.locale
+        I18n.locale = :en
+        dady.update(body: "<a href=/users/#{dady.created_by}>#{member.name}</a> has_joined  the project", system_message: true, alert_class: 'alert-success',attributes: {locale: 'ar', body: "لقد انضم <a href=/users/#{dady.created_by}>#{project_member.member.name} إلى المشروع"})
+        I18n.locale = default_locale
+      }  
     }
 
   private

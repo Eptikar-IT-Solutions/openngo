@@ -1,0 +1,12 @@
+
+<% user = current_user %>
+<% member = Member.find(user.member_id)%>
+<% if !message.conversation.messageable.members.collect{ |member| member.user }.include? user %>
+    <%= f.fields_for :metadata do |ff| %>
+      <div class="checkbox">
+        <label>
+          <%= ff.check_box :join %> <%= t 'views.messages.join' %>
+        </label>
+      </div>
+    <% end %>
+<% end %>

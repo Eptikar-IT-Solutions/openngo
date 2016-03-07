@@ -11,7 +11,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-     @members = Member.where.not(id: @project.members.ids)   
+    @members = Member.where.not(id: @project.members.ids)   
     @activities = PublicActivity::Activity.all.order("created_at desc")
   end
 
