@@ -46,4 +46,5 @@ gem 'therubyracer'
 gem 'bcrypt'
 gem 'rails-i18n', '~> 4.0.0'
 
-gem 'zajil', git: 'git@eptikar.com:zajil'
+gem 'zajil', path: '/home/arwa/zajil'
+#gem 'zajil', git: 'git@eptikar.com:zajil'

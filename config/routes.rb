@@ -1,5 +1,7 @@
 require 'api_constraints'
 Rails.application.routes.draw do
+  mount Zajil::Engine, at: "/zajil"
+  
   resources :project_roles, :project_milestones, :professions, :project_attachments, :states,
             :states, :states, :activity_members, :organizations, :activities, :project_members,
             :project_donors, :project_partners, :projects, :members, :roles, :donors, :branches,

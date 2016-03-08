@@ -1,10 +1,10 @@
 <%- title t "views.application_layout.members" %>
 <div class="col-xs-12">
-
   <div class="page-header">
     <h1><%= t "views.application_layout.members" %> 
       <%= link_to link_to raw('<span class="glyphicon glyphicon-plus"></span>'), new_member_path , :class => 'btn btn-lg hidden-print' %>
     </h1>
+    <%= zajil_new_message_button %>
   </div>
   
   <div class="tags-cloud" data-source='<%= Tag.all.collect(&:name).to_json %>'>
@@ -29,7 +29,8 @@
     <ul class="action-menu">
       <li><a title="show" href="<%= member_path(member) %>"><span class="glyphicon glyphicon-file"></span></a></li>
       <li><a title="Edit" href="<%= edit_member_path(member) %>"><span class="glyphicon glyphicon-pencil"></span></a></li>
-      <li><a title="edit_tags" class="edit-tags" href="#" data-tags="<%= member.tag_names %>" data-path="<%= member_path(member) %>" data-model="member" ><span class="glyphicon glyphicon-tag"></span></a></li>    
+      <li><a title="edit_tags" class="edit-tags" href="#" data-tags="<%= member.tag_names %>" data-path="<%= member_path(member) %>" data-model="member" ><span class="glyphicon glyphicon-tag"></span></a></li>
+       <li><a title="message"  href="<%= new_conversation_path(messageable_id: member.id, messageable_type: 'Member', conversation_type_id: ConversationType.where(title: 'Direct Message').take.id) %>" data-model="member" ><span class="glyphicon glyphicon-envelope"></span></a></li> 
     </ul>
 
     <div class="info-box-content members" >

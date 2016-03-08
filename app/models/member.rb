@@ -1,6 +1,6 @@
 class Member < ActiveRecord::Base
   include Taggable
-
+ 
   attr_accessor :other_profession
 
   enum gender: [ :male, :female ]
@@ -28,7 +28,7 @@ class Member < ActiveRecord::Base
 	validates :name, :mobile, presence: true
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ } , allow_blank: true
   
-  acts_as_messageable subscribers: Proc.new { |user| user }, conversation_types: ['Direct Message', 'Group Message']
+  acts_as_messageable subscribers: Proc.new { |member|  [member.user] }, conversation_types: ['Direct Message', 'Group Message']
 
   private
     def create_user
