@@ -1,34 +1,34 @@
 PublicActivity.enabled = false
 states = {"en" => [ "Al Jazirah", "Blue Nile ", "Sennar", "White Nile", "Central Darfur", "East Darfur", "North Darfur", "South Darfur", "West Darfur", "Kassala", "Al Qadarif","Red Sea", "North Kurdufan", "South Kurdufan", "West Kurdufan", "Northern", "River Nile", "Khartoum"], "ar" =>[ "الجزيرة", "النيل الأزرق", "سنار", "النيلالأبيض", "وسط دارفور", "شرق دارفور", "شمال دارفور", "جنوب دارفور", "غرب دارفور", "كسلا", "القضارف", "البحر الأحمر", "شمال كردفان", "جنوب كردفان", "غرب كردفان", "الشمالية", "نهر النيل", "الخرطوم"]}
 
-# (0..17).each do |n|
-#   State.create(name: states["en"][n])
-#   State::Translation.create(name: states["ar"][n], state_id: State.last.id, locale: "ar")
-# end
+(0..17).each do |n|
+  State.create(name: states["en"][n])
+  State::Translation.create(name: states["ar"][n], state_id: State.last.id, locale: "ar")
+end
 
 
-# role1 = Role.create(name: 'Guest', permissions:{all: false})
-# role2 = Role.create(name: 'Admin', permissions:{all: true})
+role1 = Role.create(name: 'Guest', permissions:{all: false})
+role2 = Role.create(name: 'Admin', permissions:{all: true})
 
-# User.create(name: 'admin', full_name: 'Administrator', email: 'alias@example.com', password: '12345678', password_confirmation: '12345678', active: true, confirmed_at: Time.now, role_id: role2.id)
+User.create(name: 'admin', full_name: 'Administrator', email: 'alias@example.com', password: '12345678', password_confirmation: '12345678', active: true, confirmed_at: Time.now, role_id: role2.id)
 
-# organization1 = Organization.create(name: 'United Nations Convention To Combat Desertification', website: 'www.unccd.int', subdomain: 'unccd', email: 'info@unccd.int', phone1: '+49-228815-2800', phone2: '+249912412801', fax: '0+49-228815-289899', address: 'UNCCD
-# Platz der Vereinten Nationen 1, D-53113 Bonn, Germany', description: 'The Convention’s 195 parties work together to improve the living conditions for people in drylands, to maintain and restore land and soil productivity, and to mitigate the effects of drought. The UNCCD is particularly committed to a bottom-up approach, encouraging the participation of local people in combating desertification and land degradation. The UNCCD secretariat facilitates cooperation between developed and developing countries, particularly around knowledge and technology transfer for sustainable land management.', active: true )
+organization1 = Organization.create(name: 'United Nations Convention To Combat Desertification', website: 'www.unccd.int', subdomain: 'unccd', email: 'info@unccd.int', phone1: '+49-228815-2800', phone2: '+249912412801', fax: '0+49-228815-289899', address: 'UNCCD
+Platz der Vereinten Nationen 1, D-53113 Bonn, Germany', description: 'The Convention’s 195 parties work together to improve the living conditions for people in drylands, to maintain and restore land and soil productivity, and to mitigate the effects of drought. The UNCCD is particularly committed to a bottom-up approach, encouraging the participation of local people in combating desertification and land degradation. The UNCCD secretariat facilitates cooperation between developed and developing countries, particularly around knowledge and technology transfer for sustainable land management.', active: true )
 
-# organization2 = Organization.create(name: 'The Crop Trust', website: 'www.croptrust.org', subdomain: '', email: 'info@croptrust.org', phone1: '+49 (0) 228 85427 122', phone2: '', fax: '', address: 'The Crop Trust Platz Der Vereinten Nationen 7 53113 Bonn, Germany', description: 'The mission of the Crop Trust is to ensure the conservation and availability of plant diversity essential for food and agriculture, forever', active: true)
+organization2 = Organization.create(name: 'The Crop Trust', website: 'www.croptrust.org', subdomain: '', email: 'info@croptrust.org', phone1: '+49 (0) 228 85427 122', phone2: '', fax: '', address: 'The Crop Trust Platz Der Vereinten Nationen 7 53113 Bonn, Germany', description: 'The mission of the Crop Trust is to ensure the conservation and availability of plant diversity essential for food and agriculture, forever', active: true)
 
 
-# state = State.create(name: 'Khartoum')
+state = State.create(name: 'Khartoum')
 
-# branch = Branch.create(name: 'Africa-sudan', description: " The Regional Implementation Annex for Africa of the UNCCD outlines an approach for addressing desertification, land degradation and drought on the African continent.  This Annex is the most detailed and comprehensive of all the regional annexes to the Convention.
-#   ",  state_id: state.id )
+branch = Branch.create(name: 'Africa-sudan', description: " The Regional Implementation Annex for Africa of the UNCCD outlines an approach for addressing desertification, land degradation and drought on the African continent.  This Annex is the most detailed and comprehensive of all the regional annexes to the Convention.
+  ",  state_id: state.id )
 
-# project = Project.create(name: 'UNCCD Capacity Building Marketplace', budget: 100000, from: '2016-08-01', to: '2015-12-01', goal: 'invites communities to make their own contributions and so help to  make  this the most comprehensive marketplace of its kind in the world.', description: 'The Capacity Building Marketplace links all existing and emerging supply and demand there are relating to capacity for the meaningful implementation of the Convention, thus making for quick and easy transactions. It further invites them to make their own contributions and so help to  make  this the most comprehensive marketplace of its kind in the world.')
+project = Project.create(name: 'UNCCD Capacity Building Marketplace', budget: 100000, from: '2016-08-01', to: '2015-12-01', goal: 'invites communities to make their own contributions and so help to  make  this the most comprehensive marketplace of its kind in the world.', description: 'The Capacity Building Marketplace links all existing and emerging supply and demand there are relating to capacity for the meaningful implementation of the Convention, thus making for quick and easy transactions. It further invites them to make their own contributions and so help to  make  this the most comprehensive marketplace of its kind in the world.')
 
-# activity1 = Activity.create(name: 'Sustainable Urban Land Use Planning course', project_id: project.id, budget: 2000,branch_id: branch.id, description: 'This course teaches participants a functional and integrated understanding of the dynamics of urban land use to face the challenge of urbanization.
-# ',from: '2016-08-01', to: '2016-08-20', repeated: '1')
+activity1 = Activity.create(name: 'Sustainable Urban Land Use Planning course', project_id: project.id, budget: 2000,branch_id: branch.id, description: 'This course teaches participants a functional and integrated understanding of the dynamics of urban land use to face the challenge of urbanization.
+',from: '2016-08-01', to: '2016-08-20', repeated: '1')
 
-# activity2 = Activity.create(name: 'World Soil Day celebration', project_id: project.id, budget: 12000,branch_id: branch.id, description: '',from: '2016-11-24', to: '2016-11-24', repeated: '1')
+activity2 = Activity.create(name: 'World Soil Day celebration', project_id: project.id, budget: 12000,branch_id: branch.id, description: '',from: '2016-11-24', to: '2016-11-24', repeated: '1')
 
 profession1 = Profession.create(name: 'Other')
 
