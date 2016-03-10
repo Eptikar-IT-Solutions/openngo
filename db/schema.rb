@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160303124653) do
+ActiveRecord::Schema.define(version: 20160310070261) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -85,14 +85,15 @@ ActiveRecord::Schema.define(version: 20160303124653) do
   add_index "conversation_type_translations", ["locale"], name: "index_conversation_type_translations_on_locale", using: :btree
 
   create_table "conversation_types", force: :cascade do |t|
-    t.string   "title",        limit: 255
-    t.text     "default_text", limit: 65535
-    t.string   "icon",         limit: 255
-    t.boolean  "partial"
-    t.integer  "created_by",   limit: 4
-    t.integer  "updated_by",   limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "title",                limit: 255
+    t.text     "default_text",         limit: 65535
+    t.string   "icon",                 limit: 255
+    t.boolean  "reply_partial"
+    t.boolean  "conversation_partial"
+    t.integer  "created_by",           limit: 4
+    t.integer  "updated_by",           limit: 4
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
   end
 
   create_table "conversation_users", force: :cascade do |t|
@@ -112,6 +113,7 @@ ActiveRecord::Schema.define(version: 20160303124653) do
     t.integer  "messages_count",       limit: 4
     t.boolean  "locked"
     t.text     "fields",               limit: 65535
+    t.integer  "parent_id",            limit: 4
     t.integer  "created_by",           limit: 4
     t.integer  "updated_by",           limit: 4
     t.datetime "created_at",                         null: false

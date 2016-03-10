@@ -70,8 +70,10 @@ puts 'Seeding <ConversationTypes>'
 default_i18n = I18n.locale
 I18n.locale = :en
 ConversationType.create(title: "Upload Project Attachment Request", partial: true, attributes: {title: 'طلب تحميل ملحق ملف', locale: :ar})
-ConversationType.create(title: "Physical Document Request", partial: true, attributes: {title: 'طلب إرسال مستند', locale: :ar})
-ConversationType.create(title: 'Progress Update', partial: false)
+ConversationType.create(title: "Physical Document Request", reply_partial: true, attributes: {title: 'طلب إرسال مستند', locale: :ar})
+ConversationType.create(title: 'Progress Update')
+ConversationType.create(title: "Broadcast", conversation_partial: true, attributes:  {title: "إذاعة", locale: "ar"})
+ConversationType.create(title: "Announcment", conversation_partial: false, reply_partial: false, attributes:  {title: "إعلان", locale: "ar"}) 
+  ConversationType.create(title: "Call For Volunteers", reply_partial: true, attributes:  {title: "نداء للمتطوعين", locale: "ar"})
 I18n.locale = default_i18n
-
 PublicActivity.enabled = true
