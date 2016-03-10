@@ -72,10 +72,10 @@ PublicActivity.enabled = false
 #   {name: "Ahmed", full_name: nil, mobile: "", email: "reemabdalgium@yahoo.com", password_digest: nil, active: false, created_by: nil, updated_by: 1, encrypted_password: "$2a$10$5EJb5MD5NxDDH9tlX1Qp/uSioAfF1gSVH7RflP9hQHcvPzJqIRyYG", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 2, current_sign_in_at: "2016-01-06 08:37:05", last_sign_in_at: "2016-01-06 08:34:09", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", provider: nil, uid: nil, language: nil, role_id: 3, confirmation_token: "yqGi3xfzs2kxxxbxphLf", confirmed_at: "2016-01-06 08:34:09", confirmation_sent_at: "2016-01-06 08:31:54", unconfirmed_email: nil},
 #   {name: nil, full_name: nil, mobile: nil, email: "arwa.tayeb@eptikar.com", password_digest: nil, active: nil, created_by: nil, updated_by: nil, encrypted_password: "", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-01-07 11:17:54", last_sign_in_at: "2016-01-07 11:17:54", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", provider: nil, uid: nil, language: "en", role_id: 2, confirmation_token: "x2R4b7srkAmjx3v6sFzw", confirmed_at: "2016-01-07 11:17:54", confirmation_sent_at: "2016-01-07 11:17:31", unconfirmed_email: nil}
 # ])
-ActivityMember.create!([
-  {activity_id: 2, member_id: 1, role_id: nil, created_by: nil, updated_by: nil},
-  {activity_id: 3, member_id: 2, role_id: nil, created_by: nil, updated_by: nil}
-])
+# ActivityMember.create!([
+#   {activity_id: 2, member_id: 1, role_id: nil, created_by: nil, updated_by: nil},
+#   {activity_id: 3, member_id: 2, role_id: nil, created_by: nil, updated_by: nil}
+# ])
 Branch.create!([
   {name: "Environmental Information Center", description: nil, state_id: 18, created_by: nil, updated_by: 1},
   {name: "Niala", description: nil, state_id: 8, created_by: nil, updated_by: 1},
