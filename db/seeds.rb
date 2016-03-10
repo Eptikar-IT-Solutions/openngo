@@ -1,71 +1,3 @@
-PublicActivity.enabled = false
-# states = {"en" => [ "Al Jazirah", "Blue Nile ", "Sennar", "White Nile", "Central Darfur", "East Darfur", "North Darfur", "South Darfur", "West Darfur", "Kassala", "Al Qadarif","Red Sea", "North Kurdufan", "South Kurdufan", "West Kurdufan", "Northern", "River Nile", "Khartoum"], "ar" =>[ "الجزيرة", "النيل الأزرق", "سنار", "النيلالأبيض", "وسط دارفور", "شرق دارفور", "شمال دارفور", "جنوب دارفور", "غرب دارفور", "كسلا", "القضارف", "البحر الأحمر", "شمال كردفان", "جنوب كردفان", "غرب كردفان", "الشمالية", "نهر النيل", "الخرطوم"]}
-
-# (0..17).each do |n|
-#   State.create(name: states["en"][n])
-#   State::Translation.create(name: states["ar"][n], state_id: State.last.id, locale: "ar")
-# end
-
-
-# role1 = Role.create(name: 'Guest', permissions:{all: false})
-# role2 = Role.create(name: 'Admin', permissions:{all: true})
-
-# User.create(name: 'admin', full_name: 'Administrator', email: 'alias@example.com', password: '12345678', password_confirmation: '12345678', active: true, confirmed_at: Time.now, role_id: role2.id)
-
-# organization1 = Organization.create(name: 'United Nations Convention To Combat Desertification', website: 'www.unccd.int', subdomain: 'unccd', email: 'info@unccd.int', phone1: '+49-228815-2800', phone2: '+249912412801', fax: '0+49-228815-289899', address: 'UNCCD
-# Platz der Vereinten Nationen 1, D-53113 Bonn, Germany', description: 'The Convention’s 195 parties work together to improve the living conditions for people in drylands, to maintain and restore land and soil productivity, and to mitigate the effects of drought. The UNCCD is particularly committed to a bottom-up approach, encouraging the participation of local people in combating desertification and land degradation. The UNCCD secretariat facilitates cooperation between developed and developing countries, particularly around knowledge and technology transfer for sustainable land management.', active: true )
-
-# organization2 = Organization.create(name: 'The Crop Trust', website: 'www.croptrust.org', subdomain: '', email: 'info@croptrust.org', phone1: '+49 (0) 228 85427 122', phone2: '', fax: '', address: 'The Crop Trust Platz Der Vereinten Nationen 7 53113 Bonn, Germany', description: 'The mission of the Crop Trust is to ensure the conservation and availability of plant diversity essential for food and agriculture, forever', active: true)
-
-
-# state = State.create(name: 'Khartoum')
-
-# branch = Branch.create(name: 'Africa-sudan', description: " The Regional Implementation Annex for Africa of the UNCCD outlines an approach for addressing desertification, land degradation and drought on the African continent.  This Annex is the most detailed and comprehensive of all the regional annexes to the Convention.
-#   ",  state_id: state.id )
-
-# project = Project.create(name: 'UNCCD Capacity Building Marketplace', budget: 100000, from: '2016-08-01', to: '2015-12-01', goal: 'invites communities to make their own contributions and so help to  make  this the most comprehensive marketplace of its kind in the world.', description: 'The Capacity Building Marketplace links all existing and emerging supply and demand there are relating to capacity for the meaningful implementation of the Convention, thus making for quick and easy transactions. It further invites them to make their own contributions and so help to  make  this the most comprehensive marketplace of its kind in the world.')
-
-# activity1 = Activity.create(name: 'Sustainable Urban Land Use Planning course', project_id: project.id, budget: 2000,branch_id: branch.id, description: 'This course teaches participants a functional and integrated understanding of the dynamics of urban land use to face the challenge of urbanization.
-# ',from: '2016-08-01', to: '2016-08-20', repeated: '1')
-
-# activity2 = Activity.create(name: 'World Soil Day celebration', project_id: project.id, budget: 12000,branch_id: branch.id, description: '',from: '2016-11-24', to: '2016-11-24', repeated: '1')
-
-# profession1 = Profession.create(name: 'Other')
-
-# Profession::Translation.create(name: 'أخرى', profession_id: profession1.id, locale: "ar")
-
-# profession1 = Profession.create(name: 'College Professor')
-
-# profession2 = Profession.create(name: 'Chemical Engineer')
-
-# member1 = Member.create(name: 'Ahmed Ali', gender: 0, email: 'ahmed.ali87@hotmail.com', mobile: '0024912800284', joined_at: '2013-07-10' ,profession_id: profession1.id, education: 'Master', bio: 'Zoologists who worked for a room to read organization for 6 years', active: true, branch_id: branch.id, organization_id: organization1.id)
-
-# member2 = Member.create(name: 'Osama Abdain', gender: 0, email: 'osama.abdeen@hotmail.com', mobile: '0024912900774', joined_at: '2013-08-10' ,profession_id: profession2.id, education: 'Bachelor', active: true, branch_id: branch.id,organization_id: organization1.id)
-
-# donor = Donor.create(name: 'Hamad Mustafa', email:'hamad_mustafa70@gmail.com', phone1: '0024914244839',phone2: '0024918044839',fax: '00240155474888')
-
-# location1 = Location.create(name: 'Khartoum', state_id: state.id)
-
-# location2 = Location.create(name: 'Friendship Hal', state_id: state.id)
-
-# location3 = Location.create(name: 'Cornithia Hotel', state_id: state.id)
-
-# ProjectMilestone.create(name: 'Crowd Fund The Hope Link OrphanageProject ', description: 'Hope Link Development Project is raising funds to organize their community in the field of sustainable agriculture, which benefits the community through recycling systems and sustainable land management, promoting food security and sustainable development.', expences: 8000, project_id: project.id)
-
-# #ProjectMilestone.create(name: 'Desertification Degerdation in North State ', description: 'By Implementing the best practices by planting in the smallest spaces ,The Problem of Desertification is declining', expences: 60000, project_id: project.id)
-
-# project_member1 = ProjectMember.create(member_id: member1.id, project_id: project.id)
-
-# project_member2 = ProjectMember.create(member_id: member2.id, project_id: project.id)
-
-# ProjectDonor.create(donor_id: donor.id,project_id: project.id)
-
-# activity_member1= ActivityMember.create(activity_id: activity1.id, member_id: member1.id)
-
-# activity_member2= ActivityMember.create(activity_id: activity2.id, member_id: member2.id)
-
-# Project_partner = ProjectPartner.create(project_id: project.id, organization_id: organization2.id)
-
 # User.create!([
 #   {name: "admin", full_name: "Administrator", mobile: nil, email: "info@example.com", password_digest: nil, active: true, created_by: nil, updated_by: nil, encrypted_password: "$2a$10$gFbtgqjs.RpoelH9dJnRuuK2PgO87tQHcc7ckREcPbkp/TQViDHOK", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 13, current_sign_in_at: "2016-01-21 10:35:23", last_sign_in_at: "2016-01-16 20:43:46", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", provider: nil, uid: nil, language: "en", role_id: 2, confirmation_token: nil, confirmed_at: "2016-01-06 08:14:18", confirmation_sent_at: nil, unconfirmed_email: nil},
 #   {name: "ريم ", full_name: "Reem Gasim", mobile: "", email: "reemgasim@gmail.com", password_digest: nil, active: false, created_by: nil, updated_by: 1, encrypted_password: "$2a$10$82Wxrsm06552gOpzttlO2.HN92KAjin0ijpL1g7/arxXiSN6Hpl06", reset_password_token: nil, reset_password_sent_at: nil, remember_created_at: nil, sign_in_count: 1, current_sign_in_at: "2016-01-06 08:36:09", last_sign_in_at: "2016-01-06 08:36:09", current_sign_in_ip: "127.0.0.1", last_sign_in_ip: "127.0.0.1", provider: nil, uid: nil, language: nil, role_id: 2, confirmation_token: "z4Fu9QWabS9xg9Xzpt-f", confirmed_at: "2016-01-06 08:36:09", confirmation_sent_at: "2016-01-06 08:28:40", unconfirmed_email: nil},
@@ -478,94 +410,29 @@ Member.create!([
   {name: "مبارك عبدالله محمد علي حماد", gender: 0, joined_at: "2008-08-06", email: "alimoubarak15@yahoo.com", mobile: "912582465", address: "نيالا", education: 1, bio: nil, active: nil, branch_id: 22, role_id: nil, created_by: nil, updated_by: nil, avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil, profession_id: nil, organization_id: nil, user_id: nil, occupation_address: nil, specialization: "طب بيطري", renewal_date: "2015-01-01", renewal_string: nil},
   {name: "علي جبر الدار محمد علي", gender: 0, joined_at: "2001-10-02", email: "ali1991@hotmail.com", mobile: "91317749", address: "الراوات", education: 1, bio: nil, active: nil, branch_id: 140, role_id: nil, created_by: nil, updated_by: nil, avatar_file_name: nil, avatar_content_type: nil, avatar_file_size: nil, avatar_updated_at: nil, profession_id: nil, organization_id: nil, user_id: nil, occupation_address: nil, specialization: "هندسة حاسوب", renewal_date: "2015-01-01", renewal_string: nil}
 ])
-Organization.create!([
-  {name: "United Nations Convention To Combat Desertification", website: "www.unccd.int", subdomain: "unccd", email: "info@unccd.int", phone1: "+49-228815-2800", phone2: "+249912412801", fax: "0+49-228815-289899", address: "UNCCDPlatz der Vereinten Nationen 1, D-53113 Bonn, Germany", description: "The Convention’s 195 parties work together to improve the living conditions for people in drylands, to maintain and restore land and soil productivity, and to mitigate the effects of drought. The UNCCD is particularly committed to a bottom-up approach, encouraging the participation of local people in combating desertification and land degradation. The UNCCD secretariat facilitates cooperation between developed and developing countries, particularly around knowledge and technology transfer for sustainable land management.", active: true, created_by: nil, updated_by: 1, logo_file_name: nil, logo_content_type: nil, logo_file_size: nil, logo_updated_at: nil, trello_member_token: "bbc9a429b6deb77f62e356ad364513974685cd2659376ebf8effbfe459af1ec6"},
-  {name: "The Crop Trust", website: "www.croptrust.org", subdomain: "", email: "info@croptrust.org", phone1: "+49 (0) 228 85427 122", phone2: "", fax: "", address: "The Crop Trust Platz Der Vereinten Nationen 7 53113 Bonn, Germany", description: "The mission of the Crop Trust is to ensure the conservation and availability of plant diversity essential for food and agriculture, forever", active: true, created_by: nil, updated_by: nil, logo_file_name: nil, logo_content_type: nil, logo_file_size: nil, logo_updated_at: nil, trello_member_token: nil}
-])
+
 Profession.create!([
   {name: "Other"},
   {name: "other"},
   {name: "something"}
 ])
-Project.create!([
-  {name: "Eco Neighbouehoods Project", budget: "1908547.75", from: "2010-01-01", to: "2013-01-01", goal: "To improve environmental management and reduce poverty in the state of Khartoum to contribute towards achieving the Millennium Development Goals (MDGs)", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
-  {name: "Spreading Human and Environmental Rights", budget: "252605.93", from: "2007-01-01", to: "2010-01-01", goal: "To spread human and environmental rights culture among sudanese communities", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: 8, trello_board_id: nil, organization_id: nil, currency: nil},
-  {name: "Water and Sanitation Promotion Project", budget: "980479.0", from: "2011-01-01", to: "2011-12-01", goal: "Provision of potable drinking water for the estimated 27,000 in two localities (Babnousa and Elsalam,South Kordofan) state  ", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: 9, trello_board_id: nil, organization_id: nil, currency: nil},
-  {name: "Eco peace & Natural Resources Management", budget: "360.0", from: "2009-01-01", to: "2010-01-01", goal: "Promotion of Eco peace (proactive) culture, advocates for environmental right to have access to land and to attain rational use of natural resources and to ensure sustainable livelihoods. ", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: 9, trello_board_id: nil, organization_id: nil, currency: nil},
-  {name: "Community Environmental Governance Initiative (CEGI)  ", budget: "124.81", from: "2012-01-01", to: "2012-12-01", goal: "To strengthen community cohesion, ecological resilience and traditional forms of governance. ", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: 8, trello_board_id: nil, organization_id: nil, currency: nil},
-  {name: "Eco peace project", budget: "449.46", from: "2008-01-01", to: "2011-01-01", goal: "The Eco peace program aims at promoting eco peace (proactive) culture and advocate for environmental rights to attain equitable accessibility of the natural resources and ensure sustainable livelihoods.", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
-  {name: "Natural resource management and Environmental Recovery  ", budget: "790.0", from: "2013-01-01", to: "2013-12-01", goal: "To sustain rational resource management for sustainable peace building in the state.", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
-  {name: "Environmental Forum", budget: "70.0", from: "2004-01-01", to: "2004-12-01", goal: "Discuss top priority environmental issues with decision makers", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
-  {name: "SECS-FES Environmental Program", budget: "1056.89", from: "2004-01-01", to: "2004-12-01", goal: "Raise environmental awareness of different stakeholders", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
-  {name: "SECS-DED Development Program", budget: "1484.0", from: "2004-01-01", to: "2004-12-01", goal: "Building of SECS branches capacity", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil}
-])
-ProjectAttachment.create!([
-  {attachment_id: nil, project_id: 4, attachment_file_name: "peace_dividends.pdf", attachment_content_type: "application/pdf", attachment_file_size: 1534548, attachment_updated_at: "2016-01-06 13:40:23"},
-  {attachment_id: nil, project_id: 5, attachment_file_name: "peace_dividends.pdf", attachment_content_type: "application/pdf", attachment_file_size: 1534548, attachment_updated_at: "2016-01-07 08:30:58"},
-  {attachment_id: nil, project_id: 5, attachment_file_name: "PBSO_UNEP_NRM_Peacebuilding_newsletter.pdf", attachment_content_type: "application/pdf", attachment_file_size: 1758110, attachment_updated_at: "2016-01-07 08:31:02"}
-])
-ProjectDonor.create!([
-  {project_id: 2, donor_id: 1, created_by: nil, updated_by: nil}
-])
-ProjectMember.create!([
-  {project_id: 2, member_id: 1, role_id: nil, created_by: nil, updated_by: nil},
-  {project_id: 2, member_id: 2, role_id: nil, created_by: nil, updated_by: nil}
-])
-ProjectMilestone.create!([
-  {name: "Crowd Fund The Hope Link OrphanageProject ", description: "Hope Link Development Project is raising funds to organize their community in the field of sustainable agriculture, which benefits the community through recycling systems and sustainable land management, promoting food security and sustainable development.", expences: "8000.0", project_id: 2}
-])
-ProjectPartner.create!([
-  {project_id: 2, organization_id: 2, created_by: nil, updated_by: nil}
-])
-Role.create!([
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Program Coordinator", created_by: nil, updated_by: nil, permissions: {}},
-  {name: "Treasury Secretary", created_by: nil, updated_by: nil, permissions: {}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Program Coordinator", created_by: nil, updated_by: nil, permissions: {}},
-  {name: "Treasury Secretary", created_by: nil, updated_by: nil, permissions: {}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Program Coordinator", created_by: nil, updated_by: nil, permissions: {}},
-  {name: "Treasury Secretary", created_by: nil, updated_by: nil, permissions: {}},
-  {name: "volunteer", created_by: 1, updated_by: 1, permissions: {"projects"=>{"manage"=>"true", "read"=>"true", "create"=>"true", "update"=>"true", "delete"=>"true"}}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}},
-  {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
-  {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}}
-])
+# Project.create!([
+#   {name: "Eco Neighbouehoods Project", budget: "1908547.75", from: "2010-01-01", to: "2013-01-01", goal: "To improve environmental management and reduce poverty in the state of Khartoum to contribute towards achieving the Millennium Development Goals (MDGs)", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
+#   {name: "Spreading Human and Environmental Rights", budget: "252605.93", from: "2007-01-01", to: "2010-01-01", goal: "To spread human and environmental rights culture among sudanese communities", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: 8, trello_board_id: nil, organization_id: nil, currency: nil},
+#   {name: "Water and Sanitation Promotion Project", budget: "980479.0", from: "2011-01-01", to: "2011-12-01", goal: "Provision of potable drinking water for the estimated 27,000 in two localities (Babnousa and Elsalam,South Kordofan) state  ", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: 9, trello_board_id: nil, organization_id: nil, currency: nil},
+#   {name: "Eco peace & Natural Resources Management", budget: "360.0", from: "2009-01-01", to: "2010-01-01", goal: "Promotion of Eco peace (proactive) culture, advocates for environmental right to have access to land and to attain rational use of natural resources and to ensure sustainable livelihoods. ", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: 9, trello_board_id: nil, organization_id: nil, currency: nil},
+#   {name: "Community Environmental Governance Initiative (CEGI)  ", budget: "124.81", from: "2012-01-01", to: "2012-12-01", goal: "To strengthen community cohesion, ecological resilience and traditional forms of governance. ", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: 8, trello_board_id: nil, organization_id: nil, currency: nil},
+#   {name: "Eco peace project", budget: "449.46", from: "2008-01-01", to: "2011-01-01", goal: "The Eco peace program aims at promoting eco peace (proactive) culture and advocate for environmental rights to attain equitable accessibility of the natural resources and ensure sustainable livelihoods.", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
+#   {name: "Natural resource management and Environmental Recovery  ", budget: "790.0", from: "2013-01-01", to: "2013-12-01", goal: "To sustain rational resource management for sustainable peace building in the state.", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
+#   {name: "Environmental Forum", budget: "70.0", from: "2004-01-01", to: "2004-12-01", goal: "Discuss top priority environmental issues with decision makers", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
+#   {name: "SECS-FES Environmental Program", budget: "1056.89", from: "2004-01-01", to: "2004-12-01", goal: "Raise environmental awareness of different stakeholders", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil},
+#   {name: "SECS-DED Development Program", budget: "1484.0", from: "2004-01-01", to: "2004-12-01", goal: "Building of SECS branches capacity", description: nil, branch_id: nil, created_by: nil, updated_by: nil, overall_expences: "0.0", required_document_file_name: nil, required_document_content_type: nil, required_document_file_size: nil, required_document_updated_at: nil, location_id: nil, trello_board_id: nil, organization_id: nil, currency: nil}
+# ])
+
+# Role.create!([
+#   {name: "Guest", created_by: nil, updated_by: nil, permissions: {:all=>false}},
+#   {name: "Admin", created_by: nil, updated_by: nil, permissions: {:all=>true}}
+# ])
 State.create!([
   {name: "Al Jazirah", created_by: nil, updated_by: nil},
   {name: "Blue Nile ", created_by: nil, updated_by: nil},
@@ -1180,59 +1047,7 @@ Project::Translation.create!([
   {project_id: 106, locale: "en", name: "SECS-FES Environmental Program", description: nil},
   {project_id: 107, locale: "en", name: "SECS-DED Development Program", description: nil}
 ])
-ProjectMilestone::Translation.create!([
-  {project_milestone_id: 1, locale: "en", name: "Crowd Fund The Hope Link OrphanageProject ", description: "Hope Link Development Project is raising funds to organize their community in the field of sustainable agriculture, which benefits the community through recycling systems and sustainable land management, promoting food security and sustainable development."}
-])
-Role::Translation.create!([
-  {role_id: 1, locale: "en", name: "Guest"},
-  {role_id: 2, locale: "en", name: "Admin"},
-  {role_id: 3, locale: "en", name: "Program Coordinator"},
-  {role_id: 4, locale: "en", name: "Treasury Secretary"},
-  {role_id: 5, locale: "en", name: "Guest"},
-  {role_id: 6, locale: "en", name: "Admin"},
-  {role_id: 7, locale: "en", name: "Program Coordinator"},
-  {role_id: 8, locale: "en", name: "Treasury Secretary"},
-  {role_id: 9, locale: "en", name: "Guest"},
-  {role_id: 10, locale: "en", name: "Admin"},
-  {role_id: 11, locale: "en", name: "Program Coordinator"},
-  {role_id: 12, locale: "en", name: "Treasury Secretary"},
-  {role_id: 13, locale: "ar", name: "متطوع"},
-  {role_id: 13, locale: "en", name: "volunteer"},
-  {role_id: 14, locale: "en", name: "Guest"},
-  {role_id: 15, locale: "en", name: "Admin"},
-  {role_id: 16, locale: "en", name: "Guest"},
-  {role_id: 17, locale: "en", name: "Admin"},
-  {role_id: 18, locale: "en", name: "Guest"},
-  {role_id: 19, locale: "en", name: "Admin"},
-  {role_id: 20, locale: "en", name: "Guest"},
-  {role_id: 21, locale: "en", name: "Admin"},
-  {role_id: 22, locale: "en", name: "Guest"},
-  {role_id: 23, locale: "en", name: "Admin"},
-  {role_id: 24, locale: "en", name: "Guest"},
-  {role_id: 25, locale: "en", name: "Admin"},
-  {role_id: 26, locale: "en", name: "Guest"},
-  {role_id: 27, locale: "en", name: "Admin"},
-  {role_id: 28, locale: "en", name: "Guest"},
-  {role_id: 29, locale: "en", name: "Admin"},
-  {role_id: 30, locale: "en", name: "Guest"},
-  {role_id: 31, locale: "en", name: "Admin"},
-  {role_id: 32, locale: "en", name: "Guest"},
-  {role_id: 33, locale: "en", name: "Admin"},
-  {role_id: 34, locale: "en", name: "Guest"},
-  {role_id: 35, locale: "en", name: "Admin"},
-  {role_id: 36, locale: "en", name: "Guest"},
-  {role_id: 37, locale: "en", name: "Admin"},
-  {role_id: 38, locale: "en", name: "Guest"},
-  {role_id: 39, locale: "en", name: "Admin"},
-  {role_id: 40, locale: "en", name: "Guest"},
-  {role_id: 41, locale: "en", name: "Admin"},
-  {role_id: 42, locale: "en", name: "Guest"},
-  {role_id: 43, locale: "en", name: "Admin"},
-  {role_id: 44, locale: "en", name: "Guest"},
-  {role_id: 45, locale: "en", name: "Admin"},
-  {role_id: 46, locale: "en", name: "Guest"},
-  {role_id: 47, locale: "en", name: "Admin"}
-])
+
 State::Translation.create!([
   {state_id: 1, locale: "en", name: "Al Jazirah"},
   {state_id: 2, locale: "en", name: "Blue Nile "},
@@ -1362,4 +1177,3 @@ State::Translation.create!([
   {state_id: 90, locale: "en", name: "Khartoum"},
   {state_id: 90, locale: "ar", name: "الخرطوم"}
 ])
-PublicActivity.enabled = true
