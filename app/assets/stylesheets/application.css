@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require bootstrap-tagsinput
+ *= require bootstrap
  *= require bootstrap-theme
  *= require datepicker
  *= require prettify
