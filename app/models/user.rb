@@ -68,4 +68,10 @@ class User < ActiveRecord::Base
 
     confirmable
   end 
+
+  def set_default_role
+    unless self.role
+      self.role_id = Role.find_or_create( name: 'Guest', permissions: { all: false }).id
+    end  
+  end
 end
