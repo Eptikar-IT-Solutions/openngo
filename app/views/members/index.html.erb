@@ -7,6 +7,7 @@
     </h1>
   </div>
   
+  
   <div class="tags-cloud" data-source='<%= Tag.all.collect(&:name).to_json %>'>
     <ul class="tags">
       <% Member.tags.each do |tag| %>
@@ -25,7 +26,7 @@
 
 <% @members.all.each do |member| %> 
   <div class="entity-box col-md-3 col-sm-6 col-xs-12">
-    <div class="info-box" style="background-color: #000">
+    <div class="info-box" style="background-color: #1BB099">
     <ul class="action-menu">
       <li><a title="show" href="<%= member_path(member) %>"><span class="glyphicon glyphicon-file"></span></a></li>
       <li><a title="Edit" href="<%= edit_member_path(member) %>"><span class="glyphicon glyphicon-pencil"></span></a></li>

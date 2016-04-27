@@ -1,0 +1,1 @@
+<a title="Edit" href="<%= edit_member_path(@member) %>"><span class="glyphicon glyphicon-pencil"></span></a>

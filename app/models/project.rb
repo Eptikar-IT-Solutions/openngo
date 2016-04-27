@@ -14,6 +14,9 @@ class Project < ActiveRecord::Base
 
   belongs_to :organization
 
+  has_many :project_members
+  has_many :members, through: :project_members
+  
 	has_many :project_donors
   has_many :donors, through: :project_donors
 
@@ -29,10 +32,11 @@ class Project < ActiveRecord::Base
  	validates :budget, numericality: { allow_blank: true }
 
   accepts_nested_attributes_for :project_attachments
+  accepts_nested_attributes_for :members  
 
   translates :name, :description, fallbacks_for_empty_translations: true
   accepts_nested_attributes_for :translations
-
+  
   private
     def create_trello_board
       organization = Organization.first

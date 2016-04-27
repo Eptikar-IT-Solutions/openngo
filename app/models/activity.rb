@@ -15,6 +15,7 @@ class Activity < ActiveRecord::Base
 
   has_one :cost
   
+
 	validates :name, uniqueness: true
   validates :name, presence: true
 	validates :budget, numericality: {allow_blank: true}
@@ -22,7 +23,8 @@ class Activity < ActiveRecord::Base
   translates :name, :description, fallbacks_for_empty_translations: true
 
   accepts_nested_attributes_for :translations
-  
+  accepts_nested_attributes_for :members  
+
   before_destroy :remove_all_activities 
 
   private

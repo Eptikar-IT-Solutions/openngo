@@ -21,7 +21,7 @@ Rails.application.configure do
   config.action_controller.perform_caching = true
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.default_url_options = { host: 'openngo.eptikar.com' }
+  config.action_mailer.default_url_options = { host: 'openngo-demo.herokuapp.com' }
   config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
   # Enable Rack::Cache to put a simple HTTP cache in front of your application
   # Add `rack-cache` to your Gemfile before enabling this.

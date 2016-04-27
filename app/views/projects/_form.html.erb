@@ -82,20 +82,21 @@
       </div>
 
 
-    <div class="form-group">
+ <div class="form-group">
       <% if Project.exists?(@project.id) && @project.project_attachments.any? %>
           <div class="col-sm-2 control-label"><strong><%= t("views.projects.attachments") %></strong></div>
           <div class="col-sm-10">
             <ul>
               <% @project.project_attachments.each do |project_attachment| %>
-                <li> <%= project_attachment.attachment_file_name %>
-                  <%= link_to " [ Remove ]", [@project, project_attachment], method: :delete %>
+                <li> <%= project_attachment.file_file_name %>
+                <%= link_to raw("<i class='fa fa-times'></i> " + t("views.project.Remove")), [@project, project_attachment], method: :delete %>
                 </li>
               <% end %>
             </ul>
           </div>
       <% end %>
     </div>
+
     <div class="form-group">
       <div class="col-sm-2 control-label">
         <%= link_to_add_fields t("views.projects.add_attachment") , f, :project_attachments %>

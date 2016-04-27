@@ -1,0 +1,11 @@
+<div class="col-md-6">
+  <div class="page-header">
+    <h1><%= t("views.application_layout.settings") %></h1>
+  </div>
+  <div class="settings list-group">
+    <%=link_to raw("<i class='fa fa-fw fa-lg fa-map-marker'></i> <span>#{t "views.states.states"}</span>"), states_path , class:"list-group-item" %>
+    <%=link_to raw("<i class='fa fa-fw fa-lg fa-building'></i> <span>#{t "views.branches.branches"}</span>"), branches_path, class:"list-group-item" %>
+    <%=link_to raw("<i class='fa fa-fw fa-user'></i> <span>#{t "views.roles.roles"}</span>"), roles_path, class:"list-group-item" %>
+    <%=link_to raw("<i class='fa fa-fw fa-lg fa-users'></i> <span>#{t "views.users.users"}</span>"), users_path, class:"list-group-item" %>
+  </div>
+</div>

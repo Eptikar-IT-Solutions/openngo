@@ -2,6 +2,7 @@
 <div class="col-lg-12 show">
 	<div class="page-header">
 		<h1><%= @user.name %></h1>
+			<a title="Edit" href="<%= edit_user_path(@user) %>"><span class="glyphicon glyphicon-pencil"></span></a>
 	</div>
 
 	<div class="row">
@@ -42,10 +43,4 @@
 
 		<div class="col-sm-10"><%= @user.active ? raw('<span class="glyphicon glyphicon-ok"></span>') : raw('<span class="glyphicon glyphicon-remove"></span>') %></div>
 		</div>
-
-
-	<div class="buttons">
-		<%= link_to t('views.epp.links.edit'), edit_user_path(@user), :class => 'btn btn-warning' %>
-		<%= link_to t('views.epp.links.back'), users_path, :class => 'btn btn-default' %>
-	</div>
 </div>

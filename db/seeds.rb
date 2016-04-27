@@ -30,15 +30,17 @@ activity1 = Activity.create(name: 'Sustainable Urban Land Use Planning course', 
 
 activity2 = Activity.create(name: 'World Soil Day celebration', project_id: project.id, budget: 12000,branch_id: branch.id, description: '',from: '2016-11-24', to: '2016-11-24', repeated: '1')
 
-profession1 = Profession.create(name: 'other')
+profession1 = Profession.create(name: 'Other')
+
+Profession::Translation.create(name: 'أخرى', profession_id: profession1.id, locale: "ar")
 
 profession1 = Profession.create(name: 'College Professor')
 
 profession2 = Profession.create(name: 'Chemical Engineer')
 
-member1 = Member.create(name: 'Ahmed Ali', gender: 0, email: 'ahmed.ali87@hotmail.com', mobile: '0024912800284', joined_at: '2013-07-10' ,profession_id: profession1.id, education: 'Master', bio: 'Zoologists who worked for a room to read organization for 6 years', active: true, branch_id: branch.id, role_id: role1.id, organization_id: organization1.id)
+member1 = Member.create(name: 'Ahmed Ali', gender: 0, email: 'ahmed.ali87@hotmail.com', mobile: '0024912800284', joined_at: '2013-07-10' ,profession_id: profession1.id, education: 'Master', bio: 'Zoologists who worked for a room to read organization for 6 years', active: true, branch_id: branch.id, organization_id: organization1.id)
 
-member2 = Member.create(name: 'Osama Abdain', gender: 0, email: 'osama.abdeen@hotmail.com', mobile: '0024912900774', joined_at: '2013-08-10' ,profession_id: profession2.id, education: 'Bachelor', active: true, branch_id: branch.id, role_id: role2.id, organization_id: organization1.id)
+member2 = Member.create(name: 'Osama Abdain', gender: 0, email: 'osama.abdeen@hotmail.com', mobile: '0024912900774', joined_at: '2013-08-10' ,profession_id: profession2.id, education: 'Bachelor', active: true, branch_id: branch.id,organization_id: organization1.id)
 
 donor = Donor.create(name: 'Hamad Mustafa', email:'hamad_mustafa70@gmail.com', phone1: '0024914244839',phone2: '0024918044839',fax: '00240155474888')
 

@@ -25,14 +25,13 @@ class Member < ActiveRecord::Base
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
 	validates :name, uniqueness: true
-	validates :name, :email, :mobile, presence: true
+	validates :name, :mobile, presence: true
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/ } , allow_blank: true
 
   private
     def create_user
-      role = Role.find_or_create_by(name: "Member")
-      role.update(permissions: {members: {read: true}, branches: {read: true}}) if role.permissions.empty?
-      User.create( email: self.email, member_id: self.id, role_id: role.id )
+      role = Role.find_or_create_by( name: "Member")
+      role.update( permissions: {members: {read: true}, branches: {read: true}}) if role.permissions.empty?
+      User.create(email: self.email, member_id: self.id, role_id: role.id)
     end
-
 end

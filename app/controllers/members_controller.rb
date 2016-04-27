@@ -79,11 +79,11 @@ class MembersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def member_params
-      params.require(:member).permit(:name, :gender, :joined_at, :email, :mobile, :address, :profession_id, :other_profession, :education, :branch_id, :role_id, :bio,:avatar, :active, :tag_names, :created_by, :updated_by)
+      params.require(:member).permit(:name, :gender, :joined_at, :email, :mobile, :address, :profession_id, :other_profession, :education, :branch_id, :bio,:avatar, :active, :tag_names, :created_by, :updated_by)
     end
 
     def set_member_profession
-      other_profession_id = Profession.where(name: 'other').take.id
+      other_profession_id = Profession.where(name: 'Other').take.id
       if member_params['profession_id'].to_i == other_profession_id
         params[:member][:profession_id] = Profession.find_or_create_by(name: member_params['other_profession']).id
       end

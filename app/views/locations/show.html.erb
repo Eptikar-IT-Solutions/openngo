@@ -2,6 +2,7 @@
 <div class="col-lg-12 show">
 	<div class="page-header">
 		<h1><%= @location.state_id %></h1>
+		<a title="Edit" href="<%= edit_location_path(@location) %>"><span class="glyphicon glyphicon-pencil"></span></a>
 	</div>
 
 	<div class="row">
@@ -15,11 +16,5 @@
 
 
 		<div class="col-sm-10"><%= @location.try(:name) || 'N/A' %></div>
-	</div>
-
-
-	<div class="buttons">
-		<%= link_to t('views.epp.links.edit'), edit_location_path(@location), :class => 'btn btn-warning' %>
-		<%= link_to t('views.epp.links.back'), locations_path, :class => 'btn btn-default' %>
 	</div>
 </div>

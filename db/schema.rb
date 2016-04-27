@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160202120021) do
+ActiveRecord::Schema.define(version: 20160221114456) do
 
   create_table "activities", force: :cascade do |t|
     t.string   "name",        limit: 255
@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 20160202120021) do
     t.text     "description", limit: 65535
     t.date     "from"
     t.date     "to"
-    t.integer  "repeated",    limit: 4
+    t.boolean  "repeated"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "created_by",  limit: 4
@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20160202120021) do
   create_table "activity_members", force: :cascade do |t|
     t.integer  "activity_id", limit: 4
     t.integer  "member_id",   limit: 4
-    t.integer  "role_id",     limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "created_by",  limit: 4
@@ -239,7 +238,6 @@ ActiveRecord::Schema.define(version: 20160202120021) do
   create_table "project_members", force: :cascade do |t|
     t.integer  "project_id", limit: 4
     t.integer  "member_id",  limit: 4
-    t.integer  "role_id",    limit: 4
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "created_by", limit: 4
@@ -274,15 +272,6 @@ ActiveRecord::Schema.define(version: 20160202120021) do
     t.datetime "updated_at"
     t.integer  "created_by",      limit: 4
     t.integer  "updated_by",      limit: 4
-  end
-
-  create_table "project_roles", force: :cascade do |t|
-    t.integer  "role_id",     limit: 4
-    t.integer  "project_id",  limit: 4
-    t.integer  "member_id",   limit: 4
-    t.text     "description", limit: 65535
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
   end
 
   create_table "project_translations", force: :cascade do |t|

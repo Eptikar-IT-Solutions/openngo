@@ -55,6 +55,7 @@ Databases (tested on):
 - [ ] Members Notifications (email, sms)
 
 # Current Status
+
 OpenNGO is is currently stable, nonetheless it is under heavy development. 
 
 # How to contribute

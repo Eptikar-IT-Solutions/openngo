@@ -8,6 +8,7 @@
   <link rel="icon" href="/favicon.ico">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet" integrity="sha256-7s5uDGW3AHqw6xtJmNNtr+OBRJUlgkNJEo78P4b0yRw= sha512-nNo+yCHEyn0smMxSswnf/OnX6/KwJuZTlNZBjauKhTK0c+zT+q5JOCx0UFhXQ6rJR9jg6Es8gPuD2uZcYDLqSw==" crossorigin="anonymous">
   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
   <%= stylesheet_link_tag 'ar' if I18n.locale == :ar %>
   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
@@ -48,25 +49,8 @@
           <li class="<%= "active" if ["members"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-fw fa-users'></i> <span>#{t "views.members.members"}</span>"), members_path %></li>
             
           <li class="<%= "active" if ["donors"].include?(controller.controller_name) %>"><%=link_to raw("<i class='fa fa-fw fa-money'></i> <span>#{t "views.donors.donors"}</span>"), donors_path %></li>
-              
-          <li class="treeview">
-            <a href="#">
-              <i class="fa fa-fw fa-cog"></i> <span><%= t("views.application_layout.settings") %></span>
-            </a>
-
-            <ul class="treeview-menu">
-              <li class="<%= "active" if ["states"].include?(controller.controller_name) %>">
-                <%=link_to raw("<i class='fa fa-fw fa-globe'></i> <span>#{t "views.states.states"}</span>"), states_path %>
-              </li>
-              <li class="<%= "active" if ["branches"].include?(controller.controller_name) %>">
-                <%=link_to raw("<i class='fa fa-fw fa-briefcase'></i> <span>#{t "views.branches.branches"}</span>"), branches_path %>
-              </li>
-              <li class="<%= "active" if ["roles"].include?(controller.controller_name) %>">
-                <%=link_to raw("<i class='fa fa-fw fa-university'></i> <span>#{t "views.roles.roles"}</span>"), roles_path %>
-              </li>
-            </ul>
-          </li>
-          
+            <li class="<%= "active" if ["services", "steps", "documents", "importers", "carriers", "users", "categories", "products", "product_attributes", "options"].include?(controller.controller_name) || controller.action_name == "settings" %>"><%=link_to raw("<i class='fa fa-fw fa-lg fa-cog'></i> <span>#{t"views.application_layout.settings"}</span>"), settings_path %></li>
+            
           <li><%= link_to raw("<i class='fa fa-fw fa-sign-out'></i> <span>#{t "views.application_layout.logout"}</span>"), destroy_user_session_path, method: :delete, class: 'profile-link navbar-link'  %></li>
           
         </ul>
