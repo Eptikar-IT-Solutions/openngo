@@ -72,7 +72,9 @@ class User < ActiveRecord::Base
 
   def set_default_role
     unless self.role
-      self.role = Role.find_or_create( name: 'Guest', permissions: { all: false })
+      self.role = Role.find_or_create_by( name: 'Guest')
+      self.role.permissions = { all: false }
+      self.role.save
     end  
   end
 end
