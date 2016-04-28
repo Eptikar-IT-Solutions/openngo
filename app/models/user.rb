@@ -11,6 +11,8 @@ class User < ActiveRecord::Base
   
   accepts_nested_attributes_for :translations
   
+  before_create :set_default_role
+  
   def self.new_with_session(params, session)
     super.tap do |user|
       if data = session["devise.facebook_data"] && session["devise.facebook_data"]["extra"]["raw_info"]
@@ -72,8 +74,8 @@ class User < ActiveRecord::Base
   def set_default_role  
     unless self.role
       self.role = Role.find_or_create_by( name: 'Guest')
-      self.role.permissions = { all: false }
-      self.role.save
+      self.role.update( permissions: { all: false })
     end  
   end 
 end
+
