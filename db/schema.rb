@@ -72,54 +72,6 @@ ActiveRecord::Schema.define(version: 20160428062532) do
     t.integer  "updated_by",  limit: 4
   end
 
-  create_table "conversation_type_translations", force: :cascade do |t|
-    t.integer  "conversation_type_id", limit: 4,     null: false
-    t.string   "locale",               limit: 255,   null: false
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-    t.string   "title",                limit: 255
-    t.text     "default_text",         limit: 65535
-  end
-
-  add_index "conversation_type_translations", ["conversation_type_id"], name: "index_conversation_type_translations_on_conversation_type_id", using: :btree
-  add_index "conversation_type_translations", ["locale"], name: "index_conversation_type_translations_on_locale", using: :btree
-
-  create_table "conversation_types", force: :cascade do |t|
-    t.string   "title",                limit: 255
-    t.text     "default_text",         limit: 65535
-    t.string   "icon",                 limit: 255
-    t.boolean  "reply_partial"
-    t.boolean  "conversation_partial"
-    t.integer  "created_by",           limit: 4
-    t.integer  "updated_by",           limit: 4
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-  end
-
-  create_table "conversation_users", force: :cascade do |t|
-    t.integer  "conversation_id", limit: 4
-    t.integer  "user_id",         limit: 4
-    t.integer  "created_by",      limit: 4
-    t.integer  "updated_by",      limit: 4
-    t.datetime "created_at",                null: false
-    t.datetime "updated_at",                null: false
-  end
-
-  create_table "conversations", force: :cascade do |t|
-    t.integer  "conversation_type_id", limit: 4
-    t.string   "messageable_type",     limit: 255
-    t.integer  "messageable_id",       limit: 4
-    t.text     "body",                 limit: 65535
-    t.integer  "messages_count",       limit: 4
-    t.boolean  "locked"
-    t.text     "fields",               limit: 65535
-    t.integer  "parent_id",            limit: 4
-    t.integer  "created_by",           limit: 4
-    t.integer  "updated_by",           limit: 4
-    t.datetime "created_at",                         null: false
-    t.datetime "updated_at",                         null: false
-  end
-
   create_table "costs", force: :cascade do |t|
     t.decimal  "total_cost",            precision: 7, scale: 2, default: 0.0
     t.datetime "created_at",                                                  null: false
@@ -152,19 +104,6 @@ ActiveRecord::Schema.define(version: 20160428062532) do
     t.datetime "updated_at"
     t.integer  "created_by",  limit: 4
     t.integer  "updated_by",  limit: 4
-  end
-
-  create_table "examples", force: :cascade do |t|
-    t.integer  "fields",     limit: 4
-    t.datetime "created_at",           null: false
-    t.datetime "updated_at",           null: false
-  end
-
-  create_table "group_users", force: :cascade do |t|
-    t.integer  "user_id",          limit: 4
-    t.integer  "message_group_id", limit: 4
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
   end
 
   create_table "lines", force: :cascade do |t|
@@ -220,53 +159,6 @@ ActiveRecord::Schema.define(version: 20160428062532) do
     t.string   "occupation_address",  limit: 255
     t.string   "specialization",      limit: 255
     t.date     "renewal_date"
-  end
-
-  create_table "message_attachments", force: :cascade do |t|
-    t.integer  "message_id",              limit: 4
-    t.integer  "created_by",              limit: 4
-    t.integer  "updated_by",              limit: 4
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
-    t.string   "attachment_file_name",    limit: 255
-    t.string   "attachment_content_type", limit: 255
-    t.integer  "attachment_file_size",    limit: 4
-    t.datetime "attachment_updated_at"
-  end
-
-  create_table "message_groups", force: :cascade do |t|
-    t.string   "name",        limit: 255
-    t.integer  "updated_by",  limit: 4
-    t.integer  "created_by",  limit: 4
-    t.integer  "users_count", limit: 4
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
-  end
-
-  create_table "message_translations", force: :cascade do |t|
-    t.integer  "message_id", limit: 4,     null: false
-    t.string   "locale",     limit: 255,   null: false
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
-    t.text     "body",       limit: 65535
-  end
-
-  add_index "message_translations", ["locale"], name: "index_message_translations_on_locale", using: :btree
-  add_index "message_translations", ["message_id"], name: "index_message_translations_on_message_id", using: :btree
-
-  create_table "messages", force: :cascade do |t|
-    t.integer  "conversation_id", limit: 4
-    t.integer  "parent_id",       limit: 4
-    t.integer  "user_id",         limit: 4
-    t.text     "body",            limit: 65535
-    t.integer  "message_type",    limit: 4
-    t.text     "metadata",        limit: 65535
-    t.string   "alert_class",     limit: 255
-    t.boolean  "system_message"
-    t.integer  "created_by",      limit: 4
-    t.integer  "updated_by",      limit: 4
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
   end
 
   create_table "organization_translations", force: :cascade do |t|
@@ -406,6 +298,7 @@ ActiveRecord::Schema.define(version: 20160428062532) do
     t.datetime "updated_at"
     t.integer  "created_by",                     limit: 4
     t.integer  "updated_by",                     limit: 4
+    t.decimal  "overall_expences",                             precision: 12, scale: 2, default: 0.0
     t.string   "required_document_file_name",    limit: 255
     t.string   "required_document_content_type", limit: 255
     t.integer  "required_document_file_size",    limit: 4

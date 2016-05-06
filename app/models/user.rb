@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   
   accepts_nested_attributes_for :translations
 
-  before_create :set_default_role
+  after_create :set_default_role
   
   def self.new_with_session(params, session)
     super.tap do |user|
